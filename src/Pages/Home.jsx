@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
+import Slider from "react-slick";
 
 import HomeSlider from '../Components/HomeSlider/HomeSlider';
 import Header from '../Components/Header/Header';
 import Footer from '../Components/Footer/Footer';
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 class Home extends Component {
 	render() {
+
+		var settings = {
+			dots: false,
+			arrows:true,
+			infinite: true,
+			speed: 500,
+			slidesToShow: 4,
+			slidesToScroll: 1
+		};
+
+
+
 		return (
 			<React.Fragment>
 				{/* <div id="loader-wrapper">
@@ -70,8 +86,9 @@ class Home extends Component {
 								<h1 className="tt-title">TRENDING</h1>
 								<div className="tt-description">TOP VIEW IN THIS WEEK</div>
 							</div>
-							<div className="tt-carousel-products row arrow-location-tab arrow-location-tab01 tt-alignment-img tt-layout-product-item slick-animated-show-js">
-								<div className="col-2 col-md-4 col-lg-3">
+
+							<Slider className="tt-carousel-products row arrow-location-tab arrow-location-tab01 tt-alignment-img tt-layout-product-item slick-animated-show-js" {...settings}>
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -122,7 +139,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-3">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -163,7 +180,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-3">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -197,7 +214,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-3">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -241,7 +258,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-3">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -275,7 +292,9 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-							</div>
+
+							</Slider>
+
 						</div>
 					</div>
 					<div className="container-indent">
@@ -314,8 +333,8 @@ class Home extends Component {
 								<h2 className="tt-title">SPECIALS</h2>
 								<div className="tt-description">IN THIS WEEK</div>
 							</div>
-							<div className="tt-carousel-products row arrow-location-tab arrow-location-tab01 tt-alignment-img tt-layout-product-item slick-animated-show-js" data-item='3'>
-								<div className="col-2 col-md-4 col-lg-4">
+							<Slider className="tt-carousel-products row arrow-location-tab arrow-location-tab01 tt-alignment-img tt-layout-product-item slick-animated-show-js" data-item='3' {...settings}>
+							<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -373,7 +392,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-4">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -431,7 +450,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-4">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -489,7 +508,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-								<div className="col-2 col-md-4 col-lg-4">
+								<div className="col-lg-12">
 									<div className="tt-product thumbprod-center">
 										<div className="tt-image-box">
 											<a href="#" className="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView" data-tooltip="Quick View" data-tposition="left"></a>
@@ -547,7 +566,11 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
-							</div>
+							
+							</Slider>
+
+								
+								
 						</div>
 					</div>
 					<div className="container-indent">
