@@ -45,7 +45,7 @@ class Home extends Component {
 							<div className="row">
 								<div className="col-sm-12 col-md-6">
 									<a href="listing-left-column.html" className="tt-promo-box tt-one-child hover-type-2">
-										{/* <img src="assets/images/loader.svg" data-src="assets/images/promo/index05-promo-img-01.jpg" alt="" /> */}
+										{/* <img src="assets/images/promo/index05-promo-img-01.jpg" alt="" /> */}
 										<img src="assets/images/promo/index05-promo-img-01.jpg" alt="" />
 										<div className="tt-description">
 											<div className="tt-description-wrapper">
@@ -57,7 +57,7 @@ class Home extends Component {
 								</div>
 								<div className="col-sm-12 col-md-6">
 									<a href="listing-left-column.html" className="tt-promo-box tt-one-child hover-type-2">
-										{/* <img src="assets/images/loader.svg" data-src="assets/images/promo/index05-promo-img-02.jpg" alt="" /> */}
+										{/* <img src="assets/images/promo/index05-promo-img-02.jpg" alt="" /> */}
 										<img src="assets/images/promo/index05-promo-img-02.jpg" alt="" />
 										<div className="tt-description">
 											<div className="tt-description-wrapper">
@@ -67,7 +67,7 @@ class Home extends Component {
 										</div>
 									</a>
 									<a href="listing-left-column.html" className="tt-promo-box tt-one-child hover-type-2">
-										{/* <img src="assets/images/loader.svg" data-src="assets/images/promo/index05-promo-img-03.jpg" alt="" /> */}
+										{/* <img src="assets/images/promo/index05-promo-img-03.jpg" alt="" /> */}
 										<img src="assets/images/promo/index05-promo-img-03.jpg" alt="" />
 										<div className="tt-description">
 											<div className="tt-description-wrapper">
@@ -341,8 +341,8 @@ class Home extends Component {
 											<a href="#" className="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
 											<a href="#" className="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 											<a href="product.html">
-												<span className="tt-img"><img src="assets/images/loader.svg" data-src="assets/images/product/product-25.jpg" alt="" /></span>
-												<span className="tt-img-roll-over"><img src="assets/images/loader.svg" data-src="assets/images/product/product-25-01.jpg" alt="" /></span>
+												<span className="tt-img"><img src="assets/images/product/product-25.jpg" alt="" /></span>
+												<span className="tt-img-roll-over"><img src="assets/images/product/product-25-01.jpg" alt="" /></span>
 												<span className="tt-label-location">
 													<span className="tt-label-sale">Sale 15%</span>
 												</span>
@@ -399,8 +399,8 @@ class Home extends Component {
 											<a href="#" className="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
 											<a href="#" className="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 											<a href="product.html">
-												<span className="tt-img"><img src="assets/images/loader.svg" data-src="assets/images/product/product-26.jpg" alt="" /></span>
-												<span className="tt-img-roll-over"><img src="assets/images/loader.svg" data-src="assets/images/product/product-26-02.jpg" alt="" /></span>
+												<span className="tt-img"><img src="assets/images/product/product-26.jpg" alt="" /></span>
+												<span className="tt-img-roll-over"><img src="assets/images/product/product-26-02.jpg" alt="" /></span>
 												<span className="tt-label-location">
 													<span className="tt-label-sale">Sale 15%</span>
 												</span>
@@ -457,8 +457,8 @@ class Home extends Component {
 											<a href="#" className="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
 											<a href="#" className="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 											<a href="product.html">
-												<span className="tt-img"><img src="assets/images/loader.svg" data-src="assets/images/product/product-21.jpg" alt="" /></span>
-												<span className="tt-img-roll-over"><img src="assets/images/loader.svg" data-src="assets/images/product/product-21-02.jpg" alt="" /></span>
+												<span className="tt-img"><img src="assets/images/product/product-21.jpg" alt="" /></span>
+												<span className="tt-img-roll-over"><img src="assets/images/product/product-21-02.jpg" alt="" /></span>
 												<span className="tt-label-location">
 													<span className="tt-label-sale">Sale 15%</span>
 												</span>
@@ -515,8 +515,8 @@ class Home extends Component {
 											<a href="#" className="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
 											<a href="#" className="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 											<a href="product.html">
-												<span className="tt-img"><img src="assets/images/loader.svg" data-src="assets/images/product/product-24.jpg" alt="" /></span>
-												<span className="tt-img-roll-over"><img src="assets/images/loader.svg" data-src="assets/images/product/product-24-01.jpg" alt="" /></span>
+												<span className="tt-img"><img src="assets/images/product/product-24.jpg" alt="" /></span>
+												<span className="tt-img-roll-over"><img src="assets/images/product/product-24-01.jpg" alt="" /></span>
 												<span className="tt-label-location">
 													<span className="tt-label-sale">Sale 15%</span>
 												</span>
@@ -602,7 +602,7 @@ class Home extends Component {
 								</div>
 								<div className="col-sm-6 col-md-4">
 									<a href="listing-left-column.html" className="tt-promo-box">
-										{/* <img src="assets/images/loader.svg" data-src="assets/images/promo/index05-promo-img-06.jpg" alt="" /> */}
+										{/* <img src="assets/images/promo/index05-promo-img-06.jpg" alt="" /> */}
 										<img src="assets/images/promo/index05-promo-img-06.jpg" alt="" />
 										<div className="tt-description">
 											<div className="tt-background"></div>
@@ -862,10 +862,10 @@ class Home extends Component {
 							</div>
 							<div className="row">
 								<div id="instafeed" className="instafeed-fluid"
-									data-accessToken="8626857013.dd09515.0fcd8351c65140d48f5a340693af1c3f"
-									data-clientId="dd095157744c4bd0a67181fc4906e5b6"
-									data-userId="8626857013"
-									data-limitImg="6">
+									data-accesstoken="8626857013.dd09515.0fcd8351c65140d48f5a340693af1c3f"
+									data-clientid="dd095157744c4bd0a67181fc4906e5b6"
+									data-userid="8626857013"
+									data-limitimg="6">
 								</div>
 							</div>
 						</div>
@@ -936,7 +936,7 @@ class Home extends Component {
 							</div>
 											<div className="tt-modal-product">
 												<div className="tt-img">
-													<img src="assets/images/loader.svg" data-src="assets/images/product/product-01.jpg" alt="" />
+													<img src="assets/images/product/product-01.jpg" alt="" />
 												</div>
 												<h2 className="tt-title"><a href="product.html">Flared Shift Dress</a></h2>
 												<div className="tt-qty">
@@ -978,10 +978,10 @@ class Home extends Component {
 									<div className="row">
 										<div className="col-12 col-md-5 col-lg-6">
 											<div className="tt-mobile-product-slider arrow-location-center">
-												<div><img src="assets/images/loader.svg" data-src="assets/images/product/product-01.jpg" alt="" /></div>
-												<div><img src="assets/images/loader.svg" data-src="assets/images/product/product-01-02.jpg" alt="" /></div>
-												<div><img src="assets/images/loader.svg" data-src="assets/images/product/product-01-03.jpg" alt="" /></div>
-												<div><img src="assets/images/loader.svg" data-src="assets/images/product/product-01-04.jpg" alt="" /></div>
+												<div><img src="assets/images/product/product-01.jpg" alt="" /></div>
+												<div><img src="assets/images/product/product-01-02.jpg" alt="" /></div>
+												<div><img src="assets/images/product/product-01-03.jpg" alt="" /></div>
+												<div><img src="assets/images/product/product-01-04.jpg" alt="" /></div>
 												<div>
 													<div className="tt-video-block">
 														<a href="#" className="link-video"></a>
@@ -1046,31 +1046,31 @@ class Home extends Component {
 														<ul className="tt-options-swatch options-large">
 															<li><a className="options-color" href="#">
 																<span className="swatch-img">
-																	<img src="assets/images/loader.svg" data-src="assets/images/custom/texture-img-01.jpg" alt="" />
+																	<img src="assets/images/custom/texture-img-01.jpg" alt="" />
 																</span>
 																<span className="swatch-label color-black"></span>
 															</a></li>
 															<li className="active"><a className="options-color" href="#">
 																<span className="swatch-img">
-																	<img src="assets/images/loader.svg" data-src="assets/images/custom/texture-img-02.jpg" alt="" />
+																	<img src="assets/images/custom/texture-img-02.jpg" alt="" />
 																</span>
 																<span className="swatch-label color-black"></span>
 															</a></li>
 															<li><a className="options-color" href="#">
 																<span className="swatch-img">
-																	<img src="assets/images/loader.svg" data-src="assets/images/custom/texture-img-03.jpg" alt="" />
+																	<img src="assets/images/custom/texture-img-03.jpg" alt="" />
 																</span>
 																<span className="swatch-label color-black"></span>
 															</a></li>
 															<li><a className="options-color" href="#">
 																<span className="swatch-img">
-																	<img src="assets/images/loader.svg" data-src="assets/images/custom/texture-img-04.jpg" alt="" />
+																	<img src="assets/images/custom/texture-img-04.jpg" alt="" />
 																</span>
 																<span className="swatch-label color-black"></span>
 															</a></li>
 															<li><a className="options-color" href="#">
 																<span className="swatch-img">
-																	<img src="assets/images/loader.svg" data-src="assets/images/custom/texture-img-05.jpg" alt="" />
+																	<img src="assets/images/custom/texture-img-05.jpg" alt="" />
 																</span>
 																<span className="swatch-label color-black"></span>
 															</a></li>
@@ -1082,7 +1082,7 @@ class Home extends Component {
 														<div className="col-item">
 															<div className="tt-input-counter style-01">
 																<span className="minus-btn"></span>
-																<input type="text" value="1" size="5" />
+																<input type="text" readOnly value="1" size="5" />
 																<span className="plus-btn"></span>
 															</div>
 														</div>

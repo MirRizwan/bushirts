@@ -70,7 +70,7 @@ const HomeSlider = () => {
                     data-autoplay="true"
                     data-autoplayonlyfirsttime="false"
                     data-nextslideatend="true"
-                    data-forceCover="1"
+                    data-forcecover="1"
                     data-dottedoverlay="twoxtwo"
                     data-aspectratio="16:9"
                 >

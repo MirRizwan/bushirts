@@ -2,7 +2,8 @@ import React from 'react';
 import TopMenu from '../TopMenu/TopMenu';
 
 const Header = () => {
-    return(
+
+	return(
         <header>
 
 
@@ -458,7 +459,7 @@ const Header = () => {
 								<div className="container">
 									<form>
 										<div className="tt-col">
-											<input type="text" className="tt-search-input" placeholder="Search Products..." />
+											<input type="text" readOnly className="tt-search-input" placeholder="Search Products..." />
 											<button className="tt-btn-search" type="submit"></button>
 										</div>
 										<div className="tt-col">

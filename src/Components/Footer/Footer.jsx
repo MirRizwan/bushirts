@@ -64,9 +64,9 @@ const Footer = () => {
 								<p>
 									Sign up for our e-mail and be the first who know our special offers! Furthermore, we will give a 15% discount on the next order after you sign up.
 								</p>
-								<form id="newsletterform" className="form-inline form-default" method="post" novalidate="novalidate" action="#">
+								<form id="newsletterform" className="form-inline form-default" method="post" noValidate="noValidate" action="#">
 									<div className="form-group">
-										<input type="text" name="email" className="form-control" placeholder="Enter your e-mail" />
+										<input type="text" readOnly name="email" className="form-control" placeholder="Enter your e-mail" />
 										<button type="submit" className="btn">JOIN US</button>
 									</div>
 								</form>
