@@ -1,0 +1,6 @@
+
+.tt-desctop-menu .dropdown:hover{ top:auto; }
+.tt-desctop-menu .dropdown:hover .dropdown-menu{
+    display: block;
+
+}

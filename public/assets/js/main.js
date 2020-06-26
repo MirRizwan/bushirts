@@ -308,16 +308,7 @@
         });
     };
 
-    // lazyLoad
-    (function () {
-        new LazyLoad();
-        new LazyLoad({
-           elements_selector: "iframe"
-        });
-        new LazyLoad({
-           elements_selector: "video"
-        });
-    }());
+   
 
     //compare (*compare.html)
     var ttCompareTable = $('#tt-compare-table');
@@ -465,18 +456,18 @@
     //instafeed
     $.fn.func_instafeed = function(new_obj) {
       var $this = $(this),
-          $accessToken = $(this).attr('data-accessToken'),
-          $clientId = $(this).attr('data-clientId'),
-          $userId = $(this).attr('data-userId'),
-          $limitImg = $(this).attr('data-limitImg');
+          $accessToken = $(this).attr('data-accesstoken'),
+          $clientid = $(this).attr('data-clientid'),
+          $userid = $(this).attr('data-userid'),
+          $limitimg = $(this).attr('data-limitimg');
 
       if (!$this.length) return;
       var new_obj = new_obj || {},
           set_obj = {
             get: 'user',
-            userId: $userId,
-            clientId: $clientId,
-            limit: $limitImg,
+            userid: $userid,
+            clientid: $clientid,
+            limit: $limitimg,
             sortBy: 'most-liked',
             resolution: "standard_resolution",
             accessToken: $accessToken,
