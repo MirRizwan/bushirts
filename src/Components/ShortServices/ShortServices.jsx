@@ -7,7 +7,7 @@ const ShortServices = () =>{
 						<div className="container">
 							<div className="row tt-services-listing tt-services-listing-aligment">
 								<div className="col-xs-12 col-md-6 col-lg-4">
-									<Link className="tt-services-block">
+									<Link to="/" className="tt-services-block">
 										<div className="tt-col-icon">
 											<i className="icon-f-48"></i>
 										</div>
@@ -18,7 +18,7 @@ const ShortServices = () =>{
 									</Link>
 								</div>
 								<div className="col-xs-12 col-md-6 col-lg-4">
-									<Link className="tt-services-block">
+									<Link to="/" className="tt-services-block">
 										<div className="tt-col-icon">
 											<i className="icon-f-35"></i>
 										</div>
@@ -29,7 +29,7 @@ const ShortServices = () =>{
 									</Link>
 								</div>
 								<div className="col-xs-12 col-md-6 col-lg-4">
-									<Link className="tt-services-block">
+									<Link to="/" className="tt-services-block">
 										<div className="tt-col-icon">
 											<i className="icon-e-09"></i>
 										</div>
