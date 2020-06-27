@@ -4,3 +4,5 @@
     display: block;
 
 }
+
+.tt-desctop-parent-menu nav > ul li.dropdown > a{ text-transform: uppercase; }
