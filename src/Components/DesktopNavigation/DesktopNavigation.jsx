@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import MiniCart from '../MiniCart/MiniCart';
@@ -6,7 +6,56 @@ import UserOptions from '../UserOptions/UserOptions';
 import './DesktopNavigation.css';
 
 const DesktopNavigation = () =>{
-    return(
+
+
+	//mini cart state 
+	const [ openCart, setOpenCart ] = useState(false);
+	const [ openSearch, setSearchOpen ] = useState(false);
+	const [ openAccountBar, setAccountBar ] = useState(false);
+
+	const toggleCart = () => {
+		openCart === false ? setOpenCart(true) : setOpenCart(false);
+	};
+
+	const toggleCartClass = () => {
+		let toggleCart = 'tt-dropdown-menu ';
+		toggleCart += openCart === false ? 'toggleCartNone' : 'toggleCartBlock';
+		return toggleCart;
+	};
+
+	//mini cart state end
+	//Search Bar toggle
+
+	const toggleSearchBar = (n) => {
+		openSearch === false ? setSearchOpen(true) : setSearchOpen(false);
+		console.log("N value",n);
+	};
+
+	const toggleSearchClass = () => {
+		let toggleSearch = 'tt-search tt-dropdown-obj ';
+		toggleSearch += openSearch === false ? '' : 'active';
+		return toggleSearch;
+	};
+
+	//User account  toggle start
+
+	const toggleAccountBar = () => {
+		openAccountBar === false ? setAccountBar(true) : setAccountBar(false);
+		//console.log("N value",n);
+	};
+
+	const toggleAccountBarClass = () => {
+		let toggleAccountBar = 'tt-dropdown-menu ';
+		toggleAccountBar += openAccountBar === false ? 'toggleUserNone' : 'toggleUserBlock';
+		return toggleAccountBar;
+	};
+
+	//User account  toggle end
+
+
+
+
+	return(
         <div className="tt-desktop-header">
 		<div className="container">
 			<div className="tt-header-holder">
@@ -19,9 +68,9 @@ const DesktopNavigation = () =>{
 				</div>
 				<div className="tt-obj-options obj-move-right tt-position-absolute">
 					
-					<SearchBar />
-					<MiniCart />
-					<UserOptions />
+					<SearchBar toggleSearchBar={toggleSearchBar} toggleSearchClass={toggleSearchClass}     />
+					<MiniCart   toggleCart={toggleCart} toggleCartClass={toggleCartClass} />
+					<UserOptions toggleAccountBar={toggleAccountBar} toggleAccountBarClass={toggleAccountBarClass} />
 
 				</div>
 

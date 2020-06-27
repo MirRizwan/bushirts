@@ -497,9 +497,7 @@
         setTimeout(function(){
           blocks.ttPromoFixed.fadeTo("90", 1);
         }, 2300);
-        blocks.ttPromoFixed.on('click', '.tt-btn-close', function() {
-          $(this).closest('.tt-promo-fixed').hide();
-        });
+        
     };
 
     if (blocks.sliderRevolution.length) {
@@ -1016,15 +1014,7 @@
         ].join(''));
     }();
 
-    function ttTopPanel(){
-        $ttTopPanel.on('click', function(e) {
-            e.preventDefault;
-            var target = e.target;
-            if ($('.tt-btn-close').is(target)){
-                $(this).slideUp(200);
-            };
-        });
-    };
+    
 
     //tabs init carusel
     $('a[data-toggle="tab"]').length && $('body').on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
@@ -1069,10 +1059,7 @@
                 objSearchInput.focus();
                 return false;
             };
-            if (objSearch.find('.tt-btn-close').is(target)){
-                objSearchClose();
-                return false;
-            };
+           
             function objSearchClose(){
                 $this.removeClass('active');
                 objSearchInput.blur();
@@ -1115,9 +1102,7 @@
 
                 if (!$this.is(e.target) && $this.has(e.target).length === 0){
                     $this.each(function(){
-                        if($this.hasClass('active') && $this.hasClass('tt-search')){
-                            objSearch.find('.tt-btn-close').trigger('click');
-                        };
+                       
                         if($this.hasClass('active') && !$this.hasClass('tt-search')){
                             if(ttwindowWidth <= 1024){
                                 closeObjPopupMobile();
@@ -1396,10 +1381,7 @@
             };
             //Close mobile
             if(ttwindowWidth <= 789){
-                if ($('.tt-btn-close').is(e.target)){
-                    closePopupMobile();
-                    return false;
-                };
+                
                 if ($('.tt-hotspot').is(e.target)){
                     closePopupMobile();
                 };
@@ -1414,10 +1396,7 @@
               //ttLookbookClose
               $(document).mouseup(function(e){
                   var ttwindowWidth = window.innerWidth || $window.width();
-                  if ($('.tt-btn-close').is(e.target)){
-                      closePopupDesctop();
-                      return false;
-                  };
+                  
                   if (!$('.tt-lookbook-popup').is(e.target) && $('.tt-lookbook-popup').has(e.target).length === 0 && !$('.tt-hotspot').is(e.target) && $('.tt-hotspot').has(e.target).length === 0){
                        closePopupDesctop();
                   };

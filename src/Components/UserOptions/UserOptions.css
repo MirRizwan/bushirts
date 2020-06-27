@@ -1,0 +1,6 @@
+.toggleUserBlock{
+    display: block !important;
+}
+.toggleUserNone{
+    display: none !important;
+}

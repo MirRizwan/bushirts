@@ -1,12 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const UserOptions = () => {
+import './UserOptions.css';
+
+const UserOptions = (props) => {
+    console.log("User Account Props",props);
     return(
         <div className="tt-desctop-parent-account tt-parent-box">
             <div className="tt-account tt-dropdown-obj">
-                <button className="tt-dropdown-toggle"  data-tooltip="My Account" data-tposition="bottom"><i className="icon-f-94"></i></button>
-                <div className="tt-dropdown-menu">
+                <button className="tt-dropdown-toggle" onClick={()=>props.toggleAccountBar()} data-tooltip="My Account" data-tposition="bottom"><i className="icon-f-94"></i></button>
+                <div className={props.toggleAccountBarClass()}>
                     <div className="tt-mobile-add">
                         <button className="tt-close">Close</button>
                     </div>

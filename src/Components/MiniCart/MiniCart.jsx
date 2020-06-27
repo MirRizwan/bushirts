@@ -3,29 +3,30 @@ import { Link } from 'react-router-dom';
 
 import './MiniCart.css';
 
-const MiniCart = () => {
-	const [ openCart, setOpenCart ] = useState(false);
+const MiniCart = (props) => {
+    console.log("props value ", props);
+	// const [ openCart, setOpenCart ] = useState(false);
 
-	const toggleCart = () => {
-		openCart === false ? setOpenCart(true) : setOpenCart(false);
-	};
+	// const toggleCart = () => {
+	// 	openCart === false ? setOpenCart(true) : setOpenCart(false);
+	// };
 
-	const toggleCartClass = () => {
-		let toggleCart = 'tt-dropdown-menu ';
-		toggleCart += openCart === false ? 'toggleCartNone' : 'toggleCartBlock';
-		return toggleCart;
-	};
+	// const toggleCartClass = () => {
+	// 	let toggleCart = 'tt-dropdown-menu ';
+	// 	toggleCart += openCart === false ? 'toggleCartNone' : 'toggleCartBlock';
+	// 	return toggleCart;
+	// };
 
 	return (
 		<div className="tt-desctop-parent-cart tt-parent-box">
 			<div className="tt-cart tt-dropdown-obj" data-tooltip="Cart" data-tposition="bottom">
-				<button className="tt-dropdown-toggle" onClick={toggleCart}>
+				<button className="tt-dropdown-toggle" onClick={()=> props.toggleCart() }>
 					<i className="icon-f-39" />
-					<p>{openCart}</p>
+					
 					<span className="tt-badge-cart">3</span>
 				</button>
 
-				<div className={toggleCartClass()}>
+				<div className={props.toggleCartClass()}>
 					<div className="tt-mobile-add">
 						<h6 className="tt-title">SHOPPING CART</h6>
 						<button className="tt-close">Close</button>

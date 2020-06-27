@@ -1,11 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+	console.log("Search Bar Props",props);
     return(
         <div className="tt-desctop-parent-search tt-parent-box">
-						<div className="tt-search tt-dropdown-obj">
-							<button className="tt-dropdown-toggle" data-tooltip="Search" data-tposition="bottom">
+						<div className={props.toggleSearchClass()}>
+							<button className="tt-dropdown-toggle" onClick={()=>props.toggleSearchBar()} data-tooltip="Search" data-tposition="bottom">
 								<i className="icon-f-85"></i>
 							</button>
 							<div className="tt-dropdown-menu">
@@ -16,7 +17,7 @@ const SearchBar = () => {
 											<button className="tt-btn-search" type="submit"></button>
 										</div>
 										<div className="tt-col">
-											<button className="tt-btn-close icon-g-80"></button>
+											<button className="tt-btn-close icon-g-80" onClick={(e)=>{props.toggleSearchBar(); e.preventDefault();}} ></button>
 										</div>
 										<div className="tt-info-text">
 											What are you Looking for?
