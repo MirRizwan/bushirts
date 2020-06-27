@@ -7,7 +7,7 @@ const HomeSlider = () => {
     const config = {
         delay: 9000,
         startwidth: 1170,
-        startheight: 500,
+        startheight: 90+"vh",
         hideThumbs: 10,
         fullWidth: "on",
         forceFullWidth: "on"
@@ -18,7 +18,7 @@ const HomeSlider = () => {
         <div className="slider-revolution revolution-default">
             <RevSlider  config={config}>
             <Slide
-                src="https://i.ytimg.com/vi/dFnvYtPePRA/maxresdefault.jpg"
+                src="assets/images/slides/01.jpg"
                 alt="slidebg1"
                 data-bgfit="cover"
                 data-bgposition="left top"
@@ -47,7 +47,7 @@ const HomeSlider = () => {
                 </Caption>
             </Slide>
             <Slide
-                src="https://i.ytimg.com/vi/0xe4H666drk/maxresdefault.jpg"
+                src="assets/images/slides/02.jpg"
                 alt="slidebg1"
                 data-bgfit="cover"
                 data-bgposition="left top"
