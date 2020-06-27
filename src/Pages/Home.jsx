@@ -10,6 +10,7 @@ import Specials from '../Components/Specials/Specials';
 import ShortServices from '../Components/ShortServices/ShortServices';
 import InstagramPosts from '../Components/InstagramPosts/InstagramPosts';
 
+
 class Home extends Component {
 	render() {
 
@@ -27,7 +28,7 @@ class Home extends Component {
                     <div className="dot"></div>
                 </div>
             </div> */}
-
+				
 				<Header />
 
 				<div id="tt-pageContent">
