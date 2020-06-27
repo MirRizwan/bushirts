@@ -1,0 +1,6 @@
+.toggleCartBlock{
+    display: block !important;
+}
+.toggleCartNone{
+    display: none !important;
+}
