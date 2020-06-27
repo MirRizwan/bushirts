@@ -4,10 +4,11 @@ import RevSlider, { Slide, Caption } from 'react-rev-slider';
 
 
 const HomeSlider = () => {
+    
     const config = {
         delay: 9000,
         startwidth: 1170,
-        startheight: 90+"vh",
+        startheight: 900,
         hideThumbs: 10,
         fullWidth: "on",
         forceFullWidth: "on"

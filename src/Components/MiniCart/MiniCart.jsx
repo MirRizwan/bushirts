@@ -1,15 +1,41 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 
 const MiniCart = () =>{
+    
+    const [openCart,setOpenCart]=useState(1);
+    const cst={
+        fontSize:"36px",
+
+    }
+    const toggleCart = () =>{
+        
+        if(openCart===2){
+            console.log("openCart false state :"+openCart);
+            setOpenCart(1);
+                    
+        }
+        else{
+            console.log("openCart true state :"+openCart);
+            setOpenCart(2);
+            
+        }
+        
+
+    }
+
+    
+
+
     return(
         <div className="tt-desctop-parent-cart tt-parent-box">
             <div className="tt-cart tt-dropdown-obj" data-tooltip="Cart" data-tposition="bottom">
-                <button className="tt-dropdown-toggle">
+                <button className="tt-dropdown-toggle"  onClick={toggleCart}>
                     <i className="icon-f-39"></i>
+                    <p>{openCart}</p>
                     <span className="tt-badge-cart">3</span>
                 </button>
-                <div className="tt-dropdown-menu">
+                <div className="tt-dropdown-menu " style={cst}>
                     <div className="tt-mobile-add">
                         <h6 className="tt-title">SHOPPING CART</h6>
                         <button className="tt-close">Close</button>
