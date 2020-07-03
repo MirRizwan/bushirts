@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import ProductDetail from '../../Pages/ProductDetail';
 import Products from '../../Pages/Products';
 import Home from '../../Pages/Home';
+import NotFound from '../NotFound';
 
 
 const Routes=()=>{
@@ -15,11 +16,11 @@ const Routes=()=>{
             <Header />
      
             <Switch>
-                <Route component={Home} path="/" exact />
+                <Route path="/product/:id" component={ProductDetail}  />
                 <Route path="/products" component={Products}  />
-                <Route path="/product/:id" component={ProductDetail} exact  />
                 
-                
+                <Route component={Home} path="/" exact />
+                <Route path="*" component={NotFound} />
                 
             </Switch>
             <Footer />

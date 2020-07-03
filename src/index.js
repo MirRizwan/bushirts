@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-// import { createBrowserHistory } from "history";
+import createHistory from "history/createBrowserHistory";
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './Store';
 
 
-// const history = createBrowserHistory();
+const history = createHistory();
 
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <App />
         </BrowserRouter>
       </Provider>
