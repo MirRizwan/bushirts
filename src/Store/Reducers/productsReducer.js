@@ -7,6 +7,7 @@ const initialState = {
             size: ['S', 'M', 'L'],
             inStock: true,
             qty: 20,
+            imgUrl: "https://picsum.photos/280/350",
             price:2000,
             sale_price:1500,
             category: ['women','kurta', 'sale']
@@ -18,6 +19,7 @@ const initialState = {
             size: ['S', 'M', 'L'],
             inStock: true,
             qty: 20,
+            imgUrl: "https://picsum.photos/280/350",
             price:600,
             saleprice:450,
             category: ['women','shalwar', 'sale']
@@ -30,6 +32,7 @@ const initialState = {
             size: ['S', 'M', 'L'],
             inStock: true,
             qty: 20,
+            imgUrl: "https://picsum.photos/280/350",
             price:250,
             category: ['women','dupatta', 'sale']
         },
@@ -39,6 +42,7 @@ const initialState = {
             title: 'Mens Kurta',
             color: ['navyblue', 'green', 'blue', 'white'],
             size: ['S','L'],
+            imgUrl: "https://picsum.photos/280/350",
             inStock: true,
             qty: 50,
             price:950,
@@ -52,6 +56,7 @@ const initialState = {
             size: ['S', 'M', 'L'],
             inStock: true,
             qty: 20,
+            imgUrl: "https://picsum.photos/280/350",
             price:350,
             sale_price:200,
             category: ['women','dupatta']
@@ -65,6 +70,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:500,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['men']
         },
         {
@@ -75,12 +81,14 @@ const initialState = {
             inStock: true,
             qty: 10,
             price:300,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'sale']
         },
         {
             _id:'08',
             trending:true,            
             title: 'Embroidered Dupatta',
+            imgUrl: "https://picsum.photos/280/350",
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -91,11 +99,12 @@ const initialState = {
         {
             _id:'09',            
             title: 'Dupatta',
-            
+            imgUrl: "https://picsum.photos/280/350",
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
             qty: 20,
+            imgUrl: "https://picsum.photos/280/350",
             price:50,
             category: ['women','dupatta', 'sale']
         },
@@ -107,6 +116,7 @@ const initialState = {
             inStock: true,
             qty: 30,
             price:200,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'sale']
         },
         {
@@ -117,6 +127,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:550,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'sale']
         },
         {
@@ -127,6 +138,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:450,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','tank tops']
         },
         {
@@ -137,6 +149,7 @@ const initialState = {
             inStock: true,
             qty: 220,
             price:350,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','stole']
         },
         {
@@ -147,6 +160,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:250,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','stole']
         },
         {
@@ -157,6 +171,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:50,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','stole']
         },
         {
@@ -167,6 +182,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:12000,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta','unstitched']
         },
         {
@@ -177,6 +193,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:15000,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','unstitched']
         },
         {
@@ -187,6 +204,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:9000,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','unstitched']
         },
         {
@@ -210,6 +228,7 @@ const initialState = {
             qty: 50,
             price:900,
             sale_price:700,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','unstitched']
         },
         {
@@ -221,6 +240,7 @@ const initialState = {
             trending:true,
             qty: 20,
             price:50,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'ready-to-wear']
         },
         {
@@ -241,6 +261,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:50,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'sale']
         },
         {
@@ -262,6 +283,7 @@ const initialState = {
             trending:true,
             qty: 20,
             price:50,
+            imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'sale']
         }
 

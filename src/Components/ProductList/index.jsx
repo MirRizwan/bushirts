@@ -230,7 +230,7 @@ const ProductList = props => {
                 <h3 className="tt-collapse-title">SALE PRODUCTS</h3>
                 <div className="tt-collapse-content">
                   <div className="tt-aside">
-                    <Link className="tt-item" to="product.html">
+                    <Link className="tt-item" to="/products">
                       <div className="tt-img">
                         <span className="tt-img-default">
                           <img
@@ -416,7 +416,7 @@ const ProductList = props => {
                 </div>
                 <div className="tt-product-listing row">
                   {props.products.map(prod => (
-                    <div className="col-6 col-md-4 tt-col-item">
+                    <div className="col-6 col-md-4 tt-col-item" key={prod._id}>
                       <div className="tt-product thumbprod-center">
                         <div className="tt-image-box">
                           <Link
@@ -439,7 +439,7 @@ const ProductList = props => {
                             data-tooltip="Add to Compare"
                             data-tposition="left"
                           ></Link>
-                          <Link to="product.html">
+                          <Link to={`product/${prod._id}`}>
                             <span className="tt-img">
                               <img
                                 src="assets/images/product/product-45.jpg"
@@ -470,12 +470,16 @@ const ProductList = props => {
                           </div>
                         </div>
                         <div className="tt-description">
+                        <h2 className="tt-title">
+                            <Link to={`product/${prod._id}`}>{prod.title}</Link>
+                          </h2>
+                          <div className="tt-price">${prod.price}</div>
                           <div className="tt-row">
-                            <ul className="tt-add-info">
+                            {/* <ul className="tt-add-info">
                               <li>
                                 <Link to="#">T-SHIRTS</Link>
                               </li>
-                            </ul>
+                            </ul> */}
                             <div className="tt-rating">
                               <i className="icon-star"></i>
                               <i className="icon-star"></i>
@@ -484,10 +488,8 @@ const ProductList = props => {
                               <i className="icon-star"></i>
                             </div>
                           </div>
-                          <h2 className="tt-title">
-                            <Link to="product.html">{prod.title}</Link>
-                          </h2>
-                          <div className="tt-price">${prod.price}</div>
+                          
+                          
                           <div className="tt-option-block">
                             <ul className="tt-options-swatch">
                               <li>
