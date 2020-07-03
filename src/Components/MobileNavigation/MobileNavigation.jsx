@@ -10,98 +10,10 @@ const MobileNavigation = () =>{
         <nav className="panel-menu mobile-main-menu">
             <ul>
                 <li>
-                    <Link to="index.html">HOME</Link>
-                    <ul>
-                        <li>
-                            <Link to="index.html">HOME STYLES</Link>
-                            <ul>
-                                <li><Link to="index.html">Home — Example 1 <span className="tt-badge tt-fatured">Popular</span></Link></li>
-                                <li><Link to="index-02.html">Home — Example 2</Link></li>
-                                <li><Link to="index-03.html">Home — Example 3</Link></li>
-                                <li><Link to="index-04.html">Home — Example 4 <span className="tt-badge tt-fatured">Popular</span></Link></li>
-                                <li><Link to="index-05.html">Home — Example 5</Link></li>
-                                <li><Link to="index-06.html">Home — Example 6</Link></li>
-                                <li><Link to="index-07.html">Home — Example 7</Link></li>
-                                <li><Link to="index-08.html">Home — Example 8</Link></li>
-                                <li><Link to="index-09.html">Home — Example 9</Link></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <Link to="index.html">HOME STYLES</Link>
-                            <ul>
-                                <li><Link to="index-10.html">Home — Example 10</Link></li>
-                                <li><Link to="index-11.html">Home — Example 11</Link></li>
-                                <li><Link to="index-12.html">Home — Example 12</Link></li>
-                                <li><Link to="index-13.html">Home — Example 13</Link></li>
-                                <li><Link to="index-14.html">Home — Example 14</Link></li>
-                                <li><Link to="index-15.html">Home — Example 15</Link></li>
-                                <li><Link to="index-16.html">Home — Example 16 <span className="tt-badge tt-fatured">Popular</span></Link></li>
-                                <li><Link to="index-17.html">Home — Example 17</Link></li>
-                                <li><Link to="index-18.html">Home — Example 18</Link></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <Link to="index.html">HOME SKINS <span className="tt-badge tt-sale">HOT</span></Link>
-                            <ul>
-                                <li><Link to="index-skin-snowboards.html">Snowboards Shop <span className="tt-badge tt-fatured">Popular</span></Link></li>
-                                <li><Link to="index-skin-phones.html">Phones Shop <span className="tt-badge tt-fatured">Popular</span></Link></li>
-                                <li><Link to="index-skin-bikes.html">Bikes Shop <span className="tt-badge tt-fatured">Popular</span></Link></li>
-                                <li><Link to="index-skin-lingerie.html">Lingerie Shop</Link></li>
-                                <li><Link to="index-skin-furniture.html">Furniture Shop</Link></li>
-                                <li><Link to="index-skin-books.html">Books Shop <span className="tt-badge tt-new">New</span></Link></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <Link to="/">New Arrivals</Link>
                 </li>
                 <li>
-                    <Link to="listing-left-column.html">SHOP</Link>
-                    <ul>
-                        <li>
-                            <Link to="listing-left-column.html">LISTING STYLES</Link>
-                            <ul>
-                                <li><Link to="listing-left-column.html">Listing With Left Sidebar</Link></li>
-                                <li><Link to="listing-right-column.html">Listing With Right Sidebar</Link></li>
-                                <li><Link to="listing-not-sidebar.html">Listing Not Sidebar</Link></li>
-                                <li><Link to="listing-not-sidebar-full-width.html">Listing Not Sidebar Full Width</Link></li>
-                                <li><Link to="listing-metro.html">Listing Metro</Link></li>
-                                <li><Link to="listing-left-column-with-block.html">Listing With Custom HTML Block</Link></li>
-                                <li><Link to="listing-collection.html">Listing Collection</Link></li>
-                                <li><Link to="lookbook.html">Look Book</Link></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <Link to="product.html">PRODUCT PAGE STYLES</Link>
-                            <ul>
-                                <li><Link to="product.html">Product Example 1</Link></li>
-                                <li><Link to="product-02.html">Product Example 2</Link></li>
-                                <li><Link to="product-03.html">Product Example 3</Link></li>
-                                <li><Link to="product-04.html">Product Example 4</Link></li>
-                                <li><Link to="product-variable.html">Product Layout</Link></li>
-                                <li><Link to="product-three-columns.html">Three Columns</Link></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <Link to="product-variable.html">PRODUCT PAGE TYPES</Link>
-                            <ul>
-                                <li><Link to="product.html">Standard Product</Link></li>
-                                <li><Link to="product-variable.html">Variable Product</Link></li>
-                                <li><Link to="product-04.html">Grouped Product</Link></li>
-                                <li><Link to="product-label-new.html">New Product</Link></li>
-                                <li><Link to="product-label-sale.html">Sale Product</Link></li>
-                                <li><Link to="product-label-out-of-stock.html">Out Of Stock Product</Link></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <Link to="shopping_cart_02.html">OTHER PAGES</Link>
-                            <ul>
-                                <li><Link to="shopping_cart_02.html">Cart</Link></li>
-                                <li><Link to="shopping_cart_01.html">Cart With Right Col</Link></li>
-                                <li><Link to="account.html">Account</Link></li>
-                                <li><Link to="account_address.html">Account Address</Link></li>
-                                <li><Link to="account_address_fields.html">Account Address Fields</Link></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <Link to="/products">Sale</Link>
                 </li>
                 <li>
                     <Link to="blog-listing-without-col.html">BLOG</Link>

@@ -1,16 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom';
 
 const ProductList = props => {
   console.log("Products listing", props);
   return (
-    <div id="tt-pageContent">
+    <React.Fragment>
+      <div className="tt-breadcrumb">
+        <div className="container">
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li>Products</li>
+          </ul>
+        </div>
+      </div>
+      <div id="tt-pageContent">
       <div className="container-indent">
         <div className="container">
           <div className="row">
             <div className="col-md-4 col-lg-3 col-xl-3 leftColumn aside">
               <div className="tt-btn-col-close">
-                <a href="#">Close</a>
+                <Link to="#">Close</Link>
               </div>
               <div className="tt-collapse open tt-filter-detach-option">
                 <div className="tt-collapse-content">
@@ -24,18 +34,18 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-filter-list">
                     <li className="active">
-                      <a href="#">Shirts &amp; Tops</a>
+                      <Link to="#">Shirts &amp; Tops</Link>
                     </li>
                     <li>
-                      <a href="#">XS</a>
+                      <Link to="#">XS</Link>
                     </li>
                     <li>
-                      <a href="#">White</a>
+                      <Link to="#">White</Link>
                     </li>
                   </ul>
-                  <a href="#" className="btn-link-02">
+                  <Link to="#" className="btn-link-02">
                     Clear All
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="tt-collapse open">
@@ -43,40 +53,40 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-list-row">
                     <li className="active">
-                      <a href="#">Dresses</a>
+                      <Link to="#">Dresses</Link>
                     </li>
                     <li>
-                      <a href="#">Shirts &amp; Tops</a>
+                      <Link to="#">Shirts &amp; Tops</Link>
                     </li>
                     <li>
-                      <a href="#">Polo Shirts</a>
+                      <Link to="#">Polo Shirts</Link>
                     </li>
                     <li>
-                      <a href="#">Sweaters</a>
+                      <Link to="#">Sweaters</Link>
                     </li>
                     <li>
-                      <a href="#">Blazers &amp; Vests</a>
+                      <Link to="#">Blazers &amp; Vests</Link>
                     </li>
                     <li>
-                      <a href="#">Jackets &amp; Outerwear</a>
+                      <Link to="#">Jackets &amp; Outerwear</Link>
                     </li>
                     <li>
-                      <a href="#">Activewear</a>
+                      <Link to="#">Activewear</Link>
                     </li>
                     <li>
-                      <a href="#">Pants</a>
+                      <Link to="#">Pants</Link>
                     </li>
                     <li>
-                      <a href="#">Jumpsuits &amp; Shorts</a>
+                      <Link to="#">Jumpsuits &amp; Shorts</Link>
                     </li>
                     <li>
-                      <a href="#">Jeans</a>
+                      <Link to="#">Jeans</Link>
                     </li>
                     <li>
-                      <a href="#">Skirts</a>
+                      <Link to="#">Skirts</Link>
                     </li>
                     <li>
-                      <a href="#">Swimwear</a>
+                      <Link to="#">Swimwear</Link>
                     </li>
                   </ul>
                 </div>
@@ -86,16 +96,16 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-list-row">
                     <li className="active">
-                      <a href="#">$0 — $50</a>
+                      <Link to="#">$0 — $50</Link>
                     </li>
                     <li>
-                      <a href="#">$50 — $100</a>
+                      <Link to="#">$50 — $100</Link>
                     </li>
                     <li>
-                      <a href="#">$100 — $150</a>
+                      <Link to="#">$100 — $150</Link>
                     </li>
                     <li>
-                      <a href="#">$150 — $200</a>
+                      <Link to="#">$150 — $200</Link>
                     </li>
                   </ul>
                 </div>
@@ -105,37 +115,37 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-options-swatch options-middle">
                     <li>
-                      <a href="#">4</a>
+                      <Link to="#">4</Link>
                     </li>
                     <li className="active">
-                      <a href="#">6</a>
+                      <Link to="#">6</Link>
                     </li>
                     <li>
-                      <a href="#">8</a>
+                      <Link to="#">8</Link>
                     </li>
                     <li>
-                      <a href="#">10</a>
+                      <Link to="#">10</Link>
                     </li>
                     <li>
-                      <a href="#">12</a>
+                      <Link to="#">12</Link>
                     </li>
                     <li>
-                      <a href="#">14</a>
+                      <Link to="#">14</Link>
                     </li>
                     <li>
-                      <a href="#">16</a>
+                      <Link to="#">16</Link>
                     </li>
                     <li>
-                      <a href="#">18</a>
+                      <Link to="#">18</Link>
                     </li>
                     <li>
-                      <a href="#">20</a>
+                      <Link to="#">20</Link>
                     </li>
                     <li>
-                      <a href="#">22</a>
+                      <Link to="#">22</Link>
                     </li>
                     <li>
-                      <a href="#">24</a>
+                      <Link to="#">24</Link>
                     </li>
                   </ul>
                 </div>
@@ -145,48 +155,48 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-options-swatch options-middle">
                     <li>
-                      <a
+                      <Link
                         className="options-color tt-border tt-color-bg-08"
-                        href="#"
-                      ></a>
+                        to="#"
+                      ></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-09" href="#"></a>
+                      <Link className="options-color tt-color-bg-09" to="#"></Link>
                     </li>
                     <li className="active">
-                      <a className="options-color tt-color-bg-10" href="#"></a>
+                      <Link className="options-color tt-color-bg-10" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-11" href="#"></a>
+                      <Link className="options-color tt-color-bg-11" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-12" href="#"></a>
+                      <Link className="options-color tt-color-bg-12" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-13" href="#"></a>
+                      <Link className="options-color tt-color-bg-13" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-14" href="#"></a>
+                      <Link className="options-color tt-color-bg-14" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-15" href="#"></a>
+                      <Link className="options-color tt-color-bg-15" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-16" href="#"></a>
+                      <Link className="options-color tt-color-bg-16" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-17" href="#"></a>
+                      <Link className="options-color tt-color-bg-17" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color tt-color-bg-18" href="#"></a>
+                      <Link className="options-color tt-color-bg-18" to="#"></Link>
                     </li>
                     <li>
-                      <a className="options-color" href="#">
+                      <Link className="options-color" to="#">
                         <span className="swatch-img">
                           <img src="images/custom/texture-img-01.jpg" alt="" />
                         </span>
                         <span className="swatch-label color-black"></span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -196,31 +206,31 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-list-row">
                     <li>
-                      <a href="#">Levi's</a>
+                      <Link to="#">Levi's</Link>
                     </li>
                     <li>
-                      <a href="#">Gap</a>
+                      <Link to="#">Gap</Link>
                     </li>
                     <li>
-                      <a href="#">Polo</a>
+                      <Link to="#">Polo</Link>
                     </li>
                     <li>
-                      <a href="#">Lacoste</a>
+                      <Link to="#">Lacoste</Link>
                     </li>
                     <li>
-                      <a href="#">Guess</a>
+                      <Link to="#">Guess</Link>
                     </li>
                   </ul>
-                  <a href="#" className="btn-link-02">
+                  <Link to="#" className="btn-link-02">
                     + More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="tt-collapse open">
                 <h3 className="tt-collapse-title">SALE PRODUCTS</h3>
                 <div className="tt-collapse-content">
                   <div className="tt-aside">
-                    <a className="tt-item" href="product.html">
+                    <Link className="tt-item" to="product.html">
                       <div className="tt-img">
                         <span className="tt-img-default">
                           <img
@@ -242,8 +252,8 @@ const ProductList = props => {
                           <span className="old-price">$24</span>
                         </div>
                       </div>
-                    </a>
-                    <a className="tt-item" href="product.html">
+                    </Link>
+                    <Link className="tt-item" to="product.html">
                       <div className="tt-img">
                         <span className="tt-img-default">
                           <img
@@ -265,8 +275,8 @@ const ProductList = props => {
                           <span className="old-price">$24</span>
                         </div>
                       </div>
-                    </a>
-                    <a className="tt-item" href="product.html">
+                    </Link>
+                    <Link className="tt-item" to="product.html">
                       <div className="tt-img">
                         <span className="tt-img-default">
                           <img
@@ -288,7 +298,7 @@ const ProductList = props => {
                           <span className="old-price">$24</span>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -297,57 +307,57 @@ const ProductList = props => {
                 <div className="tt-collapse-content">
                   <ul className="tt-list-inline">
                     <li>
-                      <a href="#">Dresses</a>
+                      <Link to="#">Dresses</Link>
                     </li>
                     <li>
-                      <a href="#">Shirts &amp; Tops</a>
+                      <Link to="#">Shirts &amp; Tops</Link>
                     </li>
                     <li>
-                      <a href="#">Polo Shirts</a>
+                      <Link to="#">Polo Shirts</Link>
                     </li>
                     <li>
-                      <a href="#">Sweaters</a>
+                      <Link to="#">Sweaters</Link>
                     </li>
                     <li>
-                      <a href="#">Blazers</a>
+                      <Link to="#">Blazers</Link>
                     </li>
                     <li>
-                      <a href="#">Vests</a>
+                      <Link to="#">Vests</Link>
                     </li>
                     <li>
-                      <a href="#">Jackets</a>
+                      <Link to="#">Jackets</Link>
                     </li>
                     <li>
-                      <a href="#">Outerwear</a>
+                      <Link to="#">Outerwear</Link>
                     </li>
                     <li>
-                      <a href="#">Activewear</a>
+                      <Link to="#">Activewear</Link>
                     </li>
                     <li>
-                      <a href="#">Pants</a>
+                      <Link to="#">Pants</Link>
                     </li>
                     <li>
-                      <a href="#">Jumpsuits</a>
+                      <Link to="#">Jumpsuits</Link>
                     </li>
                     <li>
-                      <a href="#">Shorts</a>
+                      <Link to="#">Shorts</Link>
                     </li>
                     <li>
-                      <a href="#">Jeans</a>
+                      <Link to="#">Jeans</Link>
                     </li>
                     <li>
-                      <a href="#">Skirts</a>
+                      <Link to="#">Skirts</Link>
                     </li>
                     <li>
-                      <a href="#">Swimwear</a>
+                      <Link to="#">Swimwear</Link>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="tt-content-aside">
-                <a href="listing-left-column.html" className="tt-promo-03">
+                <Link to="listing-left-column.html" className="tt-promo-03">
                   <img src="images/custom/listing_promo_img_07.jpg" alt="" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-md-12 col-lg-9 col-xl-9">
@@ -357,7 +367,7 @@ const ProductList = props => {
                     WOMEN <span className="tt-title-total">(69)</span>
                   </h1>
                   <div className="tt-btn-toggle">
-                    <a href="#">FILTER</a>
+                    <Link to="#">FILTER</Link>
                   </div>
                   <div className="tt-sort">
                     <select>
@@ -377,31 +387,31 @@ const ProductList = props => {
                     </select>
                   </div>
                   <div className="tt-quantity">
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="tt-col-one"
                       data-value="tt-col-one"
-                    ></a>
-                    <a
-                      href="#"
+                    ></Link>
+                    <Link
+                      to="#"
                       className="tt-col-two"
                       data-value="tt-col-two"
-                    ></a>
-                    <a
-                      href="#"
+                    ></Link>
+                    <Link
+                      to="#"
                       className="tt-col-three"
                       data-value="tt-col-three"
-                    ></a>
-                    <a
-                      href="#"
+                    ></Link>
+                    <Link
+                      to="#"
                       className="tt-col-four"
                       data-value="tt-col-four"
-                    ></a>
-                    <a
-                      href="#"
+                    ></Link>
+                    <Link
+                      to="#"
                       className="tt-col-six"
                       data-value="tt-col-six"
-                    ></a>
+                    ></Link>
                   </div>
                 </div>
                 <div className="tt-product-listing row">
@@ -409,27 +419,27 @@ const ProductList = props => {
                     <div className="col-6 col-md-4 tt-col-item">
                       <div className="tt-product thumbprod-center">
                         <div className="tt-image-box">
-                          <a
-                            href="#"
+                          <Link
+                            to="#"
                             className="tt-btn-quickview"
                             data-toggle="modal"
                             data-target="#ModalquickView"
                             data-tooltip="Quick View"
                             data-tposition="left"
-                          ></a>
-                          <a
-                            href="#"
+                          ></Link>
+                          <Link
+                            to="#"
                             className="tt-btn-wishlist"
                             data-tooltip="Add to Wishlist"
                             data-tposition="left"
-                          ></a>
-                          <a
-                            href="#"
+                          ></Link>
+                          <Link
+                            to="#"
                             className="tt-btn-compare"
                             data-tooltip="Add to Compare"
                             data-tposition="left"
-                          ></a>
-                          <a href="product.html">
+                          ></Link>
+                          <Link to="product.html">
                             <span className="tt-img">
                               <img
                                 src="assets/images/product/product-45.jpg"
@@ -442,7 +452,7 @@ const ProductList = props => {
                                 alt=""
                               />
                             </span>
-                          </a>
+                          </Link>
                           <div className="tt-countdown_box">
                             <div className="tt-countdown_inner">
                               <div
@@ -463,7 +473,7 @@ const ProductList = props => {
                           <div className="tt-row">
                             <ul className="tt-add-info">
                               <li>
-                                <a href="#">T-SHIRTS</a>
+                                <Link to="#">T-SHIRTS</Link>
                               </li>
                             </ul>
                             <div className="tt-rating">
@@ -475,51 +485,51 @@ const ProductList = props => {
                             </div>
                           </div>
                           <h2 className="tt-title">
-                            <a href="product.html">{prod.title}</a>
+                            <Link to="product.html">{prod.title}</Link>
                           </h2>
                           <div className="tt-price">${prod.price}</div>
                           <div className="tt-option-block">
                             <ul className="tt-options-swatch">
                               <li>
-                                <a
+                                <Link
                                   className="options-color tt-color-bg-03"
-                                  href="#"
-                                ></a>
+                                  to="#"
+                                ></Link>
                               </li>
                               <li>
-                                <a
+                                <Link
                                   className="options-color tt-color-bg-04"
-                                  href="#"
-                                ></a>
+                                  to="#"
+                                ></Link>
                               </li>
                               <li>
-                                <a
+                                <Link
                                   className="options-color tt-color-bg-05"
-                                  href="#"
-                                ></a>
+                                  to="#"
+                                ></Link>
                               </li>
                             </ul>
                           </div>
                           <div className="tt-product-inside-hover">
                             <div className="tt-row-btn">
-                              <a
-                                href="#"
+                              <Link
+                                to="#"
                                 className="tt-btn-addtocart thumbprod-button-bg"
                                 data-toggle="modal"
                                 data-target="#modalAddToCartProduct"
                               >
                                 ADD TO CART
-                              </a>
+                              </Link>
                             </div>
                             <div className="tt-row-btn">
-                              <a
-                                href="#"
+                              <Link
+                                to="#"
                                 className="tt-btn-quickview"
                                 data-toggle="modal"
                                 data-target="#ModalquickView"
-                              ></a>
-                              <a href="#" className="tt-btn-wishlist"></a>
-                              <a href="#" className="tt-btn-compare"></a>
+                              ></Link>
+                              <Link to="#" className="tt-btn-wishlist"></Link>
+                              <Link to="#" className="tt-btn-compare"></Link>
                             </div>
                           </div>
                         </div>
@@ -528,13 +538,13 @@ const ProductList = props => {
                   ))}
                 </div>
                 <div className="text-center tt_product_showmore">
-                  <a href="#" className="btn btn-border">
+                  <Link to="#" className="btn btn-border">
                     LOAD MORE
-                  </a>
+                  </Link>
                   <div className="tt_item_all_js">
-                    <a href="#" className="btn btn-border01">
+                    <Link to="#" className="btn btn-border01">
                       NO MORE ITEM TO SHOW
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -543,6 +553,10 @@ const ProductList = props => {
         </div>
       </div>
     </div>
+    </React.Fragment>
+
+
+    
   );
 };
 

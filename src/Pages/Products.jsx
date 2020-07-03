@@ -8,12 +8,8 @@ const Products =(props)=>{
 
     return (
         <div>
+            
             <ProductList/>
-            {
-                // props.products.map(p=><h1>{p.title}</h1>)
-                
-             }
-             
         </div>
     )
 

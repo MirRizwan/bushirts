@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import {connect} from 'react-redux';
+import ProducsList from '../ProductList/';
 
-const Trending = () =>{
-
+const Trending = (props) =>{
+	console.log("props in trending",props);
     const settings = {
         dots: false,
         arrows:true,
@@ -237,5 +239,11 @@ const Trending = () =>{
 		</div>
     )
 }
+const mapStateToProps=(state)=>{
+	return {
+		products:state.products
+	}
 
-export default Trending;
+}
+
+export default connect(mapStateToProps,null)(Trending);
