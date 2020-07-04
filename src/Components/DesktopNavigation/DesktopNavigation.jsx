@@ -62,7 +62,7 @@ const DesktopNavigation = () =>{
 				<div className="tt-obj-logo obj-aligment-center">
 				
 					<Link className="tt-logo tt-logo-alignment" to="/">
-						<img src="assets/images/custom/logo.png" alt="" />
+						<img src="/assets/images/custom/logo.png" alt="" />
 					</Link>
 					
 				</div>
@@ -85,7 +85,7 @@ const DesktopNavigation = () =>{
 							<nav>
 								<ul>
 									<li className="dropdown selected">
-										<Link to="/">New Arrivals</Link>
+										<Link to="/products">New Arrivals</Link>
 									</li>
 									<li className="dropdown">
 										<Link to="listing-collection.html">Sale</Link>

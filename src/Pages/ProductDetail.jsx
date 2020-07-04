@@ -1,11 +1,16 @@
 import React from 'react';
 
 import Details from '../Components/Details/Details';
+import Breadcrumb from '../Components/Breadcrumb/Breadcrumb';
+
 
 const ProductDetail = () => {
     return(
-        // <h1>Mir</h1> 
-        <Details />
+        <React.Fragment>
+            <Breadcrumb />
+            <Details />
+        </React.Fragment>
+        
     )
 }
 

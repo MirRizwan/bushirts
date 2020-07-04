@@ -10,14 +10,15 @@ import Home from '../../Pages/Home';
 import NotFound from '../NotFound';
 
 
+
 const Routes=()=>{
     return(
         <React.Fragment>
             <Header />
-     
+            
             <Switch>
-                <Route path="/product/:id" component={ProductDetail}  />
-                <Route path="/products" component={Products}  />
+                <Route path="/product/:id" component={ProductDetail} exact />
+                <Route path="/products" component={Products} exact />
                 
                 <Route component={Home} path="/" exact />
                 <Route path="*" component={NotFound} />

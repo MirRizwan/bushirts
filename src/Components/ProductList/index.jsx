@@ -6,14 +6,7 @@ const ProductList = props => {
   console.log("Products listing", props);
   return (
     <React.Fragment>
-      <div className="tt-breadcrumb">
-        <div className="container">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li>Products</li>
-          </ul>
-        </div>
-      </div>
+      
       <div id="tt-pageContent">
       <div className="container-indent">
         <div className="container">

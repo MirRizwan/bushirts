@@ -1,16 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import ProductList from '../Components/ProductList';
+import Breadcrumb from '../Components/Breadcrumb/Breadcrumb';
 
 
 const Products =(props)=>{
     console.log(props.products);
 
     return (
-        <div>
-            
+        <React.Fragment>
+            <Breadcrumb />
             <ProductList/>
-        </div>
+        </React.Fragment>
     )
 
     
