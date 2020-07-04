@@ -9,7 +9,7 @@ const initialState = {
             qty: 20,
             imgUrl: "https://picsum.photos/280/350",
             price:2000,
-            sale_price:1500,
+            salePrice:1500,
             category: ['women','kurta', 'sale']
         },
         {
@@ -21,7 +21,7 @@ const initialState = {
             qty: 20,
             imgUrl: "https://picsum.photos/280/350",
             price:600,
-            saleprice:450,
+            salePrice:450,
             category: ['women','shalwar', 'sale']
         },
         {
@@ -58,7 +58,7 @@ const initialState = {
             qty: 20,
             imgUrl: "https://picsum.photos/280/350",
             price:350,
-            sale_price:200,
+            salePrice:200,
             category: ['women','dupatta']
         },
         {
@@ -215,7 +215,7 @@ const initialState = {
             inStock: true,
             qty: 230,
             price:4500,
-            sale_price:3000,
+            salePrice:3000,
             category: ['women','unstitched']
         },
         {
@@ -227,7 +227,7 @@ const initialState = {
             special:true,
             qty: 50,
             price:900,
-            sale_price:700,
+            salePrice:700,
             imgUrl: "https://picsum.photos/280/350",
             category: ['women','unstitched']
         },

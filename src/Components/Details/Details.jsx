@@ -1,19 +1,77 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React,{useState,useEffect} from 'react';
+import {Link,Redirect} from 'react-router-dom';
+import Slider from 'react-slick';
+
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import {connect} from 'react-redux';
 import RelatedProducts from '../RelatedProducts/RelatedProducts';
 
 
 const Details = props => {
+    const [nav1,setNav1]=useState(null);
+    const [nav2,setNav2]=useState(null);
+
+    // console.log("nav1",nav1);
+    // console.log("nav2",nav2);
+
+    let _topSlider = [],
+    _bottomSlider = [];
+
+    useEffect(()=>{
+        setNav1(_topSlider);
+        setNav2(_bottomSlider);
+    },[_bottomSlider,_topSlider]
+
+    );
+
+    console.log("nav1",nav1);
+    console.log("nav2",nav2);
+
+    const settings = {
+		dots: false,
+		arrows: true,
+		infinite: false,
+        speed: 500,
+        vertical: true,
+        verticalSwiping: true,
+		slidesToShow: 5,
+        slidesToScroll: 1,
+        focusOnSelect:true
+    };
+    
+    const settings2 = {
+		dots: false,
+		arrows: true,
+		infinite: false,
+		speed: 500,
+		slidesToShow: 1,
+        slidesToScroll: 1
+	};
+    
+    
+    const filteredProduct=props.products.filter(singleProduct=> singleProduct._id===props.productID);
+    console.log("filteredProduct",filteredProduct);
+
+    if(filteredProduct.length===0){
+        return <Redirect to="/not-found" />
+        // console.log("May agya");
+    }
     
 
+    // const mvaluereturn=filteredProduct.map(mvalue=> mvalue.title);
+    // console.log("filteredProduct",mvaluereturn) ;
+    
+
+     
     return(
         
         <div id="tt-pageContent">
 
 	        <div className="container-indent">
-                {/* { <h1> { props.match.params.id }</h1>} */}
+                   
                 <div className="tt-mobile-product-slider visible-xs arrow-location-center slick-animated-show-js">
                     <div><img src="assets/images/product/product-01.jpg" alt="" /></div>
                     <div><img src="assets/images/product/product-01-02.jpg" alt="" /></div>
@@ -33,17 +91,49 @@ const Details = props => {
                 </div>
 		
                 <div className="container container-fluid-mobile">
+                {filteredProduct.map((mvalue)=>(
+                    
                     <div className="row">
                         <div className="col-6 hidden-xs">
                             <div className="tt-product-vertical-layout">
                                 <div className="tt-product-single-img">
-                                    <div>
-                                        <img className="zoom-product" src='/assets/images/product/product-01.jpg' data-zoom-image="assets/images/product/product-01.jpg" alt="" />
-                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button>
-                                    </div>
+                                    <Slider
+                                        asNavFor={nav2}
+
+                                        ref={slider => {
+                                          _topSlider = slider;
+                                        }}
+                                        
+                                    {...settings2}>
+                                        <div>
+                                        <div><img src="/assets/images/product/product-01.jpg"/>
+                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button></div>
+                                        </div>
+                                        <div>
+                                        <div><img src="/assets/images/product/product-01.jpg"/>
+                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button></div>
+                                        </div>
+                                        <div>
+                                        <div><img src="/assets/images/product/product-01.jpg"/>
+                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button></div>
+                                        </div>
+                                        <div>
+                                        <div><img src="/assets/images/product/product-01.jpg"/>                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button></div>
+                                        </div>
+                                        <div>
+                                        <div><img src="/assets/images/product/product-01.jpg"/>
+                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button></div>
+                                        </div>
+                                        <div>
+                                        <div><img src="/assets/images/product/product-01.jpg"/>
+                                        <button className="tt-btn-zomm tt-top-right"><i className="icon-f-86"></i></button></div>
+                                        </div>
+
+                                    </Slider>
                                 </div>
                                 <div className="tt-product-single-carousel-vertical">
-                                    <ul id="smallGallery" className="tt-slick-button-vertical slick-animated-show-js">
+                                <Slider asNavFor={nav1} ref={slider => {  _bottomSlider = slider;}} id="smallGallery" className="tt-slick-button-vertical slick-animated-show-js" {...settings}>
+                                    
                                         <li><Link className="zoomGalleryActive" to="#" data-image="/assets/images/product/product-01.jpg" data-zoom-image="/assets/images/product/product-01.jpg"><img src="/assets/images/product/product-01.jpg" alt="" /></Link></li>
                                         <li><Link to="#" data-image="/assets/images/product/product-01-02.jpg" data-zoom-image="/assets/images/product/product-01-02.jpg"><img src="/assets/images/product/product-01-02.jpg" alt="" /></Link></li>
                                         <li><Link to="#" data-image="/assets/images/product/product-01-03.jpg" data-zoom-image="/assets/images/product/product-01-03.jpg"><img src="/assets/images/product/product-01-03.jpg" alt="" /></Link></li>
@@ -64,7 +154,7 @@ const Details = props => {
                                                 </div>
                                             </div>
                                         </li>
-                                    </ul>
+                                </Slider>  
                                 </div>
                             </div>
                         </div>
@@ -84,10 +174,11 @@ const Details = props => {
                                         <li><span>Availability:</span> 40 in Stock</li>
                                     </ul>
                                 </div>
-                                <h1 className="tt-title">Cotton Blend Fleece Hoodie</h1>
+                                <h1 className="tt-title">{mvalue.title}</h1>
                                 <div className="tt-price">
-                                    <span className="new-price">$29</span>
-                                    <span className="old-price"></span>
+                                    <span className="new-price">${mvalue.salePrice}</span> &nbsp;
+                                    {mvalue.price?<span className="old-price">${mvalue.price}</span>:null}
+                                    
                                 </div>
                                 <div className="tt-review">
                                     <div className="tt-rating">
@@ -378,7 +469,9 @@ const Details = props => {
                                 </div>
                             </div>
                         </div>
+                    
                     </div>
+                    ))}
                 </div>
 	        </div>
             <div className="container-indent wrapper-social-icon">
@@ -397,5 +490,10 @@ const Details = props => {
    )
 }
 
+const mapStateToProps =(state)=>{
+    return {
+        products:state.products
+    }
 
-export default Details;
+}
+export default connect(mapStateToProps,null)(Details);

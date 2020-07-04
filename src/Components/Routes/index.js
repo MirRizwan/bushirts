@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route,Switch} from 'react-router-dom';
+import {Route,Switch,Redirect} from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -21,7 +21,8 @@ const Routes=()=>{
                 <Route path="/products" component={Products} exact />
                 
                 <Route component={Home} path="/" exact />
-                <Route path="*" component={NotFound} />
+                <Route path="/not-found" component={NotFound}/>
+                <Redirect to="/not-found" />
                 
             </Switch>
             <Footer />
