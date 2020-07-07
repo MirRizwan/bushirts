@@ -139,9 +139,9 @@ const Trending = (props) => {
 		</div>
 	);
 };
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return {
-		products: state.products
+		products: state.Products.products
 	};
 };
 

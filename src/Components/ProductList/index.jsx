@@ -557,7 +557,7 @@ const ProductList = props => {
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    products: state.Products.products
   };
 };
 

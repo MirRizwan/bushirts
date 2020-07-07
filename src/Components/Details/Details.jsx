@@ -14,9 +14,6 @@ const Details = props => {
     const [nav1,setNav1]=useState(null);
     const [nav2,setNav2]=useState(null);
 
-    // console.log("nav1",nav1);
-    // console.log("nav2",nav2);
-
     let _topSlider = [],
     _bottomSlider = [];
 
@@ -27,8 +24,8 @@ const Details = props => {
 
     );
 
-    console.log("nav1",nav1);
-    console.log("nav2",nav2);
+    // console.log("nav1",nav1);
+    // console.log("nav2",nav2);
 
     const settings = {
 		dots: false,
@@ -53,7 +50,7 @@ const Details = props => {
     
     
     const filteredProduct=props.products.filter(singleProduct=> singleProduct._id===props.productID);
-    console.log("filteredProduct",filteredProduct);
+    // console.log("filteredProduct",filteredProduct);
 
     if(filteredProduct.length===0){
         return <Redirect to="/not-found" />
@@ -176,8 +173,8 @@ const Details = props => {
                                 </div>
                                 <h1 className="tt-title">{mvalue.title}</h1>
                                 <div className="tt-price">
-                                    <span className="new-price">${mvalue.salePrice}</span> &nbsp;
-                                    {mvalue.price?<span className="old-price">${mvalue.price}</span>:null}
+                                    <span className="new-price">PKR {mvalue.price}</span> &nbsp;
+                                    { mvalue.salePrice ? <span className="old-price">PKR {mvalue.price}</span> : null}
                                     
                                 </div>
                                 <div className="tt-review">
@@ -490,9 +487,9 @@ const Details = props => {
    )
 }
 
-const mapStateToProps =(state)=>{
+const mapStateToProps = state =>{
     return {
-        products:state.products
+        products:state.Products.products
     }
 
 }

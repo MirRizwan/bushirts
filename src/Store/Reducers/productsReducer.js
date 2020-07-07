@@ -1,4 +1,5 @@
 const initialState = {
+    
     products: [{
             _id:'01',
             special:true,
@@ -94,6 +95,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:400,
+            salePrice: 700,
             category: ['women','dupatta', 'sale']
         },
         {
@@ -116,6 +118,7 @@ const initialState = {
             inStock: true,
             qty: 30,
             price:200,
+            salePrice: 300,
             imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'sale']
         },
@@ -149,6 +152,7 @@ const initialState = {
             inStock: true,
             qty: 220,
             price:350,
+            salePrice: 420,
             imgUrl: "https://picsum.photos/280/350",
             category: ['women','stole']
         },
@@ -171,6 +175,7 @@ const initialState = {
             inStock: true,
             qty: 20,
             price:50,
+            salePrice:300,
             imgUrl: "https://picsum.photos/280/350",
             category: ['women','stole']
         },
@@ -240,6 +245,7 @@ const initialState = {
             trending:true,
             qty: 20,
             price:50,
+            salePrice:70,
             imgUrl: "https://picsum.photos/280/350",
             category: ['women','dupatta', 'ready-to-wear']
         },
