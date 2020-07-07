@@ -47,7 +47,7 @@ const MiniCart = (props) => {
 									<li>Size: <strong>{c.size}</strong> </li>
 													
 												</ul>
-									<div className="tt-quantity">1 X </div>{' '}
+									<div className="tt-quantity">{c.qty} X </div>{' '}
 									<div className="tt-price">PKR {c.price}</div>
 											</div>
 										</Link>

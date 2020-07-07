@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Link,Redirect} from 'react-router-dom';
 import Slider from 'react-slick';
+// import {addCart} from '../../Store/Actions/cartAction';
 
 
 import 'slick-carousel/slick/slick.css';
@@ -290,7 +291,7 @@ const Details = props => {
                                             </div>
                                         </div>
                                         <div className="col-item">
-                                            <Link to="#" className="btn btn-lg"><i className="icon-f-39"></i>ADD TO CART</Link>
+                                            <Link onClick={() => props.addCartp(mvalue)} className="btn btn-lg"><i className="icon-f-39"></i>ADD TO CART</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -493,4 +494,10 @@ const mapStateToProps = state =>{
     }
 
 }
-export default connect(mapStateToProps,null)(Details);
+
+const mapDispatchToProps = dispatch => {
+    return{
+        addCartp: data => dispatch({type: "UPDATE_CART", payload:data})
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Details);
