@@ -445,6 +445,15 @@ const ProductList = props => {
                                 alt=""
                               />
                             </span>
+                            {console.log(prod.inStock)}
+                            {
+                              
+                              prod.inStock ==false && (
+                                <span class="tt-label-location">
+                                  <span class="tt-label-our-stock">Out Of Stock</span>
+                                </span>
+                              )
+                            }
                           </Link>
                           <div className="tt-countdown_box">
                             <div className="tt-countdown_inner">

@@ -41,6 +41,7 @@ const MiniCart = (props) => {
 												/>
 											</div>
 											<div className="tt-item-descriptions">
+											<h2 className="tt-title">{ c._id }</h2>
 									<h2 className="tt-title">{ c.title }</h2>
 												<ul className="tt-add-info">
 									<li>Color: <strong>{ c.color }</strong></li>
