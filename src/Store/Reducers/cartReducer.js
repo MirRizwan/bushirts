@@ -27,31 +27,16 @@ const cartReducer = (state = initialState, action) =>{
     switch(action.type){
         case "UPDATE_CART":{
             
-            const obj = {...state}
-            const cartItem = [...obj.cart]
-            const data = action.payload
+            // const obj = {...state}
+            // const cartItem = [...obj.cart]
+            const data = action.payload          
 
-            
-
-            const filteredItem = cartItem.map((i) => {
-                
-            })
-
-            console.log(action.payload);
-            
-            return {obj, cart:[...state.cart,data]}
-            
-            // let nn = state.cart[state.cart.findIndex(item => item._id === action._payload)]
-            //     // nn = nn.qty + 1;
-            //     console.log(nn);
-            // return {
-            //     ...state,
-            //     // cart: nn
-            // }
-            
+            console.log("Update Cart",action.payload);
+            return {cart:[...state.cart, data]}
         }
 
         default:
+            console.log("Default", state)
             return state;
     }
 }

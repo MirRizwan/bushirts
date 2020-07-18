@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom';
 
 const ProductList = props => {
-  console.log("Products listing", props);
   return (
     <React.Fragment>
       
@@ -408,7 +407,7 @@ const ProductList = props => {
                   </div>
                 </div>
                 <div className="tt-product-listing row">
-                  {props.products.map(prod => (
+                  { props.products.map(prod => (
                     <div className="col-6 col-md-4 tt-col-item" key={prod._id}>
                       <div className="tt-product thumbprod-center">
                         <div className="tt-image-box">
@@ -445,9 +444,7 @@ const ProductList = props => {
                                 alt=""
                               />
                             </span>
-                            {console.log(prod.inStock)}
                             {
-                              
                               prod.inStock ==false && (
                                 <span class="tt-label-location">
                                   <span class="tt-label-our-stock">Out Of Stock</span>

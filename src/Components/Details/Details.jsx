@@ -8,92 +8,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { connect } from "react-redux";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
+import SocialBar from "../SocialBar/SocialBar";
+
 
 const Details = props => {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
-
-  //cart state
-  const [cartItem, setCartItem] = useState({
-    _id: null,
-    title: null,
-    color: null,
-    size: null,
-    inStock: null,
-    qty: null,
-    imgUrl: null,
-    price: null,
-    texture: null
-  });
-
-  //Product Variation states
-  const [itemTexture, setItemTexture] = useState(null);
-  const [itemColor, setItemColor] = useState(null);
-  const [itemSize, setItemSize] = useState(null);
-  const [itemQty, setItemQty] = useState(1);
-
-  const setItemTextureHandler = t => {
-    setItemTexture(t.target.name);
-  };
-
-  const setItemColorHandler = e => {
-    setItemColor(e.target.name);
-  };
-
-  const setItemSizeHandler = s => {
-    setItemSize(s.target.name);
-  };
-
-  const setItemQtyPlusHandler = () => {
-    let qty = itemQty + 1;
-    if (qty > 5) {
-      qty = 5;
-    }
-    setItemQty(qty);
-    console.log("Set Item plus Qty Handler", qty);
-  };
-  const setItemQtyMinusHandler = () => {
-    let qty = itemQty - 1;
-    if (qty <= 0) {
-      qty = 1;
-    }
-    setItemQty(qty);
-    console.log("Set Item minus Qty Handler", qty);
-  };
-  const setItemOnChangeHandler = c => {
-    //   let itemqty=...itemQty;
-    let qtyvalue = c.target.value;
-    if (qtyvalue > 5 ) {
-      qtyvalue = 5;
-    } else if ( qtyvalue <= 0 || qtyvalue === '') {
-        console.log("else if agya");
-        qtyvalue = 1;
-      
-    }
-    console.log("Set Item Qty Handler", qtyvalue);
-    setItemQty(qtyvalue);
-  };
-
-  const setCartItemHandler = product => {
-    console.log("SetCartItem Handler", product);
-
-    setCartItem({
-        _id: product._id,
-        title: product.title,
-        color: itemColor,
-        size: itemSize,
-        qty: itemQty,
-        imgUrl: product.imgUrl,
-        price: product.salePrice? product.salePrice:product.price,
-        texture: itemTexture
-        
-    });
-
-    setTimeout(function(){
-        props.addCartp(cartItem);
-    },6000);
-
-  };
 
   let _topSlider = [],
     _bottomSlider = [];
@@ -102,9 +22,6 @@ const Details = props => {
     setNav1(_topSlider);
     setNav2(_bottomSlider);
   }, [_bottomSlider, _topSlider]);
-
-  // console.log("nav1",nav1);
-  // console.log("nav2",nav2);
 
   const settings = {
     dots: false,
@@ -127,22 +44,86 @@ const Details = props => {
     slidesToScroll: 1
   };
 
-  const filteredProduct = props.products.filter(
-    singleProduct => singleProduct._id === props.productID
-  );
-  // console.log("filteredProduct",filteredProduct);
+  //cart state
+  const [cartItem, setCartItem] = useState({
+    _id: null,
+    title: null,
+    color: null,
+    size: null,
+    qty: 1,
+    imgUrl: null,
+    price: null,
+    texture: null
+  });
+  
+  //Product Variation states
+  const [itemTexture, setItemTexture] = useState(null);
+  const [itemColor, setItemColor] = useState(null);
+  const [itemSize, setItemSize] = useState(null);
+  const [itemQty, setItemQty] = useState(1);
+
+  const setItemTextureHandler = t => {
+    setCartItem({...cartItem,texture:t.target.name})
+    //setItemTexture(t.target.name);
+  };
+
+  const setItemColorHandler = e => {
+    setCartItem({...cartItem,color:e.target.name})
+    //setItemColor(e.target.name);
+  };
+
+  const setItemSizeHandler = s => {
+    setCartItem({...cartItem, size:s.target.name})
+    //setItemSize(s.target.name);
+  };
+
+  const setItemQtyPlusHandler = () => {
+    let qty = itemQty + 1;
+    if (qty > 5) {
+      qty = 5;
+    }
+    setItemQty(qty);
+    setCartItem({...cartItem, qty:itemQty})
+  };
+  const setItemQtyMinusHandler = () => {
+    let qty = itemQty - 1;
+    if (qty <= 0) {
+      qty = 1;
+    }
+    setItemQty(qty);
+    setCartItem({...cartItem, qty:itemQty})
+    
+  };
+  const setItemOnChangeHandler = c => {
+    let qtyvalue = c.target.value;
+    if (qtyvalue > 5 ) {
+      qtyvalue = 5;
+    } else if ( qtyvalue <= 0 || qtyvalue === '') {
+        qtyvalue = 1;
+    }
+    setItemQty(qtyvalue);
+    setCartItem({...cartItem, qty: itemQty})
+
+  };
+
+  const filteredProduct = props.products.filter(singleProduct => singleProduct._id === props.productID);
+
+  useEffect(()=>{
+    setCartItem({
+      _id: filteredProduct[0]._id,
+      title: filteredProduct[0].title,
+      imgUrl: filteredProduct[0].imgUrl,
+      price: filteredProduct[0].price,
+      qty: 1
+    });
+  }, []);
 
   if (filteredProduct.length === 0) {
     return <Redirect to="/not-found" />;
-    // console.log("May agya");
   }
-  if (filteredProduct[0].inStock < 1) {
-    return <Redirect to="/not-found" />;
-  }
-  // const mvaluereturn=filteredProduct.map(mvalue=> mvalue.title);
-  // console.log("filteredProduct",mvaluereturn) ;
 
   return (
+    
     <div id="tt-pageContent">
       <div className="container-indent">
         <div className="tt-mobile-product-slider visible-xs arrow-location-center slick-animated-show-js">
@@ -507,7 +488,7 @@ const Details = props => {
                       </div>
                       <div className="col-item">
                         <Link
-                          onClick={() => setCartItemHandler(mvalue)}
+                          onClick={() => props.addCartp(cartItem)}
                           className="btn btn-lg"
                         >
                           <i className="icon-f-39"></i>ADD TO CART
@@ -787,31 +768,13 @@ const Details = props => {
           ))}
         </div>
       </div>
-      <div className="container-indent wrapper-social-icon">
-        <div className="container">
-          <ul className="tt-social-icon justify-content-center">
-            <li>
-              <Link className="icon-g-64" to="http://www.facebook.com/"></Link>
-            </li>
-            <li>
-              <Link className="icon-h-58" to="http://www.facebook.com/"></Link>
-            </li>
-            <li>
-              <Link className="icon-g-66" to="http://www.twitter.com/"></Link>
-            </li>
-            <li>
-              <Link className="icon-g-67" to="http://www.google.com/"></Link>
-            </li>
-            <li>
-              <Link className="icon-g-70" to="https://instagram.com/"></Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <SocialBar />
       <RelatedProducts />
     </div>
   );
 };
+
+
 
 const mapStateToProps = state => {
   return {
