@@ -1,12 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { connect } from 'react-redux';
-import ProducsList from '../ProductList/';
+
 
 const Trending = (props) => {
 	const settings = {

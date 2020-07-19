@@ -27,16 +27,11 @@ const cartReducer = (state = initialState, action) =>{
     switch(action.type){
         case "UPDATE_CART":{
             
-            // const obj = {...state}
-            // const cartItem = [...obj.cart]
             const data = action.payload          
-
-            console.log("Update Cart",action.payload);
             return {cart:[...state.cart, data]}
         }
 
         default:
-            console.log("Default", state)
             return state;
     }
 }

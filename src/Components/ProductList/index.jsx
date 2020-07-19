@@ -238,7 +238,7 @@ const ProductList = props => {
                         </span>
                       </div>
                       <div className="tt-content">
-                        <h6 className="tt-title"></h6>
+                        <h6 className="tt-title">new Item</h6>
                         <div className="tt-price">
                           <span className="sale-price">$14</span>
                           <span className="old-price">$24</span>
@@ -445,7 +445,7 @@ const ProductList = props => {
                               />
                             </span>
                             {
-                              prod.inStock ==false && (
+                              prod.inStock === false && (
                                 <span class="tt-label-location">
                                   <span class="tt-label-our-stock">Out Of Stock</span>
                                 </span>

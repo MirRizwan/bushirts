@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import './UserOptions.css';
 
 const UserOptions = (props) => {
-    console.log("User Account Props",props);
     return(
         <div className="tt-desctop-parent-account tt-parent-box">
             <div className="tt-account tt-dropdown-obj">

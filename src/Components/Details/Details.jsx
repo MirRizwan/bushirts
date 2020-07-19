@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { connect } from "react-redux";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import SocialBar from "../SocialBar/SocialBar";
+import './Details.css';
 
 
 const Details = props => {
@@ -57,42 +58,20 @@ const Details = props => {
   });
   
   //Product Variation states
-  const [itemTexture, setItemTexture] = useState(null);
-  const [itemColor, setItemColor] = useState(null);
-  const [itemSize, setItemSize] = useState(null);
-  const [itemQty, setItemQty] = useState(1);
-
-  const setItemTextureHandler = t => {
-    setCartItem({...cartItem,texture:t.target.name})
-    //setItemTexture(t.target.name);
-  };
-
-  const setItemColorHandler = e => {
-    setCartItem({...cartItem,color:e.target.name})
-    //setItemColor(e.target.name);
-  };
-
-  const setItemSizeHandler = s => {
-    setCartItem({...cartItem, size:s.target.name})
-    //setItemSize(s.target.name);
-  };
-
+  
   const setItemQtyPlusHandler = () => {
-    let qty = itemQty + 1;
+    let qty = cartItem.qty + 1;
     if (qty > 5) {
       qty = 5;
     }
-    setItemQty(qty);
-    setCartItem({...cartItem, qty:itemQty})
+    setCartItem({...cartItem, qty})
   };
   const setItemQtyMinusHandler = () => {
-    let qty = itemQty - 1;
+    let qty = cartItem.qty - 1;
     if (qty <= 0) {
       qty = 1;
     }
-    setItemQty(qty);
-    setCartItem({...cartItem, qty:itemQty})
-    
+    setCartItem({...cartItem, qty})  
   };
   const setItemOnChangeHandler = c => {
     let qtyvalue = c.target.value;
@@ -101,8 +80,7 @@ const Details = props => {
     } else if ( qtyvalue <= 0 || qtyvalue === '') {
         qtyvalue = 1;
     }
-    setItemQty(qtyvalue);
-    setCartItem({...cartItem, qty: itemQty})
+    setCartItem({...cartItem, qty: qtyvalue})
 
   };
 
@@ -116,7 +94,7 @@ const Details = props => {
       price: filteredProduct[0].price,
       qty: 1
     });
-  }, []);
+  },[]);
 
   if (filteredProduct.length === 0) {
     return <Redirect to="/not-found" />;
@@ -162,7 +140,7 @@ const Details = props => {
 
         <div className="container container-fluid-mobile">
           {filteredProduct.map(mvalue => (
-            <div className="row">
+            <div className="row" key={mvalue._id}>
               <div className="col-6 hidden-xs">
                 <div className="tt-product-vertical-layout">
                   <div className="tt-product-single-img">
@@ -175,7 +153,7 @@ const Details = props => {
                     >
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" />
+                          <img src="/assets/images/product/product-01.jpg" alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -183,7 +161,7 @@ const Details = props => {
                       </div>
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" />
+                          <img src="/assets/images/product/product-01.jpg" alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -191,7 +169,7 @@ const Details = props => {
                       </div>
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" />
+                          <img src="/assets/images/product/product-01.jpg" alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -199,7 +177,7 @@ const Details = props => {
                       </div>
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" />{" "}
+                          <img src="/assets/images/product/product-01.jpg" alt="" />{" "}
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -207,7 +185,7 @@ const Details = props => {
                       </div>
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" />
+                          <img src="/assets/images/product/product-01.jpg" alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -215,7 +193,7 @@ const Details = props => {
                       </div>
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" />
+                          <img src="/assets/images/product/product-01.jpg" alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -345,7 +323,7 @@ const Details = props => {
                   </div>
                   <h1 className="tt-title">{mvalue.title}</h1>
                   <div className="tt-price">
-                    <span className="new-price">PKR {mvalue.price}</span> &nbsp;
+                    <span className="sale-price">PKR {mvalue.price}</span>
                     {mvalue.salePrice ? (
                       <span className="old-price">PKR {mvalue.price}</span>
                     ) : null}
@@ -388,11 +366,11 @@ const Details = props => {
                         <div className="tt-title-options">SIZE:</div>
                         <ul className="tt-options-swatch options-large">
                           {mvalue.size.map(s => (
-                            <li>
+                            <li key={s}>
                               <Link
                                 to="#"
-                                onClick={setItemSizeHandler}
                                 name={s}
+                                onClick={ e => { setCartItem({...cartItem, size:e.target.name}) }  }
                               >
                                 {s}
                               </Link>
@@ -420,15 +398,15 @@ const Details = props => {
                     {mvalue.color && (
                       <div className="tt-wrapper">
                         <div className="tt-title-options">
-                          COLOR:{itemColor}
+                          COLOR:
                         </div>
                         <ul className="tt-options-swatch options-large">
                           {mvalue.color.map(m => (
-                            <li>
+                            <li key={m}>
                               <Link
                                 className={`options-color tt-color-bg-${m}`}
                                 name={m}
-                                onClick={setItemColorHandler}
+                                onClick={ (e) => { setCartItem({...cartItem,color:e.target.name}) }}
                                 to="#"
                               ></Link>
                             </li>
@@ -442,11 +420,11 @@ const Details = props => {
                         <div className="tt-title-options">TEXTURE:</div>
                         <ul className="tt-options-swatch options-large">
                           {mvalue.texture.map(t => (
-                            <li>
+                            <li key={t}>
                               <Link
                                 className="options-color"
                                 name={t}
-                                onClick={setItemTextureHandler}
+                                onClick={ (e)=>{ setCartItem({...cartItem,texture:e.target.name}) } }
                                 to="#"
                               >
                                 <span className="swatch-img">
@@ -468,28 +446,29 @@ const Details = props => {
                     <div className="tt-row-custom-01">
                       <div className="col-item">
                         <div className="tt-input-counter style-01">
-                          <span
+                          <Link
                             className="minus-btn"
                             onClick={setItemQtyMinusHandler}
-                          ></span>
+                            to="#"
+                          ></Link>
                           <input
-                            type="number"
-                            value={itemQty}
-                            min="0"
-                            max="5"
+                            type="text"
+                            value={cartItem.qty}
                             onChange={setItemOnChangeHandler}
                             size="1"
                           />
-                          <span
+                          <Link
                             className="plus-btn"
                             onClick={setItemQtyPlusHandler}
-                          ></span>
+                            to="#"
+                          ></Link>
                         </div>
                       </div>
                       <div className="col-item">
                         <Link
                           onClick={() => props.addCartp(cartItem)}
                           className="btn btn-lg"
+                          to="#"
                         >
                           <i className="icon-f-39"></i>ADD TO CART
                         </Link>

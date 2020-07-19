@@ -28,7 +28,6 @@ const DesktopNavigation = () =>{
 
 	const toggleSearchBar = (n) => {
 		openSearch === false ? setSearchOpen(true) : setSearchOpen(false);
-		console.log("N value",n);
 	};
 
 	const toggleSearchClass = () => {
@@ -41,7 +40,7 @@ const DesktopNavigation = () =>{
 
 	const toggleAccountBar = () => {
 		openAccountBar === false ? setAccountBar(true) : setAccountBar(false);
-		//console.log("N value",n);
+	
 	};
 
 	const toggleAccountBarClass = () => {

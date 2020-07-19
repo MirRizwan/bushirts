@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const SearchBar = (props) => {
-	console.log("Search Bar Props",props);
+	
     return(
         <div className="tt-desctop-parent-search tt-parent-box">
 						<div className={props.toggleSearchClass()}>

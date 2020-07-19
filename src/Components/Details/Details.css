@@ -1,0 +1,30 @@
+.tt-input-counter.style-01 a {
+    display: inline-block;
+    font-size: 27px;
+    line-height: 1em;
+    cursor: pointer;
+    position: absolute;
+    width: 49px;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    color: #777777;
+}
+
+.tt-input-counter.style-01 a.minus-btn {
+    left: 0px;
+}
+.tt-input-counter.style-01 a.plus-btn {
+    right: 0px;
+}
+
+.tt-product-single-info .tt-price .sale-price {
+    color: #fae420;
+    margin-right: 12px;
+}
+
+.tt-product-single-info .tt-price .old-price {
+    color: #f8353e;
+    font-size:0.9em ;
+}
+
