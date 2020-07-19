@@ -65,7 +65,7 @@ const MiniCart = (props) => {
 											</Link>
 										</div>
 										<div className="tt-item">
-											<Link to="shopping_cart_02.html" className="btn-link-02 tt-hidden-mobile">
+											<Link to="/cart" className="btn-link-02 tt-hidden-mobile">
 												View Cart
 											</Link>
 											<Link

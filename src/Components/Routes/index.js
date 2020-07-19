@@ -8,6 +8,7 @@ import ProductDetail from '../../Pages/ProductDetail';
 import Products from '../../Pages/Products';
 import Home from '../../Pages/Home';
 import NotFound from '../NotFound';
+import Cart from '../../Pages/Cart';
 
 
 
@@ -19,7 +20,7 @@ const Routes=()=>{
             <Switch>
                 <Route path="/product/:id" component={ProductDetail} exact />
                 <Route path="/products" component={Products} exact />
-                
+                <Route path="/cart" component={Cart} />
                 <Route component={Home} path="/" exact />
                 <Route path="/not-found" component={NotFound}/>
                 <Redirect to="/not-found" />

@@ -1,34 +1,30 @@
+import { act } from "react-dom/test-utils";
+
 const initialState = {
-    cart: [
-        {
-            _id:'14',            
-            title: 'Dupatta',
-            color: 'Red',
-            size: "L",
-            qty: 1,
-            price:50,
-            imgUrl: "https://picsum.photos/280/350",
-            category: 'dupatta'
-        },
-        {
-            _id:'25',            
-            title: 'Dupatta',
-            color: 'Green',
-            size: "M",
-            qty: 1,
-            price:50,
-            imgUrl: "https://picsum.photos/280/350",
-            category: 'dupatta'
-        }
-    ]
+    totalAmount: 0,
+    cart: []
 }
 
 const cartReducer = (state = initialState, action) =>{
     switch(action.type){
-        case "UPDATE_CART":{
+        case "ADD_CART":{
             
-            const data = action.payload          
-            return {cart:[...state.cart, data]}
+            const data = action.payload;
+
+            const existingProduct = state.cart.filter( e => e._id === data._id);
+
+            if(existingProduct.length > 0){
+                const WO = state.cart.filter( e => e._id !== data._id);
+                const updatedItem = {
+                    ...existingProduct[0],
+                    qty: existingProduct[0].qty + data.qty
+                };
+                return {
+                    cart: [...WO, updatedItem]
+                }
+            }
+            
+            return {cart:[...state.cart, data]}     
         }
 
         default:

@@ -763,7 +763,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCartp: cartItem1 => dispatch({ type: "UPDATE_CART", payload: cartItem1 })
+    addCartp: cartItem1 => dispatch({ type: "ADD_CART", payload: cartItem1 })
   };
 };
 export default connect(
