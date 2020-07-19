@@ -56,7 +56,13 @@ const MiniCart = (props) => {
 									</div>
 									<div className="tt-cart-total-row">
 										<div className="tt-cart-total-title">SUBTOTAL:</div>
-										<div className="tt-cart-total-price">$324</div>
+										<div className="tt-cart-total-price">$ {
+											props.total
+										// props.Cart.forEach(function(item,index){
+										// 	console.log(item);
+										// })
+										
+										}</div>
 									</div>
 									<div className="tt-cart-btn">
 										<div className="tt-item">
@@ -88,7 +94,8 @@ const MiniCart = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		Cart: state.Cart.cart
+		Cart: state.Cart.cart,
+		total:state.Cart.totalAmount
 	};
 };
 export default connect(mapStateToProps, null)(MiniCart);
