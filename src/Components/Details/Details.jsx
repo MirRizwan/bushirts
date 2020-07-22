@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Slider from "react-slick";
+import { connect } from "react-redux";
+
+
+import RelatedProducts from "../RelatedProducts/RelatedProducts";
+import SocialBar from "../SocialBar/SocialBar";
 import {addCart} from '../../Store/Actions/cartAction';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { connect } from "react-redux";
-import RelatedProducts from "../RelatedProducts/RelatedProducts";
-import SocialBar from "../SocialBar/SocialBar";
 import './Details.css';
 
 
@@ -287,7 +289,7 @@ const Details = props => {
                           data-poster="video/video_img.jpg"
                         >
                           <img
-                            src="assets/images/product/product-small-empty.png"
+                            src="/assets/images/product/product-small-empty.png"
                             alt=""
                           />
                           <div>
