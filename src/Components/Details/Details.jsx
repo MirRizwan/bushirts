@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Slider from "react-slick";
-// import {addCart} from '../../Store/Actions/cartAction';
+import {addCart} from '../../Store/Actions/cartAction';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -74,7 +74,7 @@ const Details = props => {
     setCartItem({...cartItem, qty})  
   };
   const setItemOnChangeHandler = c => {
-    let qtyvalue = c.target.value;
+    let qtyvalue = parseInt(c.target.value, 10);
     if (qtyvalue > 5 ) {
       qtyvalue = 5;
     } else if ( qtyvalue <= 0 || qtyvalue === '') {
@@ -763,7 +763,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCartp: cartItem1 => dispatch({ type: "ADD_CART", payload: cartItem1 })
+    addCartp: prod => dispatch(addCart(prod))
   };
 };
 export default connect(

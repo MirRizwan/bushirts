@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {removeCart} from '../../Store/Actions/cartAction';
 
 import './MiniCart.css';
+import { data } from 'jquery';
 
 const MiniCart = (props) => {
 	return (
@@ -49,20 +51,14 @@ const MiniCart = (props) => {
 													</div>
 												</Link>
 												<div className="tt-item-close">
-													<Link to="#" className="tt-btn-close" />
+													<Link to="#" onClick={ ()=>props.deleteCart(c)} className="tt-btn-close" />
 												</div>
 											</div>
 										))}
 									</div>
 									<div className="tt-cart-total-row">
 										<div className="tt-cart-total-title">SUBTOTAL:</div>
-										<div className="tt-cart-total-price">$ {
-											props.total
-										// props.Cart.forEach(function(item,index){
-										// 	console.log(item);
-										// })
-										
-										}</div>
+										<div className="tt-cart-total-price">PKR { props.total }</div>
 									</div>
 									<div className="tt-cart-btn">
 										<div className="tt-item">
@@ -95,7 +91,14 @@ const MiniCart = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		Cart: state.Cart.cart,
-		total:state.Cart.totalAmount
+		total: state.Cart.totalAmount
 	};
 };
-export default connect(mapStateToProps, null)(MiniCart);
+
+const mapDispatchToProps = dispatch =>{
+	return{
+		deleteCart: data => dispatch(removeCart(data))
+	}
+	
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MiniCart);

@@ -446,8 +446,8 @@ const ProductList = props => {
                             </span>
                             {
                               prod.inStock === false && (
-                                <span class="tt-label-location">
-                                  <span class="tt-label-our-stock">Out Of Stock</span>
+                                <span className="tt-label-location">
+                                  <span className="tt-label-our-stock">Out Of Stock</span>
                                 </span>
                               )
                             }

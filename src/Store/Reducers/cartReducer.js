@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 const initialState = {
     totalAmount: 0,
     cart: []
@@ -15,19 +13,38 @@ const cartReducer = (state = initialState, action) =>{
 
             if(existingProduct.length > 0){
                 const WO = state.cart.filter( e => e._id !== data._id);
+                const updatedQty = existingProduct[0].qty + data.qty;
                 const updatedItem = {
                     ...existingProduct[0],
-                    qty: existingProduct[0].qty + data.qty,
-                    price:existingProduct[0].price+data.price
+                    qty: updatedQty,
+                    price:existingProduct[0].price + (data.price * data.qty)
                 };
                 return {
-                    totalAmount:state.totalAmount,
+                    totalAmount:state.totalAmount + (data.price * data.qty),
                     cart: [...WO, updatedItem]
                 }
             }
             
-            return {totalAmount:state.totalAmount,cart:[...state.cart, data]}     
+            const updatedItem = {
+                ...data,
+                price: data.price * data.qty 
+            }
+            return {
+                totalAmount:state.totalAmount + updatedItem.price,
+                cart:[...state.cart, updatedItem]
+            }     
         }
+
+        case "REMOVE_CART":{
+            const deletingData = action.payload;
+            const cartItem = [...state.cart];
+            const updatedItem = cartItem.filter(c=> c._id !== deletingData._id);
+            return{
+                totalAmount:state.totalAmount - deletingData.price,
+                cart: updatedItem
+            }
+        }
+
 
         default:
             return state;
