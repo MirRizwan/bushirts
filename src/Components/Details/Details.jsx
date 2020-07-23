@@ -94,6 +94,7 @@ const Details = props => {
       title: filteredProduct[0].title,
       imgUrl: filteredProduct[0].imgUrl,
       price: filteredProduct[0].price,
+      unitPrice: filteredProduct[0].price,
       qty: 1
     });
   },[]);

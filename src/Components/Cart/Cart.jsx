@@ -1,12 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+
+
 
 const Cart = props => {
+	if(props.cart.length === 0){
+		return (
+			<div style={ {textAlign:"center"} }>
+				<h3>No Products in the Cart</h3>
+				<Link className="btn-link" to="/products"><i className="icon-e-19"></i>CONTINUE SHOPPING</Link>
+			</div>
+		)
+	}
     return(
         <React.Fragment>
             <div className="tt-breadcrumb">
 	<div className="container">
 		<ul>
-			<li><a href="index.html">Home</a></li>
+			<li><Link to="index.html">Home</Link></li>
 			<li>Shopping Cart</li>
 		</ul>
 	</div>
@@ -14,29 +27,31 @@ const Cart = props => {
 <div id="tt-pageContent">
 	<div className="container-indent">
 		<div className="container">
-			<h1 className="tt-title-subpages noborder">SHOPPING CART</h1>
+			<h1 className="tt-title-subpages noborder">YOUR SHOPPING CART</h1>
 			<div className="row">
 				<div className="col-sm-12 col-xl-8">
 					<div className="tt-shopcart-table">
 						<table>
 							<tbody>
-								<tr>
+								{
+									props.cart.map( item =>(
+										<tr key={item._id}>
 									<td>
-										<a href="#" className="tt-btn-close"></a>
+										<Link to="#" className="tt-btn-close"></Link>
 									</td>
 									<td>
 										<div className="tt-product-img">
-											<img src="/assets/images/product/product-01.jpg" alt="" />
+											<img src={item.imgUrl} alt="" />
 										</div>
 									</td>
 									<td>
 										<h2 className="tt-title">
-											<a href="#">Flared Shift Dress</a>
+											<Link to="#">{item.title}</Link>
 										</h2>
 										<ul className="tt-list-parameters">
 											<li>
 												<div className="tt-price">
-													$124
+													{item.unitPrice}
 												</div>
 											</li>
 											<li>
@@ -44,138 +59,43 @@ const Cart = props => {
 											</li>
 											<li>
 												<div className="tt-price subtotal">
-													$124
+													{item.price}
 												</div>
 											</li>
 										</ul>
 									</td>
 									<td>
 										<div className="tt-price">
-											$124
+										{item.unitPrice}
 										</div>
 									</td>
 									<td>
 										<div className="detach-quantity-desctope">
 											<div className="tt-input-counter style-01">
 												<span className="minus-btn"></span>
-												<input type="text" value="1" size="5" />
+												<input type="text" value={item.qty} size="5" />
 												<span className="plus-btn"></span>
 											</div>
 										</div>
 									</td>
 									<td>
 										<div className="tt-price subtotal">
-											$124
+										{item.price}
 										</div>
 									</td>
 								</tr>
-								<tr>
-									<td>
-										<a href="#" className="tt-btn-close"></a>
-									</td>
-									<td>
-										<div className="tt-product-img">
-											<img src="/assets/images/product/product-02.jpg" alt="" />
-										</div>
-									</td>
-									<td>
-										<h2 className="tt-title">
-											<a href="#">Flared Shift Dress</a>
-										</h2>
-										<ul className="tt-list-parameters">
-											<li>
-												<div className="tt-price">
-													$12
-												</div>
-											</li>
-											<li>
-												<div className="detach-quantity-mobile"></div>
-											</li>
-											<li>
-												<div className="tt-price subtotal">
-													$12
-												</div>
-											</li>
-										</ul>
-									</td>
-									<td>
-										<div className="tt-price">
-											$12
-										</div>
-									</td>
-									<td>
-										<div className="detach-quantity-desctope">
-											<div className="tt-input-counter style-01">
-												<span className="minus-btn"></span>
-												<input type="text" value="1" size="5" />
-												<span className="plus-btn"></span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div className="tt-price subtotal">
-											$12
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#" className="tt-btn-close"></a>
-									</td>
-									<td>
-										<div className="tt-product-img">
-											<img src="/assets/images/product/product-03.jpg"  alt="" />
-										</div>
-									</td>
-									<td>
-										<h2 className="tt-title">
-											<a href="#">Flared Shift Dress</a>
-										</h2>
-										<ul className="tt-list-parameters">
-											<li>
-												<div className="tt-price">
-													$317
-												</div>
-											</li>
-											<li>
-												<div className="detach-quantity-mobile"></div>
-											</li>
-											<li>
-												<div className="tt-price subtotal">
-													$317
-												</div>
-											</li>
-										</ul>
-									</td>
-									<td>
-										<div className="tt-price">
-											$317
-										</div>
-									</td>
-									<td>
-										<div className="detach-quantity-desctope">
-											<div className="tt-input-counter style-01">
-												<span className="minus-btn"></span>
-												<input type="text" value="1" size="5" />
-												<span className="plus-btn"></span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div className="tt-price subtotal">
-											$317
-										</div>
-									</td>
-								</tr>
+									))
+								}
+								
 							</tbody>
 						</table>
 						<div className="tt-shopcart-btn">
 							<div className="col-left">
-								<a className="btn-link" href="#"><i className="icon-e-19"></i>CONTINUE SHOPPING</a>
+								<Link className="btn-link" href="/products"><i className="icon-e-19"></i>CONTINUE SHOPPING</Link>
 							</div>
 							<div className="col-right">
-								<a className="btn-link" href="#"><i className="icon-h-02"></i>CLEAR SHOPPING CART</a>
-								<a className="btn-link" href="#"><i className="icon-h-48"></i>UPDATE CART</a>
+								<Link className="btn-link" href="#"><i className="icon-h-02"></i>CLEAR SHOPPING CART</Link>
+								<Link className="btn-link" href="#"><i className="icon-h-48"></i>UPDATE CART</Link>
 							</div>
 						</div>
 					</div>
@@ -225,12 +145,12 @@ const Cart = props => {
 									<label for="address_zip">ZIP/POSTAL CODE <sup>*</sup></label>
 									<input type="text" name="name" className="form-control" id="address_zip" placeholder="Zip/Postal Code" />
 								</div>
-								<a href="#" className="btn btn-border">CALCULATE SHIPPING</a>
+								<Link to="#" className="btn btn-border">CALCULATE SHIPPING</Link>
 								<p>
 									There is one shipping rate available for Alabama, Tanzania, United Republic Of.
 								</p>
 								<ul className="tt-list-dot list-dot-large">
-									<li><a href="#">International Shipping at $20.00</a></li>
+									<li><Link to="#">International Shipping at $20.00</Link></li>
 								</ul>
 							</form>
 						</div>
@@ -258,7 +178,7 @@ const Cart = props => {
 									</tr>
 								</tfoot>
 							</table>
-							<a href="#" className="btn btn-lg"><span className="icon icon-check_circle"></span>PROCEED TO CHECKOUT</a>
+							<Link to="#" className="btn btn-lg"><span className="icon icon-check_circle"></span>PROCEED TO CHECKOUT</Link>
 						</div>
 					</div>
 				</div>
@@ -270,4 +190,11 @@ const Cart = props => {
     )
 }
 
-export default Cart;
+
+const mapStateToProps = state => {
+	return{
+		cart : state.Cart.cart
+	}
+}
+
+export default connect(mapStateToProps, null)(Cart);

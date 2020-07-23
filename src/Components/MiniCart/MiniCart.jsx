@@ -32,7 +32,7 @@ const MiniCart = (props) => {
 									<div className="tt-cart-list">
 										{props.Cart.map((c) => (
 											<div className="tt-item" key={c._id}>
-												<Link to="product.html">
+												<Link to={`/product/${c._id}`}>
 													<div className="tt-item-img">
 														<img src="/assets/images/product/product-01.jpg" alt="" />
 													</div>

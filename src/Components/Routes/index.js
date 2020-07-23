@@ -7,8 +7,8 @@ import Footer from '../Footer/Footer';
 import ProductDetail from '../../Pages/ProductDetail';
 import Products from '../../Pages/Products';
 import Home from '../../Pages/Home';
-import NotFound from '../NotFound';
-import Cart from '../../Pages/Cart';
+import NotFound from '../../Pages/NotFound';
+import CartPage from '../../Pages/CartPage';
 
 
 
@@ -20,7 +20,7 @@ const Routes=()=>{
             <Switch>
                 <Route path="/product/:id" component={ProductDetail} exact />
                 <Route path="/products" component={Products} exact />
-                <Route path="/cart" component={Cart} />
+                <Route path="/cart" component={CartPage} />
                 <Route component={Home} path="/" exact />
                 <Route path="/not-found" component={NotFound}/>
                 <Redirect to="/not-found" />
