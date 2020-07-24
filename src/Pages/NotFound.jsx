@@ -1,16 +1,31 @@
 
 import React from 'react';
-import {useLocation} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 
-const NotFound = () => {
+const NotFound = props => {
     let location = useLocation();
 
     return (
-      <div>
-        <h3>
-          No match for <code>{location.pathname}</code>
-        </h3>
-      </div>
+      <React.Fragment>
+        <div class="tt-breadcrumb">
+          <div class="container">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>That Page Can’t Be Found</li>
+            </ul>
+          </div>
+        </div>
+        <div className="tt-offset-0 container-indent">
+          <div className="tt-page404">
+            <h1 className="tt-title" style={ { fontSize:'44px'} }>404<span style={ { fontSize:"0.6em", display:'block'} }>THAT PAGE CAN’T BE FOUND.</span></h1>
+            
+            <p>It looks like nothing was found at this location <code>{location.pathname}</code>.</p>
+            <Link to="/products" className="btn">GO TO HOME</Link>
+          </div>
+        </div>
+      </React.Fragment>
+      
+     
     )
 }
 

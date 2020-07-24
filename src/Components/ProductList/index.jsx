@@ -6,7 +6,7 @@ import SideBar from "../SideBar/SideBar";
 import ProductFilterOptions from "../ProductFilterOptions/ProductFilterOptions";
 import { useState } from "react";
 
-Modal.setAppElement('#bushirts');
+Modal.setAppElement('#modal');
 
 
 const ProductList = props => {
@@ -39,7 +39,7 @@ const ProductList = props => {
                       <div className="tt-product thumbprod-center">
                         <div className="tt-image-box">
                           <Link
-                            
+                            to="#"
                             className="tt-btn-quickview"
                             data-toggle="modal"
                             data-target="#ModalquickView"
@@ -62,13 +62,13 @@ const ProductList = props => {
                           <Link to={`product/${prod._id}`}>
                             <span className="tt-img">
                               <img
-                                src="assets/images/product/product-45.jpg"
+                                src={prod.imgUrl}
                                 alt=""
                               />
                             </span>
                             <span className="tt-img-roll-over">
                               <img
-                                src="assets/images/product/product-45-01.jpg"
+                                src={prod.imgUrl1}
                                 alt=""
                               />
                             </span>

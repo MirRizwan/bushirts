@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+
 import ProductList from '../Components/ProductList';
-import Breadcrumb from '../Components/Breadcrumb/Breadcrumb';
+
 
 
 const Products =(props)=>{
@@ -9,7 +11,14 @@ const Products =(props)=>{
 
     return (
         <React.Fragment>
-            <Breadcrumb />
+            <div className="tt-breadcrumb">
+                <div className="container">
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li>Products</li>
+                    </ul>
+                </div>
+            </div>
             <ProductList/>
         </React.Fragment>
     )

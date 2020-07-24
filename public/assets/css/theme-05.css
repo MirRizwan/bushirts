@@ -493,7 +493,7 @@ ul.tt-options-swatch li .options-color:after {
 .tt-modal-addtocart.mobile .tt-modal-messages [class^="icon-"] {
     color: #fe5722
 }
-.modal .modal-header .close:hover {
+.ReactModal__Content .modal-header .close:hover {
     color: #fe5722
 }
 .tt-modal-newsletter .tt-modal-newsletter-promo .tt-title-large {

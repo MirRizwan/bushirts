@@ -1874,7 +1874,7 @@ input[type="button"].btn-block {
 .modal-open {
   overflow: hidden; }
 
-.modal {
+.modal{
   position: fixed;
   top: 0;
   right: 0;
@@ -1884,7 +1884,7 @@ input[type="button"].btn-block {
   display: none;
   overflow: hidden;
   outline: 0; }
-  .modal-open .modal {
+  .modal-open ReactModal__Content{
     overflow-x: hidden;
     overflow-y: auto; }
 
@@ -1893,10 +1893,10 @@ input[type="button"].btn-block {
   width: auto;
   margin: 10px;
   pointer-events: none; }
-  .modal.fade .modal-dialog {
+  .ReactModal__Content.fade .modal-dialog {
     transition: transform 0.3s ease-out;
     transform: translate(0, -25%); }
-  .modal.show .modal-dialog {
+    .ReactModal__Content.show .modal-dialog {
     transform: translate(0, 0); }
 
 .modal-dialog-centered {
@@ -16829,11 +16829,11 @@ html.ie.gecko body.modal-open {
   -webkit-opacity: 0;
   opacity: 0; }
 
-.modal.show {
+.ReactModal__Content.show {
   opacity: 1; }
 
 @media (min-width: 320px) {
-  .modal:before {
+  .ReactModal__Content:before {
     content: '';
     display: inline-block;
     height: 100%;
@@ -16947,14 +16947,14 @@ html.ie.gecko body.modal-open {
   z-index: 11;
   -webkit-overflow-scrolling: touch;
   outline: none; }
-  .modal .modal-content {
+  .ReactModal__Content .modal-content {
     border-radius: 0;
     border: none; }
-  .modal .modal-header {
+  .ReactModal__Content .modal-header {
     border: none;
     padding: 22px 20px 0px 20px;
     margin: 0; }
-    .modal .modal-header .close {
+    .ReactModal__Content .modal-header .close {
       font-size: 24px;
       line-height: 24px;
       position: relative;
@@ -16967,13 +16967,13 @@ html.ie.gecko body.modal-open {
       -ms-transition: all 0.2s linear;
       -webkit-transition: all 0.2s linear;
       -o-transition: all 0.2s linear; }
-  .modal .modal-title {
+      .ReactModal__Content .modal-title {
     font-size: 20px;
     line-height: 26px;
     margin: 34px 0 0 0;
     padding-bottom: 19px;
     letter-spacing: 0.02em; }
-  .modal .modal-footer {
+    .ReactModal__Content .modal-footer {
     border: none; }
 
 /* tt-modal-addtocart */
@@ -17132,16 +17132,16 @@ html.ie.gecko body.modal-open {
   z-index: 30;
   -webkit-overflow-scrolling: touch;
   outline: none; }
-  .modal .modal-dialog {
+  .ReactModal__Content .modal-dialog {
     display: inline-block;
     vertical-align: middle; }
   @media (min-width: 576px) {
-    .modal .modal-dialog {
+    .ReactModal__Content .modal-dialog {
       max-width: inherit; } }
-  .modal .modal-header {
+  .ReactModal__Content .modal-header {
     height: 54px;
     position: relative; }
-    .modal .modal-header .close {
+    .ReactModal__Content .modal-header .close {
       width: 54px;
       height: 54px;
       top: -2px;
@@ -17159,40 +17159,40 @@ html.ie.gecko body.modal-open {
       -webkit-transition: all 0.2s linear;
       -o-transition: all 0.2s linear; }
       @media (min-width: 1025px) {
-        .modal .modal-header .close {
+        .ReactModal__Content .modal-header .close {
           right: -52px; } }
       @media (max-width: 1024px) {
-        .modal .modal-header .close {
+        .ReactModal__Content .modal-header .close {
           right: -20px; } }
-    .modal .modal-header .close:before {
+    .ReactModal__Content .modal-header .close:before {
       content: "\ea0f";
       font-size: 20px;
       line-height: 1; }
-    .modal .modal-header .close:hover {
+    .ReactModal__Content .modal-header .close:hover {
       color: #fae420; }
-  .modal .modal-body:not(.no-background) {
+  .ReactModal__Content .modal-body:not(.no-background) {
     background-color: #ffffff;
     border-radius: 6px; }
-  .modal .modal-body {
+  .ReactModal__Content .modal-body {
     overflow: hidden; }
     @media (min-width: 1025px) {
-      .modal .modal-body {
+      .ReactModal__Content .modal-body {
         padding: 40px; } }
     @media (max-width: 1024px) {
-      .modal .modal-body {
+      .ReactModal__Content .modal-body {
         padding: 30px; } }
     @media (max-width: 789px) {
-      .modal .modal-body {
+      .ReactModal__Content .modal-body {
         padding: 25px; } }
     @media (max-width: 500px) {
-      .modal .modal-body {
+      .ReactModal__Content .modal-body {
         padding: 20px; } }
     @media (max-width: 270px) {
-      .modal .modal-body {
+      .ReactModal__Content .modal-body {
         padding: 15px; } }
 
 @media (min-width: 320px) {
-  .modal:before {
+  .ReactModal__Content:before {
     content: '';
     display: inline-block;
     height: 100%;

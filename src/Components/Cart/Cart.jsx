@@ -1,104 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 
+import CartItem from './CartItem'
 
 
 const Cart = props => {
 	if(props.cart.length === 0){
 		return (
-			<div style={ {textAlign:"center"} }>
-				<h3>No Products in the Cart</h3>
-				<Link className="btn-link" to="/products"><i className="icon-e-19"></i>CONTINUE SHOPPING</Link>
+			<React.Fragment>
+
+			
+			<div className="tt-breadcrumb">
+				<div className="container">
+					<ul>
+						<li><Link to="index.html">Home</Link></li>
+						<li>Shopping Cart</li>
+					</ul>
+				</div>
 			</div>
+
+			<div className="tt-offset-0 container-indent">
+				<div className="tt-page404">
+					<h1 className="tt-title">No Products in the Cart</h1>
+					
+					<Link to="/products" className="btn">CONTINUE SHOPPING</Link>
+				</div>
+			</div>
+			
+			</React.Fragment>
 		)
 	}
     return(
         <React.Fragment>
             <div className="tt-breadcrumb">
-	<div className="container">
-		<ul>
-			<li><Link to="index.html">Home</Link></li>
-			<li>Shopping Cart</li>
-		</ul>
-	</div>
-</div>
+				<div className="container">
+					<ul>
+						<li><Link to="index.html">Home</Link></li>
+						<li>Shopping Cart</li>
+					</ul>
+				</div>
+			</div>
 <div id="tt-pageContent">
 	<div className="container-indent">
 		<div className="container">
 			<h1 className="tt-title-subpages noborder">YOUR SHOPPING CART</h1>
 			<div className="row">
 				<div className="col-sm-12 col-xl-8">
-					<div className="tt-shopcart-table">
-						<table>
-							<tbody>
-								{
-									props.cart.map( item =>(
-										<tr key={item._id}>
-									<td>
-										<Link to="#" className="tt-btn-close"></Link>
-									</td>
-									<td>
-										<div className="tt-product-img">
-											<img src={item.imgUrl} alt="" />
-										</div>
-									</td>
-									<td>
-										<h2 className="tt-title">
-											<Link to="#">{item.title}</Link>
-										</h2>
-										<ul className="tt-list-parameters">
-											<li>
-												<div className="tt-price">
-													{item.unitPrice}
-												</div>
-											</li>
-											<li>
-												<div className="detach-quantity-mobile"></div>
-											</li>
-											<li>
-												<div className="tt-price subtotal">
-													{item.price}
-												</div>
-											</li>
-										</ul>
-									</td>
-									<td>
-										<div className="tt-price">
-										{item.unitPrice}
-										</div>
-									</td>
-									<td>
-										<div className="detach-quantity-desctope">
-											<div className="tt-input-counter style-01">
-												<span className="minus-btn"></span>
-												<input type="text" value={item.qty} size="5" />
-												<span className="plus-btn"></span>
-											</div>
-										</div>
-									</td>
-									<td>
-										<div className="tt-price subtotal">
-										{item.price}
-										</div>
-									</td>
-								</tr>
-									))
-								}
-								
-							</tbody>
-						</table>
-						<div className="tt-shopcart-btn">
-							<div className="col-left">
-								<Link className="btn-link" href="/products"><i className="icon-e-19"></i>CONTINUE SHOPPING</Link>
-							</div>
-							<div className="col-right">
-								<Link className="btn-link" href="#"><i className="icon-h-02"></i>CLEAR SHOPPING CART</Link>
-								<Link className="btn-link" href="#"><i className="icon-h-48"></i>UPDATE CART</Link>
-							</div>
-						</div>
-					</div>
+					<CartItem items={props.cart} removeItem={props.removeItem} increase={props.increaseItemQty} decrease={props.decreaseItemQty } />
 				</div>
 				<div className="col-sm-12 col-xl-4">
 					<div className="tt-shopcart-wrapper">
@@ -174,7 +123,7 @@ const Cart = props => {
 								<tfoot>
 									<tr>
 										<th>GRAND TOTAL</th>
-										<td>$324</td>
+										<td>PKR {props.totalAmount}</td>
 									</tr>
 								</tfoot>
 							</table>
@@ -193,8 +142,17 @@ const Cart = props => {
 
 const mapStateToProps = state => {
 	return{
-		cart : state.Cart.cart
+		cart : state.Cart.cart,
+		totalAmount: state.Cart.totalAmount
 	}
 }
 
-export default connect(mapStateToProps, null)(Cart);
+const mapDispatchToProps = dispatch =>{
+	return{
+		removeItem: item => dispatch({type:"REMOVE_CART", payload: item}),
+		increaseItemQty: item => dispatch({type:"INCREASE", payload: item}),
+		decreaseItemQty: item => dispatch({type:"DECREASE", payload: item})
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

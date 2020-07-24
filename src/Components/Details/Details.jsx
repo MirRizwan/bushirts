@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Slider from "react-slick";
 import { connect } from "react-redux";
-
+import Modal from 'react-modal';
 
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import SocialBar from "../SocialBar/SocialBar";
@@ -18,6 +18,8 @@ const Details = props => {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
 
+  
+  const [sizeGuide, setSizeGuide] = useState(false);
   let _topSlider = [],
     _bottomSlider = [];
 
@@ -103,8 +105,10 @@ const Details = props => {
     return <Redirect to="/not-found" />;
   }
 
+  Modal.setAppElement('#modal');
+
   return (
-    
+    <React.Fragment>
     <div id="tt-pageContent">
       <div className="container-indent">
         <div className="tt-mobile-product-slider visible-xs arrow-location-center slick-animated-show-js">
@@ -156,7 +160,7 @@ const Details = props => {
                     >
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" alt="" />
+                          <img src={mvalue.imgUrl} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -164,7 +168,7 @@ const Details = props => {
                       </div>
                       <div>
                         <div>
-                          <img src="/assets/images/product/product-01.jpg" alt="" />
+                          <img src={mvalue.imgUrl} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
@@ -326,10 +330,16 @@ const Details = props => {
                   </div>
                   <h1 className="tt-title">{mvalue.title}</h1>
                   <div className="tt-price">
-                    <span className="sale-price">PKR {mvalue.price}</span>
-                    {mvalue.salePrice ? (
-                      <span className="old-price">PKR {mvalue.price}</span>
-                    ) : null}
+                    
+                    {
+                    mvalue.salePrice ? (
+                      <React.Fragment>
+                        <span className="sale-price">PKR {mvalue.salePrice}</span>
+                        <span className="old-price">PKR {mvalue.price}</span>
+                      </React.Fragment>
+                      
+                    ) : <span className="sale-price">PKR {mvalue.price}</span>
+                    }
                   </div>
                   <div className="tt-review">
                     <div className="tt-rating">
@@ -387,6 +397,7 @@ const Details = props => {
                         data-toggle="modal"
                         data-target="#modalProductInfo"
                         to="#"
+                        onClick={()=>setSizeGuide(true)}
                       >
                         Size Guide
                       </Link>
@@ -485,22 +496,17 @@ const Details = props => {
                           <i className="icon-n-072"></i>ADD TO WISH LIST
                         </Link>
                       </li>
-                      <li>
-                        <Link className="btn-link" to="#">
-                          <i className="icon-n-08"></i>ADD TO COMPARE
-                        </Link>
-                      </li>
                     </ul>
                   </div>
                   <div className="tt-wrapper">
                     <div className="tt-promo-brand">
                       <img
-                        src="images/custom/tt-promo-brand-desctop.png"
+                        src="/assets/images/custom/tt-promo-brand-desctop.png"
                         className="visible-lg visible-md visible-sm visible-xl"
                         alt=""
                       />
                       <img
-                        src="images/custom/tt-promo-brand-mobile.png"
+                        src="/assets/images/custom/tt-promo-brand-mobile.png"
                         className="visible-xs"
                         alt=""
                       />
@@ -753,6 +759,145 @@ const Details = props => {
       <SocialBar />
       <RelatedProducts />
     </div>
+
+
+<Modal isOpen={sizeGuide} shouldCloseOnOverlayClick={true} onRequestClose={()=>setSizeGuide(false)} style={
+  {
+    overlay:{
+      background:"rgba(0,0,0,0.5)",
+      zIndex:"9999",
+    },
+    content: {
+      position: 'absolute',
+      width: '70%',
+      margin: '10px auto',      
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%,-50%)',
+      border: 'none',
+      background: 'transparent',
+      overflow: 'inherit',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: 0,
+      outline: 'none',
+      padding: '20px'
+    }
+  }
+}>
+  <div className="modal-content ">
+  <div className="modal-header">
+    <button type="button" className="close" onClick={ ()=> setSizeGuide(false) } ariaHidden="true"><span className="icon icon-clear"></span></button>
+  </div>
+  <div className="modal-body">
+    <div className="tt-layout-product-info">
+      <h6 className="tt-title">SIZE GUIDE</h6>
+      <p>This is an approximate conversion table to help you find your size.</p>
+      <div className="tt-table-responsive-md">
+                <table className="tt-table-modal-info">
+          <thead>
+            <tr>
+              <th width="20%">Italian</th>
+              <th width="20%">Pakistan</th>
+              <th width="20%">German</th>
+              <th width="20%">UK</th>
+              <th width="20%">US</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>34</td>
+              <td>30</td>
+              <td>28</td>
+              <td>4</td>
+              <td>00</td>
+              
+            </tr>
+            <tr>
+              <td>36</td>
+              <td>32</td>
+              <td>30</td>
+              <td>6</td>
+              <td>0</td>
+              
+            </tr>
+            <tr>
+              <td>38</td>
+              <td>34</td>
+              <td>32</td>
+              <td>8</td>
+              <td>2</td>
+              
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>36</td>
+              <td>34</td>
+              <td>10</td>
+              <td>4</td>
+             
+            </tr>
+            <tr>
+              <td>42</td>
+              <td>38</td>
+              <td>36</td>
+              <td>12</td>
+              <td>6</td>
+              
+            </tr>
+            <tr>
+              <td>44</td>
+              <td>40</td>
+              <td>38</td>
+              <td>14</td>
+              <td>8</td>
+              
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>42</td>
+              <td>40</td>
+              <td>16</td>
+              <td>10</td>
+              
+            </tr>
+            <tr>
+              <td>48</td>
+              <td>44</td>
+              <td>42</td>
+              <td>18</td>
+              <td>12</td>
+              
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>46</td>
+              <td>44</td>
+              <td>20</td>
+              <td>14</td>
+              
+            </tr>
+            <tr>
+              <td>52</td>
+              <td>48</td>
+              <td>46</td>
+              <td>22</td>
+              <td>16</td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</Modal>
+
+</React.Fragment>
   );
 };
 

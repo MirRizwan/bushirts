@@ -1,0 +1,23 @@
+.cartTitle{
+    font-size: 18px !important;
+    color: #fae420 !important;
+    font-weight: bold !important;
+}
+
+.modal-header .close:before {
+    content: "\ea0f";
+    font-size: 20px;
+    line-height: 1;
+}
+
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-body {
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.tt-layout-product-info{ text-align: center; }

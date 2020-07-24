@@ -1,14 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Details from '../Components/Details/Details';
-import Breadcrumb from '../Components/Breadcrumb/Breadcrumb';
+
 
 
 const ProductDetail = (props) => {
-    // console.log("product detail props",props.match.params.id);
+   
     return(
         <React.Fragment>
-            <Breadcrumb />
+            <div className="tt-breadcrumb">
+                <div className="container">
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li>Products</li>
+                    </ul>
+                </div>
+            </div>
             <Details productID={props.match.params.id} />
         </React.Fragment>
         

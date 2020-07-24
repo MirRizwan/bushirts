@@ -34,7 +34,7 @@ const MiniCart = (props) => {
 											<div className="tt-item" key={c._id}>
 												<Link to={`/product/${c._id}`}>
 													<div className="tt-item-img">
-														<img src="/assets/images/product/product-01.jpg" alt="" />
+														<img src={c.imgUrl} alt="" />
 													</div>
 													<div className="tt-item-descriptions">
 														<h2 className="tt-title">{c.title}</h2>
