@@ -78,7 +78,7 @@ const Details = props => {
     }
      setQtyState(qtyvalue)
 
-  };
+  }
 
   const filteredProduct = props.products.filter(singleProduct => singleProduct._id === props.productID);
   if (filteredProduct.length === 0) {
@@ -310,9 +310,7 @@ const Details = props => {
                       <Link to="#">(1 Customer Review)</Link>
                     </div>
                     <div className="tt-wrapper">
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam.
+                      {mvalue.description}
                   </div>
                     <div className="tt-wrapper">
                       <div className="tt-countdown_box_02">

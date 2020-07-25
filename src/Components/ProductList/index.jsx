@@ -2,9 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import Slider from 'react-slick';
 import SideBar from "../SideBar/SideBar";
 import ProductFilterOptions from "../ProductFilterOptions/ProductFilterOptions";
+import { addCart } from '../../Store/Actions/cartAction';
 import { useState } from "react";
+
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 Modal.setAppElement('#modal');
 
@@ -12,6 +18,55 @@ Modal.setAppElement('#modal');
 const ProductList = props => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalProductId,setModalProductId]=useState(null);
+  const [colorState,setColorState]=useState(null);
+  const [sizeState,setSizeState]=useState(null);
+  const [textureState,setTextureState]=useState(null);
+  const [qtyState,setQtyState]=useState(1);
+
+  const getProductId = (id) =>{
+    setModalProductId(id);
+    setModalIsOpen(true);
+
+  }
+
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1    
+  }
+
+  const setItemQtyPlusHandler = () => {
+    let qty = qtyState + 1;
+    if (qty > 5) {
+      qty = 5;
+    }
+     setQtyState( qty)
+  };
+  const setItemQtyMinusHandler = () => {
+    let qty = qtyState - 1;
+    if (qty <= 0) {
+      qty = 1;
+    }
+    setQtyState(qty)
+  };
+  const setItemOnChangeHandler = c => {
+    let qtyvalue = parseInt(c.target.value, 10);
+    if (qtyvalue > 5) {
+      qtyvalue = 5;
+    } else if (qtyvalue <= 0 || qtyvalue === '') {
+      qtyvalue = 1;
+    }
+     setQtyState(qtyvalue)
+
+  }
+
+
+  const filteredProduct = props.products.filter(singleProduct => singleProduct._id === modalProductId);
+  
 
   return (
     <React.Fragment>
@@ -45,26 +100,39 @@ const ProductList = props => {
             <button type="button" className="close" onClick={() => setModalIsOpen(false)} ariaHidden="true"><span className="icon icon-clear"></span></button>
           </div>
           <div class="modal-body">
+          {filteredProduct.map(productSingle => (
             <div class="tt-modal-quickview desctope">
               <div class="row">
                 <div class="col-12 col-md-5 col-lg-6">
-                  <div class="tt-mobile-product-slider " role="toolbar">
-                    <div><img alt="" src="images/product/product-01.jpg" class="loading" data-was-processed="true" /></div>
-                    <div><img alt="" src="images/product/product-01.jpg" class="loading" data-was-processed="true" /></div>
-                    <div><img alt="" src="images/product/product-01.jpg" class="loading" data-was-processed="true" /></div>
+                  <div class="tt-mobile-product-slider" >
+                  <Slider   {...settings} >
+                    <div><img alt="" src={productSingle.imgUrl} class="loading" data-was-processed="true" /></div>
+                    <div><img alt="" src={productSingle.imgUrl1} class="loading" data-was-processed="true" /></div>
+                    <div><img alt="" src={productSingle.imgUrl2} class="loading" data-was-processed="true" /></div>
+                  </Slider>
                   </div>
+
                 </div>
                 <div class="col-12 col-md-7 col-lg-6">
                   <div class="tt-product-single-info">
                     <div class="tt-add-info">
                       <ul>
-                        <li><span>SKU:</span> 001</li>
-                        <li><span>Availability:</span> 40 in Stock</li>
+                        <li><span>SKU:</span> {productSingle._id}</li>
+                        <li><span>Availability:</span> {productSingle.stock} in Stock</li>
                       </ul>
                     </div>
-                    <h2 class="tt-title">Cotton Blend Fleece Hoodie</h2>
-                    <div class="tt-price"><span class="new-price">$29</span>
-                      <span class="old-price"></span>
+                      <h2 class="tt-title">{productSingle.title}</h2>
+                    <div class="tt-price">
+                    {
+                        productSingle.salePrice ? (
+                          <React.Fragment>
+                            <span className="new-price">PKR {productSingle.salePrice}</span> &nbsp;
+                            <span className="old-price">PKR {productSingle.price}</span>
+                          </React.Fragment>
+
+                        ) : <span className="new-price">PKR {productSingle.price}</span>
+                      }
+                                            
                     </div>
                     <div class="tt-review">
                       <div class="tt-rating">
@@ -77,82 +145,96 @@ const ProductList = props => {
                       <a href="#">(1 Customer Review)</a>
                     </div>
                     <div class="tt-wrapper">
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      {productSingle.description}
                       </div>
                     <div class="tt-swatches-container">
-                      <div class="tt-wrapper">
-                        <div class="tt-title-options">SIZE</div>
-                        <form class="form-default">
-                          <div class="form-group">
-                            <select class="form-control">
-                              <option>21</option>
-                              <option>25</option>
-                              <option>36</option>
-                            </select>
-                          </div>
-                        </form>
-
-                      </div>
-                      <div class="tt-wrapper">
-                        <div class="tt-title-options">COLOR</div>
-                        <form class="form-default"><div class="form-group">
-                          <select class="form-control">
-                            <option>Red</option>
-                            <option>Green</option>
-                            <option>Brown</option>
-                          </select>
+                    {productSingle.size && (
+                        <div className="tt-wrapper">
+                          <div className="tt-title-options">SIZE:</div>
+                          <ul className="tt-options-swatch options-large">
+                            {productSingle.size.map(s => (
+                              <li key={s}>
+                                <Link
+                                  to="#"
+                                  name={s}
+                                  onClick={e => { setSizeState(e.target.name) }}
+                                >
+                                  {s}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        </form>
-                      </div>
-                      <div class="tt-wrapper">
-                        <div class="tt-title-options">TEXTURE:</div>
-                        <ul class="tt-options-swatch options-large">
-                          <li><a class="options-color" href="#"><span class="swatch-img">
-                            <img src="images/custom/texture-img-01.jpg" alt="" class="loaded" data-was-processed="true" />
-                          </span><span class="swatch-label color-black"></span></a></li>
-                          <li class="active"><a class="options-color" href="#">
-                            <span class="swatch-img">
-                              <img src="images/custom/texture-img-02.jpg" data-src="images/custom/texture-img-02.jpg" alt="" class="loaded" data-was-processed="true" /> </span>
-                            <span class="swatch-label color-black"></span>
-                          </a>
-                          </li>
-                          <li>
-                            <a class="options-color" href="#">
-                              <span class="swatch-img">
-                                <img src="images/custom/texture-img-03.jpg" alt="" class="loaded" data-was-processed="true" />
-                              </span><span class="swatch-label color-black"></span>
-                            </a>
-                          </li>
-                          <li>
-                            <a class="options-color" href="#">
-                              <span class="swatch-img">
-                                <img src="images/custom/texture-img-04.jpg" alt="" class="loaded" data-was-processed="true" />
-                              </span>
-                              <span class="swatch-label color-black"></span>
-                            </a>
-                          </li>
-                          <li>
-                            <a class="options-color" href="#">
-                              <span class="swatch-img">
-                                <img src="images/custom/texture-img-05.jpg" alt="" class="loaded" data-was-processed="true" />
-                              </span>
-                              <span class="swatch-label color-black"></span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+                      )}
+                      {productSingle.color && (
+                        <div className="tt-wrapper">
+                          <div className="tt-title-options">
+                            COLOR:
+                        </div>
+                          <ul className="tt-options-swatch options-large">
+                            {productSingle.color.map(m => (
+                              <li key={m}>
+                                <Link
+                                  className={`options-color tt-color-bg-${m}`}
+                                  name={m}
+                                  onClick={(e) => { setColorState(e.target.name) }}
+                                  to="#"
+                                ></Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {productSingle.texture && (
+                        <div className="tt-wrapper">
+                          <div className="tt-title-options">TEXTURE:</div>
+                          <ul className="tt-options-swatch options-large">
+                            {productSingle.texture.map(t => (
+                              <li key={t}>
+                                <Link
+                                  className="options-color"
+                                  name={t}
+                                  onClick={(e) => { setTextureState(e.target.name) }}
+                                  to="#"
+                                >
+                                  <span className="swatch-img">
+                                    <img
+                                      src={`/assets/images/custom/texture-img-${t}.jpg`}
+                                      alt=""
+                                    />
+                                  </span>
+                                  <span className="swatch-label color-black"></span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                     <div class="tt-wrapper">
                       <div class="tt-row-custom-01">
                         <div class="col-item">
                           <div class="tt-input-counter style-01">
-                            <span class="minus-btn"></span>
-                            <input type="text" value="1" size="5" />
-                            <span class="plus-btn"></span>
+                            <Link
+                              className="minus-btn"
+                              onClick={setItemQtyMinusHandler}
+                              to="#"
+                            ></Link>
+                            <input
+                              type="text"
+                              value={qtyState}
+                              onChange={setItemOnChangeHandler}
+                              size="1"
+                            />
+                            <Link
+                              className="plus-btn"
+                              onClick={setItemQtyPlusHandler}
+                              to="#"
+                            ></Link>
                           </div>
                         </div>
                         <div class="col-item">
-                          <a href="#" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+                          <a href="javascript:;"  onClick={() => props.addCartp(productSingle,qtyState,sizeState,textureState,colorState)} class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
                         </div>
                       </div>
                     </div>
@@ -160,6 +242,7 @@ const ProductList = props => {
                 </div>
               </div>
             </div>
+          ))}
           </div>
         </div>
       </Modal >
@@ -183,7 +266,7 @@ const ProductList = props => {
                               data-target="#ModalquickView"
                               data-tooltip="Quick View"
                               data-tposition="left"
-                              onClick={() => setModalIsOpen(true)}
+                              onClick={() => getProductId(prod._id)}
                             ></Link>
                             <Link
                               to="#"
@@ -317,8 +400,12 @@ const mapStateToProps = state => {
     products: state.Products.products
   };
 };
-
+const mapDispatchToProps = dispatch => {
+  return {
+    addCartp: (prod,qty,size,texture,color) => dispatch(addCart(prod,qty,size,texture,color))
+  };
+};
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ProductList);

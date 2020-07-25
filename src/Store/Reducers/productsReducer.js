@@ -4,6 +4,7 @@ const initialState = {
             _id:'01',
             special:true,
             title: 'Designer Kurta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red'],
             size: ['S', 'M', 'L'],
             inStock: false,
@@ -24,6 +25,7 @@ const initialState = {
             _id:'02',            
             special:true,
             title: 'Designer Shalwar',
+            description:'Description of product is here lorem ipsum',
             size: ['S', 'M', 'L'],
             inStock: true,
             stock: 20,
@@ -43,6 +45,7 @@ const initialState = {
             _id:'03',
             trending:true,            
             title: 'Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -62,6 +65,7 @@ const initialState = {
             _id:'04',
             trending:true,            
             title: 'Mens Kurta',
+            description:'Description of product is here lorem ipsum',
             color: ['navyblue', 'green', 'blue', 'white'],
             size: ['S','L'],
             imgUrl: "https://picsum.photos/280/350",
@@ -81,6 +85,7 @@ const initialState = {
             _id:'05',
             special:true,            
             title: 'Lilan Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -101,6 +106,7 @@ const initialState = {
             _id:'06',
             trending:true,            
             title: 'Mens Shalwar Kameez',
+            description:'Description of product is here lorem ipsum',
             color: ['offwhite', 'white', 'blue'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -119,6 +125,7 @@ const initialState = {
         {
             _id:'07',            
             title: 'Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -138,6 +145,7 @@ const initialState = {
             _id:'08',
             trending:true,            
             title: 'Embroidered Dupatta',
+            description:'Description of product is here lorem ipsum',
             imgUrl: "https://picsum.photos/280/350",
             imgUrl1: "https://picsum.photos/280/350",
             imgUrl2: "https://picsum.photos/280/350",
@@ -157,6 +165,7 @@ const initialState = {
         {
             _id:'09',            
             title: 'Dupatta',
+            description:'Description of product is here lorem ipsum',
             imgUrl: "https://picsum.photos/280/350",
             imgUrl1: "https://picsum.photos/280/350",
             imgUrl2: "https://picsum.photos/280/350",
@@ -176,6 +185,7 @@ const initialState = {
         {
             _id:'10',            
             title: 'Basic Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -195,6 +205,7 @@ const initialState = {
         {
             _id:'11',            
             title: 'Embellished Essential Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -213,6 +224,7 @@ const initialState = {
         {
             _id:'12',            
             title: 'Tank Tops',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -231,6 +243,7 @@ const initialState = {
         {
             _id:'13',            
             title: 'Stole',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -250,6 +263,7 @@ const initialState = {
         {
             _id:'14',            
             title: 'Embellished Essential',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -268,6 +282,7 @@ const initialState = {
         {
             _id:'15',            
             title: 'Embroidered Stole',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -287,6 +302,7 @@ const initialState = {
         {
             _id:'16',            
             title: 'Shirt Shalwar Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -305,6 +321,7 @@ const initialState = {
         {
             _id:'17',            
             title: 'Shirt Shalwar Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -323,6 +340,7 @@ const initialState = {
         {
             _id:'18',            
             title: 'Shirt Shalwar',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -341,6 +359,7 @@ const initialState = {
         {
             _id:'19',            
             title: 'Shirt Shalwar',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -360,6 +379,7 @@ const initialState = {
         {
             _id:'20',            
             title: 'Printed Kameez, Printed Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -380,6 +400,7 @@ const initialState = {
         {
             _id:'21',            
             title: 'Embellished Kurta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -400,6 +421,7 @@ const initialState = {
         {
             _id:'22',            
             title: 'Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue','ready-to-wear'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -418,6 +440,7 @@ const initialState = {
         {
             _id:'23',            
             title: 'Kurta With Pants',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red', 'blue', 'purple'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -436,6 +459,7 @@ const initialState = {
         {
             _id:'24',            
             title: 'Embellished Suits',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red'],
             size: ['S', 'M', 'L'],
             inStock: true,
@@ -454,6 +478,7 @@ const initialState = {
         {
             _id:'25',            
             title: 'Dupatta',
+            description:'Description of product is here lorem ipsum',
             color: ['green', 'red'],
             size: ['S', 'M', 'L'],
             inStock: true,
