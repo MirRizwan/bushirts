@@ -8,7 +8,17 @@ const initialState = {
 const cartReducer = (state = initialState, action) =>{
     switch(action.type){
         case "ADD_CART":{
-            const data = action.payload;
+            const data = {
+                _id:action.payload.data._id,
+                title:action.payload.data.title,
+                imgUrl:action.payload.data.imgUrl,
+                price: action.payload.data.salePrice ? action.payload.data.salePrice : action.payload.data.price,
+                qty:action.payload.qty,
+                texture:action.payload.texture,
+                color:action.payload.color,
+                size:action.payload.size
+            };
+
             const existingProduct = state.cart.filter( e => e._id === data._id);
 
             if(existingProduct.length > 0){

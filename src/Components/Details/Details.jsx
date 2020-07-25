@@ -17,6 +17,10 @@ import './Details.css';
 const Details = props => {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
+  const [colorState,setColorState]=useState(null);
+  const [sizeState,setSizeState]=useState(null);
+  const [textureState,setTextureState]=useState(null);
+  const [qtyState,setQtyState]=useState(1);
 
 
   const [sizeGuide, setSizeGuide] = useState(false);
@@ -49,33 +53,21 @@ const Details = props => {
     slidesToScroll: 1
   };
 
-  //cart state
-  const [cartItem, setCartItem] = useState({
-    _id: null,
-    title: null,
-    color: null,
-    size: null,
-    qty: 1,
-    imgUrl: null,
-    price: null,
-    texture: null
-  });
-
   //Product Variation states
 
   const setItemQtyPlusHandler = () => {
-    let qty = cartItem.qty + 1;
+    let qty = qtyState + 1;
     if (qty > 5) {
       qty = 5;
     }
-    setCartItem({ ...cartItem, qty })
+     setQtyState( qty)
   };
   const setItemQtyMinusHandler = () => {
-    let qty = cartItem.qty - 1;
+    let qty = qtyState - 1;
     if (qty <= 0) {
       qty = 1;
     }
-    setCartItem({ ...cartItem, qty })
+    setQtyState(qty)
   };
   const setItemOnChangeHandler = c => {
     let qtyvalue = parseInt(c.target.value, 10);
@@ -84,23 +76,11 @@ const Details = props => {
     } else if (qtyvalue <= 0 || qtyvalue === '') {
       qtyvalue = 1;
     }
-    setCartItem({ ...cartItem, qty: qtyvalue })
+     setQtyState(qtyvalue)
 
   };
 
   const filteredProduct = props.products.filter(singleProduct => singleProduct._id === props.productID);
-
-  useEffect(() => {
-    setCartItem({
-      _id: filteredProduct[0]._id,
-      title: filteredProduct[0].title,
-      imgUrl: filteredProduct[0].imgUrl,
-      price: filteredProduct[0].price,
-      unitPrice: filteredProduct[0].price,
-      qty: 1
-    });
-  }, []);
-
   if (filteredProduct.length === 0) {
     return <Redirect to="/not-found" />;
   }
@@ -361,7 +341,7 @@ const Details = props => {
                                 <Link
                                   to="#"
                                   name={s}
-                                  onClick={e => { setCartItem({ ...cartItem, size: e.target.name }) }}
+                                  onClick={e => { setSizeState(e.target.name) }}
                                 >
                                   {s}
                                 </Link>
@@ -398,7 +378,7 @@ const Details = props => {
                                 <Link
                                   className={`options-color tt-color-bg-${m}`}
                                   name={m}
-                                  onClick={(e) => { setCartItem({ ...cartItem, color: e.target.name }) }}
+                                  onClick={(e) => { setColorState(e.target.name) }}
                                   to="#"
                                 ></Link>
                               </li>
@@ -416,7 +396,7 @@ const Details = props => {
                                 <Link
                                   className="options-color"
                                   name={t}
-                                  onClick={(e) => { setCartItem({ ...cartItem, texture: e.target.name }) }}
+                                  onClick={(e) => { setTextureState(e.target.name) }}
                                   to="#"
                                 >
                                   <span className="swatch-img">
@@ -445,7 +425,7 @@ const Details = props => {
                             ></Link>
                             <input
                               type="text"
-                              value={cartItem.qty}
+                              value={qtyState}
                               onChange={setItemOnChangeHandler}
                               size="1"
                             />
@@ -458,7 +438,7 @@ const Details = props => {
                         </div>
                         <div className="col-item">
                           <Link
-                            onClick={() => props.addCartp(cartItem)}
+                            onClick={() => props.addCartp(mvalue,qtyState,sizeState,textureState,colorState)}
                             className="btn btn-lg"
                             to="#"
                           >
@@ -889,7 +869,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCartp: prod => dispatch(addCart(prod))
+    addCartp: (prod,qty,size,texture,color) => dispatch(addCart(prod,qty,size,texture,color))
   };
 };
 export default connect(

@@ -1,7 +1,15 @@
-export const addCart = data =>{
+
+export const addCart = (data,qty,size,texture,color) =>{
+    const option ={
+        data:data,
+        qty:qty,
+        size:size,
+        texture:texture,
+        color:color
+    }
     return{
         type: "ADD_CART",
-        payload: data
+        payload: option
     }
 }
 
