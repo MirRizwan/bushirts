@@ -7,8 +7,6 @@ import ProductList from '../Components/ProductList';
 
 
 const Products =(props)=>{
-    console.log(props.products);
-
     return (
         <React.Fragment>
             <div className="tt-breadcrumb">

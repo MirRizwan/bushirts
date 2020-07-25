@@ -1,0 +1,23 @@
+.tt-product:hover{
+    height:450px;
+}
+
+.tt-product, .tt-product .tt-description{
+    transition: all 2s ease 0s;
+    
+}
+.tt-product:hover .tt-description{
+    top:-69px;
+    
+}
+.tt-product:hover .tt-description .tt-product-inside-hover{
+    opacity: 1;
+}
+.ReactModal__Content .modal-header{
+    height:auto;
+}
+@media (min-width: 1025px){
+    .ReactModal__Content .modal-body {
+        padding: 30px;
+    }
+}
