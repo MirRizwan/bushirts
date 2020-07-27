@@ -85,10 +85,10 @@ const DesktopNavigation = () => {
                       <Link to="/products">EID Collection</Link>
                     </li>
                     <li className="dropdown">
-                      <Link to="listing-collection.html">New In</Link>
+                      <Link to="/products">New In</Link>
                     </li>
                     <li className="dropdown megamenu">
-                      <Link to="blog-listing-without-col.html">UNSTITCHED</Link>
+                      <Link to="/products">CATALOGUE</Link>
                       <div className="dropdown-menu">
                         <div className="row">
                           <div className="col-sm-9">
@@ -98,7 +98,7 @@ const DesktopNavigation = () => {
                                   to="listing-right-column.html"
                                   className="tt-title-submenu"
                                 >
-                                  TOPS
+                                  UNSTITCHED
                                   <img
                                     src="assets/images/custom/header-category-01.jpg"
                                     alt=""
@@ -280,7 +280,7 @@ const DesktopNavigation = () => {
                                   className="tt-title-submenu"
                                   to="listing-right-column.html"
                                 >
-                                  BOTTOMS
+                                  READY TO WEAR
                                   <img
                                     src="assets/images/custom/header-category-02.jpg"
                                     alt=""
@@ -400,317 +400,8 @@ const DesktopNavigation = () => {
                       </div>
                     </li>
 
-                    <li className="dropdown megamenu">
-                      <Link to="listing-right-column.html">READY TO WEAR</Link>
-                      <div className="dropdown-menu">
-                        <div className="row">
-                          <div className="col-sm-9">
-                            <div className="row tt-col-list">
-                              <div className="col-sm-4">
-                                <Link
-                                  to="listing-right-column.html"
-                                  className="tt-title-submenu"
-                                >
-                                  WESTERN
-                                  <img
-                                    src="/assets/images/custom/header-category-01.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-                                <ul className="tt-megamenu-submenu">
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Shirts
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Sweaters{" "}
-                                      <span className="tt-badge tt-new">
-                                        New
-                                      </span>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Tops &amp; T-shirts
-                                    </Link>
-                                    <ul>
-                                      <li>
-                                        <Link to="listing-right-column.html">
-                                          Link Level 1
-                                        </Link>
-                                      </li>
-                                      <li>
-                                        <Link to="listing-right-column.html">
-                                          Link Level 1
-                                        </Link>
-                                        <ul>
-                                          <li>
-                                            <Link to="listing-right-column.html">
-                                              Link Level 2
-                                            </Link>
-                                          </li>
-                                          <li>
-                                            <Link to="listing-right-column.html">
-                                              Link Level 2
-                                            </Link>
-                                            <ul>
-                                              <li>
-                                                <Link to="listing-right-column.html">
-                                                  Link Level 3
-                                                </Link>
-                                              </li>
-                                              <li>
-                                                <Link to="listing-right-column.html">
-                                                  Link Level 3
-                                                </Link>
-                                              </li>
-                                              <li>
-                                                <Link to="listing-right-column.html">
-                                                  Link Level 3
-                                                </Link>
-                                              </li>
-                                              <li>
-                                                <Link to="listing-right-column.html">
-                                                  Link Level 3
-                                                </Link>
-                                                <ul>
-                                                  <li>
-                                                    <Link to="listing-right-column.html">
-                                                      Link Level 4
-                                                    </Link>
-                                                    <ul>
-                                                      <li>
-                                                        <Link to="listing-right-column.html">
-                                                          Link Level 5
-                                                        </Link>
-                                                      </li>
-                                                      <li>
-                                                        <Link to="listing-right-column.html">
-                                                          Link Level 5
-                                                        </Link>
-                                                      </li>
-                                                      <li>
-                                                        <Link to="listing-right-column.html">
-                                                          Link Level 5
-                                                        </Link>
-                                                      </li>
-                                                      <li>
-                                                        <Link to="listing-right-column.html">
-                                                          Link Level 5
-                                                        </Link>
-                                                      </li>
-                                                      <li>
-                                                        <Link to="listing-right-column.html">
-                                                          Link Level 5
-                                                        </Link>
-                                                      </li>
-                                                    </ul>
-                                                  </li>
-                                                  <li>
-                                                    <Link to="listing-right-column.html">
-                                                      Link Level 4
-                                                    </Link>
-                                                  </li>
-                                                  <li>
-                                                    <Link to="listing-right-column.html">
-                                                      Link Level 4
-                                                    </Link>
-                                                  </li>
-                                                  <li>
-                                                    <Link to="listing-right-column.html">
-                                                      Link Level 4
-                                                    </Link>
-                                                  </li>
-                                                  <li>
-                                                    <Link to="listing-right-column.html">
-                                                      Link Level 4
-                                                    </Link>
-                                                  </li>
-                                                </ul>
-                                              </li>
-                                              <li>
-                                                <Link to="listing-right-column.html">
-                                                  Level 3
-                                                </Link>
-                                              </li>
-                                            </ul>
-                                          </li>
-                                          <li>
-                                            <Link to="listing-right-column.html">
-                                              Link Level 2
-                                            </Link>
-                                          </li>
-                                          <li>
-                                            <Link to="listing-right-column.html">
-                                              Link Level 2
-                                            </Link>
-                                          </li>
-                                          <li>
-                                            <Link to="listing-right-column.html">
-                                              Link Level 2
-                                            </Link>
-                                          </li>
-                                        </ul>
-                                      </li>
-                                      <li>
-                                        <Link to="listing-right-column.html">
-                                          Link Level 1
-                                        </Link>
-                                      </li>
-                                      <li>
-                                        <Link to="listing-right-column.html">
-                                          Link Level 1
-                                        </Link>
-                                      </li>
-                                      <li>
-                                        <Link to="listing-right-column.html">
-                                          Link Level 1
-                                        </Link>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Sleeveless Tops
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Jackets
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Outerwear
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="col-sm-4">
-                                <Link
-                                  className="tt-title-submenu"
-                                  to="listing-right-column.html"
-                                >
-                                  BOTTOMS
-                                  <img
-                                    src="assets/images/custom/header-category-02.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-                                <ul className="tt-megamenu-submenu">
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Trousers{" "}
-                                      <span className="tt-badge tt-fatured">
-                                        Fatured
-                                      </span>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Jeans
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Jumpsuit &amp; Shorts
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Skirts
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Tights
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="col-sm-4">
-                                <Link
-                                  className="tt-title-submenu"
-                                  to="listing-right-column.html"
-                                >
-                                  ACCESSORIES
-                                  <img
-                                    src="assets/images/custom/header-category-03.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-                                <ul className="tt-megamenu-submenu">
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Hats
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Scarves &amp; Snoods
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Belts
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Bags
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Shoes
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link to="listing-right-column.html">
-                                      Sunglasses{" "}
-                                      <span className="tt-badge tt-sale">
-                                        Sale 15%
-                                      </span>
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-sm-3">
-                            <div className="tt-offset-7">
-                              <Link
-                                to="listing-left-column.html"
-                                className="tt-promo-02"
-                              >
-                                <img
-                                  src="assets/images/custom/header-promo-03.jpg"
-                                  alt=""
-                                />
-                                <div className="tt-description tt-point-h-l tt-point-v-t">
-                                  <div className="tt-description-wrapper">
-                                    <div className="tt-title-small tt-white-color">
-                                      SALE
-                                    </div>
-                                    <div className="tt-title-xlarge tt-white-color">
-                                      70% OFF
-                                    </div>
-                                    <p className="tt-white-color">
-                                      Free shipping on all US order or order
-                                      above $99
-                                    </p>
-                                    <span className="btn-underline tt-obj-bottom tt-white-color">
-                                      SHOP NOW!
-                                    </span>
-                                  </div>
-                                </div>
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <li className="dropdown">
+                      <Link to="/products">FOOTWEAR</Link>
                     </li>
                   </ul>
                 </nav>
