@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 const initialState = {
   totalAmount: 0,
   cart: [],
@@ -29,25 +27,26 @@ const cartReducer = (state = initialState, action) => {
       if (existingProduct.length > 0) {
         const WO = state.cart.filter((e) => e._id !== data._id);
         const updatedQty = existingProduct[0].qty + data.qty;
+
         const updatedItem = {
           ...existingProduct[0],
           qty: updatedQty,
           price: existingProduct[0].price + data.price * data.qty,
         };
         return {
-          totalAmount: state.totalAmount + data.price * data.qty,
+          totalAmount: parseInt(state.totalAmount + updatedItem.price),
           cart: [...WO, updatedItem],
         };
+      } else {
+        const updatedItem = {
+          ...data,
+          price: data.price * data.qty,
+        };
+        return {
+          totalAmount: parseInt(state.totalAmount + updatedItem.price),
+          cart: [...state.cart, updatedItem],
+        };
       }
-
-      const updatedItem = {
-        ...data,
-        price: data.price * data.qty,
-      };
-      return {
-        totalAmount: state.totalAmount + updatedItem.price,
-        cart: [...state.cart, updatedItem],
-      };
     }
 
     case "INCREASE": {

@@ -1,5 +1,3 @@
-import { data } from "jquery";
-
 export const saveState = (state) => {
   try {
     // console.log("Mir ka cart", state.cart);
@@ -21,27 +19,28 @@ export const loadCartState = () => {
     console.log("Cart ki Value", serializedState);
 
     if (serializedState === null) {
-      return undefined;
+      return [];
     }
 
     return JSON.parse(serializedState);
   } catch (err) {
     console.log("Local storage Loading Error: ", err);
-    return undefined;
+    return [];
   }
 };
 
 export const loadTotalAmount = () => {
   try {
     const serializedTotalAmount = localStorage.getItem("totalAmount");
-    console.log("Total Amount ki Value", serializedTotalAmount);
+    const finalValue = JSON.parse(serializedTotalAmount);
+    console.log("Total Amount ki Value", finalValue);
 
     if (serializedTotalAmount === null) {
-      return undefined;
+      return [];
     }
-    return JSON.parse(serializedTotalAmount);
+    return finalValue;
   } catch (err) {
     console.log("Local storage Loading Error: ", err);
-    return undefined;
+    return [];
   }
 };

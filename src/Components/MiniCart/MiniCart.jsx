@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { removeCart } from "../../Store/Actions/cartAction";
 
 import "./MiniCart.css";
-import { data } from "jquery";
 
 const MiniCart = (props) => {
+  console.log("MiniCart", props);
   return (
     <div className="tt-desctop-parent-cart tt-parent-box">
       <div

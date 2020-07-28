@@ -13,7 +13,7 @@ const store = createStore(
 store.subscribe(() => {
   saveState({
     cart: store.getState().Cart.cart,
-    totalAmount: store.getState().Cart.totalAmount,
+    totalAmount: parseInt(store.getState().Cart.totalAmount),
   });
 });
 
