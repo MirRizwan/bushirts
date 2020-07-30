@@ -2,28 +2,30 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Slider from "react-slick";
 import { connect } from "react-redux";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import SocialBar from "../SocialBar/SocialBar";
-import { addCart } from '../../Store/Actions/cartAction';
+import { addCart } from "../../Store/Actions/cartAction";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import './Details.css';
+import "./Details.css";
+import AddCartModal from "../Modals/AddCartModal";
+import SizeGuideModal from "../Modals/SizeGuideModal";
 
-
-const Details = props => {
+const Details = (props) => {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
-  const [colorState,setColorState]=useState(null);
-  const [sizeState,setSizeState]=useState(null);
-  const [textureState,setTextureState]=useState(null);
-  const [qtyState,setQtyState]=useState(1);
-
+  const [colorState, setColorState] = useState(null);
+  const [sizeState, setSizeState] = useState(null);
+  const [textureState, setTextureState] = useState(null);
+  const [qtyState, setQtyState] = useState(1);
 
   const [sizeGuide, setSizeGuide] = useState(false);
+  const [cartAddedModal, setCartAddedModal] = useState(false);
+
   let _topSlider = [],
     _bottomSlider = [];
 
@@ -41,7 +43,7 @@ const Details = props => {
     verticalSwiping: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    focusOnSelect: true
+    focusOnSelect: true,
   };
 
   const settings2 = {
@@ -50,42 +52,52 @@ const Details = props => {
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
-  //Product Variation states
+  const addCartHandler = (
+    mvalue,
+    qtyState,
+    sizeState,
+    textureState,
+    colorState
+  ) => {
+    setCartAddedModal(true);
+    props.addCartp(mvalue, qtyState, sizeState, textureState, colorState);
+  };
 
   const setItemQtyPlusHandler = () => {
     let qty = qtyState + 1;
     if (qty > 5) {
       qty = 5;
     }
-     setQtyState( qty)
+    setQtyState(qty);
   };
   const setItemQtyMinusHandler = () => {
     let qty = qtyState - 1;
     if (qty <= 0) {
       qty = 1;
     }
-    setQtyState(qty)
+    setQtyState(qty);
   };
-  const setItemOnChangeHandler = c => {
+  const setItemOnChangeHandler = (c) => {
     let qtyvalue = parseInt(c.target.value, 10);
     if (qtyvalue > 5) {
       qtyvalue = 5;
-    } else if (qtyvalue <= 0 || qtyvalue === '') {
+    } else if (qtyvalue <= 0 || qtyvalue === "") {
       qtyvalue = 1;
     }
-     setQtyState(qtyvalue)
+    setQtyState(qtyvalue);
+  };
 
-  }
-
-  const filteredProduct = props.products.filter(singleProduct => singleProduct._id === props.productID);
+  const filteredProduct = props.products.filter(
+    (singleProduct) => singleProduct._id === props.productID
+  );
   if (filteredProduct.length === 0) {
     return <Redirect to="/not-found" />;
   }
 
-  Modal.setAppElement('#modal');
+  Modal.setAppElement("#modal");
 
   return (
     <React.Fragment>
@@ -107,80 +119,66 @@ const Details = props => {
           </div>
 
           <div className="container container-fluid-mobile">
-            {filteredProduct.map(mvalue => (
+            {filteredProduct.map((mvalue) => (
               <div className="row" key={mvalue._id}>
                 <div className="col-6 hidden-xs">
                   <div className="tt-product-vertical-layout">
                     <div className="tt-product-single-img">
                       <Slider
                         asNavFor={nav2}
-                        ref={slider => {
+                        ref={(slider) => {
                           _topSlider = slider;
                         }}
                         {...settings2}
                       >
                         <div>
-
                           <img src={mvalue.imgUrl} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                         <div>
-
                           <img src={mvalue.imgUrl1} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                         <div>
-
                           <img src={mvalue.imgUrl2} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                         <div>
-
                           <img src={mvalue.imgUrl3} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                         <div>
-
                           <img src={mvalue.imgUrl4} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                         <div>
-
                           <img src={mvalue.imgUrl5} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                         <div>
-
                           <img src={mvalue.imgUrl6} alt="" />
                           <button className="tt-btn-zomm tt-top-right">
                             <i className="icon-f-86"></i>
                           </button>
-
                         </div>
                       </Slider>
                     </div>
                     <div className="tt-product-single-carousel-vertical">
                       <Slider
                         asNavFor={nav1}
-                        ref={slider => {
+                        ref={(slider) => {
                           _bottomSlider = slider;
                         }}
                         id="smallGallery"
@@ -194,10 +192,7 @@ const Details = props => {
                             data-image={mvalue.imgUrl}
                             data-zoom-image={mvalue.imgUrl}
                           >
-                            <img
-                              src={mvalue.imgUrl}
-                              alt=""
-                            />
+                            <img src={mvalue.imgUrl} alt="" />
                           </Link>
                         </li>
                         <li>
@@ -206,10 +201,7 @@ const Details = props => {
                             data-image={mvalue.imgUrl1}
                             data-zoom-image={mvalue.imgUrl1}
                           >
-                            <img
-                              src={mvalue.imgUrl1}
-                              alt=""
-                            />
+                            <img src={mvalue.imgUrl1} alt="" />
                           </Link>
                         </li>
                         <li>
@@ -218,10 +210,7 @@ const Details = props => {
                             data-image={mvalue.imgUrl3}
                             data-zoom-image={mvalue.imgUrl3}
                           >
-                            <img
-                              src={mvalue.imgUrl3}
-                              alt=""
-                            />
+                            <img src={mvalue.imgUrl3} alt="" />
                           </Link>
                         </li>
                         <li>
@@ -230,10 +219,7 @@ const Details = props => {
                             data-image={mvalue.imgUrl4}
                             data-zoom-image={mvalue.imgUrl4}
                           >
-                            <img
-                              src={mvalue.imgUrl4}
-                              alt=""
-                            />
+                            <img src={mvalue.imgUrl4} alt="" />
                           </Link>
                         </li>
                         <li>
@@ -242,10 +228,7 @@ const Details = props => {
                             data-image={mvalue.imgUrl5}
                             data-zoom-image={mvalue.imgUrl5}
                           >
-                            <img
-                              src={mvalue.imgUrl5}
-                              alt=""
-                            />
+                            <img src={mvalue.imgUrl5} alt="" />
                           </Link>
                         </li>
                         <li>
@@ -254,12 +237,9 @@ const Details = props => {
                             data-image={mvalue.imgUrl6}
                             data-zoom-image={mvalue.imgUrl6}
                           >
-                            <img
-                              src={mvalue.imgUrl6}
-                              alt=""
-                            />
+                            <img src={mvalue.imgUrl6} alt="" />
                           </Link>
-                        </li>                        
+                        </li>
                       </Slider>
                     </div>
                   </div>
@@ -273,31 +253,31 @@ const Details = props => {
                         <div className="tt-label tt-label-sale">Sale 40%</div>
                         <div className="tt-label tt-label-our-fatured">
                           Fatured
-                      </div>
+                        </div>
                       </div>
                     </div>
                     <div className="tt-add-info">
                       <ul>
                         <li>
                           <span>SKU:</span> 001
-                      </li>
+                        </li>
                         <li>
                           <span>Availability:</span> {mvalue.stock} in Stock
-                      </li>
+                        </li>
                       </ul>
                     </div>
                     <h1 className="tt-title">{mvalue.title}</h1>
                     <div className="tt-price">
-
-                      {
-                        mvalue.salePrice ? (
-                          <React.Fragment>
-                            <span className="sale-price">PKR {mvalue.salePrice}</span>
-                            <span className="old-price">PKR {mvalue.price}</span>
-                          </React.Fragment>
-
-                        ) : <span className="sale-price">PKR {mvalue.price}</span>
-                      }
+                      {mvalue.salePrice ? (
+                        <React.Fragment>
+                          <span className="sale-price">
+                            PKR {mvalue.salePrice}
+                          </span>
+                          <span className="old-price">PKR {mvalue.price}</span>
+                        </React.Fragment>
+                      ) : (
+                        <span className="sale-price">PKR {mvalue.price}</span>
+                      )}
                     </div>
                     <div className="tt-review">
                       <div className="tt-rating">
@@ -309,9 +289,7 @@ const Details = props => {
                       </div>
                       <Link to="#">(1 Customer Review)</Link>
                     </div>
-                    <div className="tt-wrapper">
-                      {mvalue.description}
-                  </div>
+                    <div className="tt-wrapper">{mvalue.description}</div>
                     <div className="tt-wrapper">
                       <div className="tt-countdown_box_02">
                         <div className="tt-countdown_inner">
@@ -334,12 +312,14 @@ const Details = props => {
                         <div className="tt-wrapper">
                           <div className="tt-title-options">SIZE:</div>
                           <ul className="tt-options-swatch options-large">
-                            {mvalue.size.map(s => (
+                            {mvalue.size.map((s) => (
                               <li key={s}>
                                 <Link
                                   to="#"
                                   name={s}
-                                  onClick={e => { setSizeState(e.target.name) }}
+                                  onClick={(e) => {
+                                    setSizeState(e.target.name);
+                                  }}
                                 >
                                   {s}
                                 </Link>
@@ -356,27 +336,27 @@ const Details = props => {
                           onClick={() => setSizeGuide(true)}
                         >
                           Size Guide
-                      </Link>
+                        </Link>
                         <Link
                           data-toggle="modal"
                           data-target="#modalProductInfo-02"
                           to="#"
                         >
                           Shipping
-                      </Link>
+                        </Link>
                       </div>
                       {mvalue.color && (
                         <div className="tt-wrapper">
-                          <div className="tt-title-options">
-                            COLOR:
-                        </div>
+                          <div className="tt-title-options">COLOR:</div>
                           <ul className="tt-options-swatch options-large">
-                            {mvalue.color.map(m => (
+                            {mvalue.color.map((m) => (
                               <li key={m}>
                                 <Link
                                   className={`options-color tt-color-bg-${m}`}
                                   name={m}
-                                  onClick={(e) => { setColorState(e.target.name) }}
+                                  onClick={(e) => {
+                                    setColorState(e.target.name);
+                                  }}
                                   to="#"
                                 ></Link>
                               </li>
@@ -389,12 +369,14 @@ const Details = props => {
                         <div className="tt-wrapper">
                           <div className="tt-title-options">TEXTURE:</div>
                           <ul className="tt-options-swatch options-large">
-                            {mvalue.texture.map(t => (
+                            {mvalue.texture.map((t) => (
                               <li key={t}>
                                 <Link
                                   className="options-color"
                                   name={t}
-                                  onClick={(e) => { setTextureState(e.target.name) }}
+                                  onClick={(e) => {
+                                    setTextureState(e.target.name);
+                                  }}
                                   to="#"
                                 >
                                   <span className="swatch-img">
@@ -436,12 +418,20 @@ const Details = props => {
                         </div>
                         <div className="col-item">
                           <Link
-                            onClick={() => props.addCartp(mvalue,qtyState,sizeState,textureState,colorState)}
+                            onClick={() =>
+                              addCartHandler(
+                                mvalue,
+                                qtyState,
+                                sizeState,
+                                textureState,
+                                colorState
+                              )
+                            }
                             className="btn btn-lg"
                             to="#"
                           >
                             <i className="icon-f-39"></i>ADD TO CART
-                        </Link>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -450,7 +440,7 @@ const Details = props => {
                         <li>
                           <Link className="btn-link" to="#">
                             <i className="icon-n-072"></i>ADD TO WISH LIST
-                        </Link>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -473,10 +463,10 @@ const Details = props => {
                         <ul>
                           <li>
                             <span>Vendor:</span> Polo
-                        </li>
+                          </li>
                           <li>
                             <span>Product Type:</span> T-Shirt
-                        </li>
+                          </li>
                           <li>
                             <span>Tag:</span> <Link to="#">T-Shirt</Link>,{" "}
                             <Link to="#">Women</Link>, <Link to="#">Top</Link>
@@ -491,15 +481,15 @@ const Details = props => {
                           Lorem ipsum dolor sit amet conse ctetur adipisicing
                           elit, sed do eiusmod tempor incididunt ut labore et
                           dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip ex
-                          ea commodo consequat. Duis aute irure dolor in
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
                           reprehenderit in voluptate velit esse cillum.
-                      </div>
+                        </div>
                       </div>
                       <div className="tt-item">
                         <div className="tt-collapse-title">
                           ADDITIONAL INFORMATION
-                      </div>
+                        </div>
                         <div className="tt-collapse-content">
                           <table className="tt-table-03">
                             <tbody>
@@ -527,7 +517,7 @@ const Details = props => {
                               <div className="col-item">
                                 <h2 className="tt-title">
                                   1 REVIEW FOR VARIABLE PRODUCT
-                              </h2>
+                                </h2>
                               </div>
                               <div className="col-item">
                                 <Link to="#">Write a review</Link>
@@ -557,16 +547,16 @@ const Details = props => {
                                     </span>
                                     <span className="time">
                                       on January 14, 2017
-                                  </span>
+                                    </span>
                                   </div>
                                   <div className="tt-comments-title">
                                     Very Good!
-                                </div>
+                                  </div>
                                   <p>
-                                    Ctetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim.
-                                </p>
+                                    Ctetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim.
+                                  </p>
                                 </div>
                               </div>
                               <div className="tt-item">
@@ -592,13 +582,13 @@ const Details = props => {
                                     </span>
                                     <span className="time">
                                       on January 14, 2017
-                                  </span>
+                                    </span>
                                   </div>
                                   <div className="tt-comments-title">Bad!</div>
                                   <p>
-                                    Sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua.
-                                </p>
+                                    Sed do eiusmod tempor incididunt ut labore
+                                    et dolore magna aliqua.
+                                  </p>
                                 </div>
                               </div>
                               <div className="tt-item">
@@ -619,15 +609,15 @@ const Details = props => {
                                     </span>
                                     <span className="time">
                                       on January 14, 2017
-                                  </span>
+                                    </span>
                                   </div>
                                   <div className="tt-comments-title">
                                     Very Good!
-                                </div>
+                                  </div>
                                   <p>
-                                    Diusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
+                                    Diusmod tempor incididunt ut labore et
+                                    dolore magna aliqua.
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -636,12 +626,12 @@ const Details = props => {
                                 BE THE FIRST TO REVIEW{" "}
                                 <span>
                                   “BLOUSE WITH SHEER &AMP; SOLID PANELS”
-                              </span>
+                                </span>
                               </div>
                               <p>
-                                Your email address will not be published. Required
-                                fields are marked *
-                            </p>
+                                Your email address will not be published.
+                                Required fields are marked *
+                              </p>
                               <div className="tt-rating-indicator">
                                 <div className="tt-title">YOUR RATING *</div>
                                 <div className="tt-rating">
@@ -659,7 +649,7 @@ const Details = props => {
                                     className="control-label"
                                   >
                                     YOUR NAME *
-                                </label>
+                                  </label>
                                   <input
                                     type="email"
                                     className="form-control"
@@ -673,7 +663,7 @@ const Details = props => {
                                     className="control-label"
                                   >
                                     COUPONE E-MAIL *
-                                </label>
+                                  </label>
                                   <input
                                     type="password"
                                     className="form-control"
@@ -687,7 +677,7 @@ const Details = props => {
                                     className="control-label"
                                   >
                                     YOUR REVIEW *
-                                </label>
+                                  </label>
                                   <textarea
                                     className="form-control"
                                     id="textarea"
@@ -698,7 +688,7 @@ const Details = props => {
                                 <div className="form-group">
                                   <button type="submit" className="btn">
                                     SUBMIT
-                                </button>
+                                  </button>
                                 </div>
                               </form>
                             </div>
@@ -716,161 +706,26 @@ const Details = props => {
         <RelatedProducts />
       </div>
 
+      <AddCartModal
+        cartAddedModal={cartAddedModal}
+        setCartAddedModal={setCartAddedModal}
+      />
 
-      <Modal isOpen={sizeGuide} shouldCloseOnOverlayClick={true} onRequestClose={() => setSizeGuide(false)} style={
-        {
-          overlay: {
-            background: "rgba(0,0,0,0.5)",
-            zIndex: "9999",
-          },
-          content: {
-            position: 'absolute',
-            width: '70%',
-            margin: '10px auto',
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            transform: 'translate(-50%,-50%)',
-            border: 'none',
-            background: 'transparent',
-            overflow: 'inherit',
-            WebkitOverflowScrolling: 'touch',
-            borderRadius: 0,
-            outline: 'none',
-            padding: '20px'
-          }
-        }
-      }>
-        <div className="modal-content ">
-          <div className="modal-header">
-            <button type="button" className="close" onClick={() => setSizeGuide(false)} ariaHidden="true"><span className="icon icon-clear"></span></button>
-          </div>
-          <div className="modal-body">
-            <div className="tt-layout-product-info">
-              <h6 className="tt-title">SIZE GUIDE</h6>
-              <p>This is an approximate conversion table to help you find your size.</p>
-              <div className="tt-table-responsive-md">
-                <table className="tt-table-modal-info">
-                  <thead>
-                    <tr>
-                      <th width="20%">Italian</th>
-                      <th width="20%">Pakistan</th>
-                      <th width="20%">German</th>
-                      <th width="20%">UK</th>
-                      <th width="20%">US</th>
-
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>34</td>
-                      <td>30</td>
-                      <td>28</td>
-                      <td>4</td>
-                      <td>00</td>
-
-                    </tr>
-                    <tr>
-                      <td>36</td>
-                      <td>32</td>
-                      <td>30</td>
-                      <td>6</td>
-                      <td>0</td>
-
-                    </tr>
-                    <tr>
-                      <td>38</td>
-                      <td>34</td>
-                      <td>32</td>
-                      <td>8</td>
-                      <td>2</td>
-
-                    </tr>
-                    <tr>
-                      <td>40</td>
-                      <td>36</td>
-                      <td>34</td>
-                      <td>10</td>
-                      <td>4</td>
-
-                    </tr>
-                    <tr>
-                      <td>42</td>
-                      <td>38</td>
-                      <td>36</td>
-                      <td>12</td>
-                      <td>6</td>
-
-                    </tr>
-                    <tr>
-                      <td>44</td>
-                      <td>40</td>
-                      <td>38</td>
-                      <td>14</td>
-                      <td>8</td>
-
-                    </tr>
-                    <tr>
-                      <td>46</td>
-                      <td>42</td>
-                      <td>40</td>
-                      <td>16</td>
-                      <td>10</td>
-
-                    </tr>
-                    <tr>
-                      <td>48</td>
-                      <td>44</td>
-                      <td>42</td>
-                      <td>18</td>
-                      <td>12</td>
-
-                    </tr>
-                    <tr>
-                      <td>50</td>
-                      <td>46</td>
-                      <td>44</td>
-                      <td>20</td>
-                      <td>14</td>
-
-                    </tr>
-                    <tr>
-                      <td>52</td>
-                      <td>48</td>
-                      <td>46</td>
-                      <td>22</td>
-                      <td>16</td>
-
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-      </Modal>
-
+      <SizeGuideModal sizeGuide={sizeGuide} setSizeGuide={setSizeGuide} />
     </React.Fragment>
   );
 };
 
-
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    products: state.Products.products
+    products: state.Products.products,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addCartp: (prod,qty,size,texture,color) => dispatch(addCart(prod,qty,size,texture,color))
+    addCartp: (prod, qty, size, texture, color) =>
+      dispatch(addCart(prod, qty, size, texture, color)),
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

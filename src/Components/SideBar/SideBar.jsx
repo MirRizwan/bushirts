@@ -1,18 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import './SideBar.css';
+import "./SideBar.css";
 
-const SideBar = props => {
+const SideBar = (props) => {
   const categoryArray = [];
 
-  props.products.map((s) => (
-    s.category.map((l) => (
-      categoryArray.push(l)
-    ))
-
-  ))
+  props.products.map((s) => s.category.map((l) => categoryArray.push(l)));
 
   const categorySingle = categoryArray.filter((v, i, a) => a.indexOf(v) === i);
   return (
@@ -43,20 +38,18 @@ const SideBar = props => {
           </ul>
           <Link to="#" className="btn-link-02">
             Clear All
-                  </Link>
+          </Link>
         </div>
       </div>
       <div className="tt-collapse open">
         <h3 className="tt-collapse-title">PRODUCT CATEGORIES</h3>
         <div className="tt-collapse-content">
           <ul className="tt-list-row">
-
             {categorySingle.map((l) => (
-              <li >
-                <Link to={`/category/${l}`}>{l.replace(/-/g," ")}</Link>
+              <li key={l}>
+                <Link to={`/category/${l}`}>{l.replace(/-/g, " ")}</Link>
               </li>
-            ))
-            }
+            ))}
           </ul>
         </div>
       </div>
@@ -192,7 +185,7 @@ const SideBar = props => {
           </ul>
           <Link to="#" className="btn-link-02">
             + More
-                  </Link>
+          </Link>
         </div>
       </div>
       <div className="tt-collapse open">
@@ -202,16 +195,10 @@ const SideBar = props => {
             <Link className="tt-item" to="/products">
               <div className="tt-img">
                 <span className="tt-img-default">
-                  <img
-                    src="assets/images/product/product-01.jpg"
-                    alt=""
-                  />
+                  <img src="assets/images/product/product-01.jpg" alt="" />
                 </span>
                 <span className="tt-img-roll-over">
-                  <img
-                    src="assets/images/product/product-01-02.jpg"
-                    alt=""
-                  />
+                  <img src="assets/images/product/product-01-02.jpg" alt="" />
                 </span>
               </div>
               <div className="tt-content">
@@ -225,16 +212,10 @@ const SideBar = props => {
             <Link className="tt-item" to="product.html">
               <div className="tt-img">
                 <span className="tt-img-default">
-                  <img
-                    src="assets/images/product/product-02.jpg"
-                    alt=""
-                  />
+                  <img src="assets/images/product/product-02.jpg" alt="" />
                 </span>
                 <span className="tt-img-roll-over">
-                  <img
-                    src="assets/images/product/product-02-02.jpg"
-                    alt=""
-                  />
+                  <img src="assets/images/product/product-02-02.jpg" alt="" />
                 </span>
               </div>
               <div className="tt-content">
@@ -248,16 +229,10 @@ const SideBar = props => {
             <Link className="tt-item" to="product.html">
               <div className="tt-img">
                 <span className="tt-img-default">
-                  <img
-                    src="assets/images/product/product-03.jpg"
-                    alt=""
-                  />
+                  <img src="assets/images/product/product-03.jpg" alt="" />
                 </span>
                 <span className="tt-img-roll-over">
-                  <img
-                    src="assets/images/product/product-03-02.jpg"
-                    alt=""
-                  />
+                  <img src="assets/images/product/product-03-02.jpg" alt="" />
                 </span>
               </div>
               <div className="tt-content">
@@ -274,12 +249,10 @@ const SideBar = props => {
       <div className="tt-collapse open">
         <h3 className="tt-collapse-title">TAGS</h3>
         <div className="tt-collapse-content">
-
           <ul className="tt-list-inline">
             <li>
               <Link to="#">Dresses</Link>
             </li>
-
           </ul>
         </div>
       </div>
@@ -289,16 +262,13 @@ const SideBar = props => {
         </Link>
       </div>
     </div>
-  )
+  );
+};
 
-}
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    products: state.Products.products
+    products: state.Products.products,
   };
 };
 
-export default connect(
-  mapStateToProps, null
-)(SideBar);
+export default connect(mapStateToProps, null)(SideBar);

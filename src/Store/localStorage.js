@@ -1,12 +1,14 @@
 export const saveState = (state) => {
   try {
-    // console.log("Mir ka cart", state.cart);
-    // console.log("Mir ka Total Amount", state.totalAmount);
-
+    let dated = new Date();
+    dated.setHours(dated.getHours() + 24);
+    console.log("Don agaya", state.cart);
     const serializedState = JSON.stringify(state.cart);
     const serializedTotalAmount = JSON.stringify(state.totalAmount);
+    const serializedDated = JSON.stringify(dated);
 
     localStorage.setItem("cart", serializedState);
+    localStorage.setItem("haseebExpiry", serializedDated);
     localStorage.setItem("totalAmount", serializedTotalAmount);
   } catch (err) {
     console.log("Local storage Saving Error: ", err);
@@ -16,7 +18,6 @@ export const saveState = (state) => {
 export const loadCartState = () => {
   try {
     const serializedState = localStorage.getItem("cart");
-    console.log("Cart ki Value", serializedState);
 
     if (serializedState === null) {
       return [];

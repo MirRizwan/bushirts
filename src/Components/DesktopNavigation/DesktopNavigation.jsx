@@ -100,7 +100,7 @@ const DesktopNavigation = () => {
                                 >
                                   UNSTITCHED
                                   <img
-                                    src="assets/images/custom/header-category-01.jpg"
+                                    src="/assets/images/custom/header-category-01.jpg"
                                     alt=""
                                   />
                                 </Link>
@@ -282,7 +282,7 @@ const DesktopNavigation = () => {
                                 >
                                   READY TO WEAR
                                   <img
-                                    src="assets/images/custom/header-category-02.jpg"
+                                    src="/assets/images/custom/header-category-02.jpg"
                                     alt=""
                                   />
                                 </Link>
@@ -324,7 +324,7 @@ const DesktopNavigation = () => {
                                 >
                                   ACCESSORIES
                                   <img
-                                    src="assets/images/custom/header-category-03.jpg"
+                                    src="/assets/images/custom/header-category-03.jpg"
                                     alt=""
                                   />
                                 </Link>
@@ -373,7 +373,7 @@ const DesktopNavigation = () => {
                                 className="tt-promo-02"
                               >
                                 <img
-                                  src="assets/images/custom/header-promo-03.jpg"
+                                  src="/assets/images/custom/header-promo-03.jpg"
                                   alt=""
                                 />
                                 <div className="tt-description tt-point-h-l tt-point-v-t">

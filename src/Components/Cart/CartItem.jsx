@@ -51,7 +51,7 @@ const CartItem = (props) => {
                       className="minus-btn"
                       onClick={() => props.decrease(item)}
                     ></span>
-                    <input type="text" value={item.qty} size="5" />
+                    <input readOnly type="text" value={item.qty} size="5" />
                     <span
                       className="plus-btn"
                       onClick={() => props.increase(item)}

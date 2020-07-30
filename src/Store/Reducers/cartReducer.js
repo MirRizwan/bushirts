@@ -34,7 +34,7 @@ const cartReducer = (state = initialState, action) => {
           price: existingProduct[0].price + data.price * data.qty,
         };
         return {
-          totalAmount: parseInt(state.totalAmount + updatedItem.price),
+          totalAmount: state.totalAmount + parseInt(data.price * data.qty),
           cart: [...WO, updatedItem],
         };
       } else {

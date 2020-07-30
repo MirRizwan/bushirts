@@ -6,7 +6,6 @@ export const addCart = (data, qty, size, texture, color) => {
     texture: texture,
     color: color,
   };
-  console.log("Haseeb ka bhand", option);
   return {
     type: "ADD_CART",
     payload: option,
