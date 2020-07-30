@@ -55,6 +55,15 @@ const Details = (props) => {
     slidesToScroll: 1,
   };
 
+  const settings3 = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   const addCartHandler = (
     mvalue,
     qtyState,
@@ -65,6 +74,11 @@ const Details = (props) => {
     setCartAddedModal(true);
     props.addCartp(mvalue, qtyState, sizeState, textureState, colorState);
   };
+
+  const whatsappOrderHandler = () => {
+    var geturl = window.location.href;
+    window.open("https://api.whatsapp.com/send?phone=971503673507&text=Hi,%20I%20want%20to%20order%20a%20" + geturl);
+  }
 
   const setItemQtyPlusHandler = () => {
     let qty = qtyState + 1;
@@ -103,21 +117,25 @@ const Details = (props) => {
     <React.Fragment>
       <div id="tt-pageContent">
         <div className="container-indent">
-          <div className="tt-mobile-product-slider visible-xs arrow-location-center slick-animated-show-js">
+        {filteredProduct.map((mvalue_slider) => (
+           <div className="visible-xs">
+          <Slider {...settings3} className="tt-mobile-product-slider arrow-location-center slick-animated-show-js">
             <div>
-              <img src="assets/images/product/product-01.jpg" alt="" />
+              <img src={mvalue_slider.imgUrl} alt="" />
             </div>
             <div>
-              <img src="assets/images/product/product-01-02.jpg" alt="" />
+              <img src={mvalue_slider.imgUrl1} alt="" />
             </div>
             <div>
-              <img src="assets/images/product/product-01-03.jpg" alt="" />
+              <img src={mvalue_slider.imgUrl2} alt="" />
             </div>
             <div>
-              <img src="assets/images/product/product-01-04.jpg" alt="" />
+              <img src={mvalue_slider.imgUrl3} alt="" />
             </div>
+          </Slider>
           </div>
 
+        ))}
           <div className="container container-fluid-mobile">
             {filteredProduct.map((mvalue) => (
               <div className="row" key={mvalue._id}>
@@ -276,8 +294,8 @@ const Details = (props) => {
                           <span className="old-price">PKR {mvalue.price}</span>
                         </React.Fragment>
                       ) : (
-                        <span className="sale-price">PKR {mvalue.price}</span>
-                      )}
+                          <span className="sale-price">PKR {mvalue.price}</span>
+                        )}
                     </div>
                     <div className="tt-review">
                       <div className="tt-rating">
@@ -432,6 +450,7 @@ const Details = (props) => {
                           >
                             <i className="icon-f-39"></i>ADD TO CART
                           </Link>
+                          <Link className="whatsapp-btn" onClick={() => whatsappOrderHandler()}>Check with Fashion Consultant</Link>
                         </div>
                       </div>
                     </div>

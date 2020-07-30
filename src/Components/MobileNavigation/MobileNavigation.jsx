@@ -258,7 +258,41 @@ const MobileNavigation = () => {
               </div>
             </div>
 
-            <div className="tt-mobile-parent-search tt-parent-box"></div>
+            <div className="tt-mobile-parent-search tt-parent-box">
+              <div className="tt-search tt-dropdown-obj">
+                <button
+                  className="tt-dropdown-toggle"
+                  data-tooltip="Search"
+                  data-tposition="bottom"
+                >
+                  <i className="icon-f-85"></i>
+                </button>
+                <div className="tt-dropdown-menu">
+                  <div className="container">
+                    <form>
+                      <div className="tt-col">
+                        <input
+                          type="text"
+                          className="tt-search-input"
+                          placeholder="Search Products..."
+                        />{" "}
+                        <button
+                          className="tt-btn-search"
+                          type="submit"
+                        ></button>
+                      </div>
+                      <div className="tt-col">
+                        <button className="tt-btn-close icon-g-80"></button>
+                      </div>
+                      <div className="tt-info-text">
+                        What are you Looking for?
+                      </div>
+                      <div className="search-results"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="tt-mobile-parent-cart tt-parent-box"></div>
             <div className="tt-mobile-parent-account tt-parent-box"></div>
             <div className="tt-mobile-parent-multi tt-parent-box"></div>
@@ -268,7 +302,7 @@ const MobileNavigation = () => {
           <div className="row">
             <div className="tt-logo-container">
               <Link className="tt-logo tt-logo-alignment" to="index.html">
-                <img src="assets/images/custom/logo.png" alt="" />
+                <img src="/assets/images/custom/logo.png" alt="" />
               </Link>
             </div>
           </div>
