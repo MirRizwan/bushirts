@@ -32,7 +32,7 @@ const MiniCart = (props) => {
           <div className="tt-dropdown-inner">
             <div className="tt-cart-layout">
               {props.Cart.length === 0 ? (
-                <Link to="empty-cart.html" className="tt-cart-empty">
+                <Link to="/cart" className="tt-cart-empty">
                   <i className="icon-f-39" />
                   <p>No Products in the Cart</p>
                 </Link>

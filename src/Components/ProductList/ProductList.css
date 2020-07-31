@@ -1,5 +1,5 @@
 .tt-product:hover {
-  height: 450px;
+  height: 543px;
 }
 
 .tt-product,
@@ -7,7 +7,7 @@
   transition: all 0.2s linear;
 }
 .tt-product:hover .tt-description {
-  transform: translateY(-70px);
+  transform: translateY(-69px);
 }
 .tt-product:hover .tt-description .tt-product-inside-hover {
   opacity: 1;

@@ -2,7 +2,7 @@ export const saveState = (state) => {
   try {
     let dated = new Date();
     dated.setHours(dated.getHours() + 24);
-    console.log("Don agaya", state.cart);
+
     const serializedState = JSON.stringify(state.cart);
     const serializedTotalAmount = JSON.stringify(state.totalAmount);
     const serializedDated = JSON.stringify(dated);
@@ -34,8 +34,6 @@ export const loadTotalAmount = () => {
   try {
     const serializedTotalAmount = localStorage.getItem("totalAmount");
     const finalValue = JSON.parse(serializedTotalAmount);
-    console.log("Total Amount ki Value", finalValue);
-
     if (serializedTotalAmount === null) {
       return [];
     }

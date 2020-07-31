@@ -1,0 +1,8 @@
+.arrow-location-right-top .slick-arrow:before,
+.arrow-location-tab .slick-arrow:before {
+  color: #191919;
+}
+
+.slick-prev {
+  left: auto;
+}

@@ -11,7 +11,7 @@ const SideBar = (props) => {
 
   const categorySingle = categoryArray.filter((v, i, a) => a.indexOf(v) === i);
   return (
-    <div className="col-md-4 col-lg-3 col-xl-3 leftColumn aside">
+    <div className="col-md-4 col-lg-3 col-xl-3 leftColumn aside desctop-no-sidebar">
       <div className="tt-btn-col-close">
         <Link to="#">Close</Link>
       </div>
@@ -22,7 +22,7 @@ const SideBar = (props) => {
           </div>
         </div>
       </div>
-      <div className="tt-collapse open ">
+      <div className="tt-collapse open">
         <h3 className="tt-collapse-title">SORT BY</h3>
         <div className="tt-collapse-content">
           <ul className="tt-filter-list">
@@ -155,7 +155,7 @@ const SideBar = (props) => {
             <li>
               <Link className="options-color" to="#">
                 <span className="swatch-img">
-                  <img src="images/custom/texture-img-01.jpg" alt="" />
+                  <img src="/assets/images/custom/texture-img-01.jpg" alt="" />
                 </span>
                 <span className="swatch-label color-black"></span>
               </Link>
@@ -163,59 +163,18 @@ const SideBar = (props) => {
           </ul>
         </div>
       </div>
-      <div className="tt-collapse open">
-        <h3 className="tt-collapse-title">VENDOR</h3>
-        <div className="tt-collapse-content">
-          <ul className="tt-list-row">
-            <li>
-              <Link to="#">Levi's</Link>
-            </li>
-            <li>
-              <Link to="#">Gap</Link>
-            </li>
-            <li>
-              <Link to="#">Polo</Link>
-            </li>
-            <li>
-              <Link to="#">Lacoste</Link>
-            </li>
-            <li>
-              <Link to="#">Guess</Link>
-            </li>
-          </ul>
-          <Link to="#" className="btn-link-02">
-            + More
-          </Link>
-        </div>
-      </div>
+
       <div className="tt-collapse open">
         <h3 className="tt-collapse-title">SALE PRODUCTS</h3>
         <div className="tt-collapse-content">
           <div className="tt-aside">
-            <Link className="tt-item" to="/products">
-              <div className="tt-img">
-                <span className="tt-img-default">
-                  <img src="assets/images/product/product-01.jpg" alt="" />
-                </span>
-                <span className="tt-img-roll-over">
-                  <img src="assets/images/product/product-01-02.jpg" alt="" />
-                </span>
-              </div>
-              <div className="tt-content">
-                <h6 className="tt-title">new Item</h6>
-                <div className="tt-price">
-                  <span className="sale-price">$14</span>
-                  <span className="old-price">$24</span>
-                </div>
-              </div>
-            </Link>
             <Link className="tt-item" to="product.html">
               <div className="tt-img">
                 <span className="tt-img-default">
-                  <img src="assets/images/product/product-02.jpg" alt="" />
+                  <img src="/assets/images/product/product-01.jpg" alt="" />
                 </span>
                 <span className="tt-img-roll-over">
-                  <img src="assets/images/product/product-02-02.jpg" alt="" />
+                  <img src="/assets/images/product/product-01-02.jpg" alt="" />
                 </span>
               </div>
               <div className="tt-content">
@@ -229,10 +188,27 @@ const SideBar = (props) => {
             <Link className="tt-item" to="product.html">
               <div className="tt-img">
                 <span className="tt-img-default">
-                  <img src="assets/images/product/product-03.jpg" alt="" />
+                  <img src="/assets/images/product/product-02.jpg" alt="" />
                 </span>
                 <span className="tt-img-roll-over">
-                  <img src="assets/images/product/product-03-02.jpg" alt="" />
+                  <img src="/assets/images/product/product-02-02.jpg" alt="" />
+                </span>
+              </div>
+              <div className="tt-content">
+                <h6 className="tt-title">Flared Shift Dress</h6>
+                <div className="tt-price">
+                  <span className="sale-price">$14</span>
+                  <span className="old-price">$24</span>
+                </div>
+              </div>
+            </Link>
+            <Link className="tt-item" to="product.html">
+              <div className="tt-img">
+                <span className="tt-img-default">
+                  <img src="/assets/images/product/product-03.jpg" alt="" />
+                </span>
+                <span className="tt-img-roll-over">
+                  <img src="/assets/images/product/product-03-02.jpg" alt="" />
                 </span>
               </div>
               <div className="tt-content">
@@ -252,6 +228,48 @@ const SideBar = (props) => {
           <ul className="tt-list-inline">
             <li>
               <Link to="#">Dresses</Link>
+            </li>
+            <li>
+              <Link to="#">Shirts &amp; Tops</Link>
+            </li>
+            <li>
+              <Link to="#">Polo Shirts</Link>
+            </li>
+            <li>
+              <Link to="#">Sweaters</Link>
+            </li>
+            <li>
+              <Link to="#">Blazers</Link>
+            </li>
+            <li>
+              <Link to="#">Vests</Link>
+            </li>
+            <li>
+              <Link to="#">Jackets</Link>
+            </li>
+            <li>
+              <Link to="#">Outerwear</Link>
+            </li>
+            <li>
+              <Link to="#">Activewear</Link>
+            </li>
+            <li>
+              <Link to="#">Pants</Link>
+            </li>
+            <li>
+              <Link to="#">Jumpsuits</Link>
+            </li>
+            <li>
+              <Link to="#">Shorts</Link>
+            </li>
+            <li>
+              <Link to="#">Jeans</Link>
+            </li>
+            <li>
+              <Link to="#">Skirts</Link>
+            </li>
+            <li>
+              <Link to="#">Swimwear</Link>
             </li>
           </ul>
         </div>
