@@ -2,17 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
-
 import { useState } from "react";
 
-import { addCart } from "../../Store/Actions/cartAction";
 import SideBar from "../SideBar/SideBar";
 import ProductFilterOptions from "../ProductFilterOptions/ProductFilterOptions";
-
-import "./ProductList.css";
-
 import QuickView from "../Modals/QuickView";
 import ProductListItem from "./ProductListItem";
+
+import { addCart } from "../../Store/Actions/cartAction";
+
+import "./ProductList.css";
 
 Modal.setAppElement("#modal");
 

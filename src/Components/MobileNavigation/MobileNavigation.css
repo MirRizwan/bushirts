@@ -1,0 +1,19 @@
+header .tt-cart .tt-dropdown-menu,
+header .tt-account .tt-dropdown-menu,
+header .tt-multi-obj .tt-dropdown-menu {
+  -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+header .tt-cart.active .tt-dropdown-menu,
+header .tt-account.active .tt-dropdown-menu,
+header .tt-multi-obj.active .tt-dropdown-menu {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}

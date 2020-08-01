@@ -36,7 +36,7 @@ const Specials = (props) => {
               className="col-2 col-md-4 col-lg-4 slick-slide slick-current slick-active"
               data-slick-index="0"
               aria-hidden="false"
-              tabindex="-1"
+              tabIndex="-1"
               role="option"
               aria-describedby="slick-slide10"
               key={sp._id}
@@ -50,7 +50,7 @@ const Specials = (props) => {
                     data-target="#ModalquickView"
                     data-tooltip="Quick View"
                     data-tposition="left"
-                    tabindex="0"
+                    tabIndex="0"
                   ></Link>
 
                   <Link
@@ -58,7 +58,7 @@ const Specials = (props) => {
                     className="tt-btn-wishlist"
                     data-tooltip="Add to Wishlist"
                     data-tposition="left"
-                    tabindex="0"
+                    tabIndex="0"
                   ></Link>
 
                   <Link
@@ -66,13 +66,13 @@ const Specials = (props) => {
                     className="tt-btn-compare"
                     data-tooltip="Add to Compare"
                     data-tposition="left"
-                    tabindex="0"
+                    tabIndex="0"
                   ></Link>
 
-                  <Link href="product.html" tabindex="0">
+                  <Link to="/products" tabIndex="0">
                     <span className="tt-img">
                       <img
-                        src="assets/images/product/product-25.jpg"
+                        src="/assets/images/product/product-25.jpg"
                         alt=""
                         className="loaded"
                         data-was-processed="true"
@@ -80,7 +80,7 @@ const Specials = (props) => {
                     </span>
                     <span className="tt-img-roll-over">
                       <img
-                        src="assets/images/product/product-25-01.jpg"
+                        src="/assets/images/product/product-25-01.jpg"
                         alt=""
                         className="loaded"
                         data-was-processed="true"
@@ -129,7 +129,7 @@ const Specials = (props) => {
                   <div className="tt-row">
                     <ul className="tt-add-info">
                       <li>
-                        <Link to="#" tabindex="0">
+                        <Link to="#" tabIndex="0">
                           {sp.title}
                         </Link>
                       </li>
@@ -143,7 +143,7 @@ const Specials = (props) => {
                     </div>
                   </div>
                   <h2 className="tt-title">
-                    <Link href="product.html" tabindex="0">
+                    <Link to="/products" tabIndex="0">
                       Flared Shift Dress
                     </Link>
                   </h2>
@@ -158,7 +158,7 @@ const Specials = (props) => {
                         className="tt-btn-addtocart thumbprod-button-bg"
                         data-toggle="modal"
                         data-target="#modalAddToCartProduct"
-                        tabindex="0"
+                        tabIndex="0"
                       >
                         ADD TO CART
                       </Link>
@@ -169,17 +169,17 @@ const Specials = (props) => {
                         className="tt-btn-quickview"
                         data-toggle="modal"
                         data-target="#ModalquickView"
-                        tabindex="0"
+                        tabIndex="0"
                       ></Link>
                       <Link
                         to="#"
                         className="tt-btn-wishlist"
-                        tabindex="0"
+                        tabIndex="0"
                       ></Link>
                       <Link
                         to="#"
                         className="tt-btn-compare"
-                        tabindex="0"
+                        tabIndex="0"
                       ></Link>
                     </div>
                   </div>

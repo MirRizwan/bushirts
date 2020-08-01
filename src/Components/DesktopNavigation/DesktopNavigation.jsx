@@ -16,8 +16,8 @@ const DesktopNavigation = () => {
   };
 
   const toggleCartClass = () => {
-    let toggleCart = "tt-dropdown-menu ";
-    toggleCart += openCart === false ? "toggleCartNone" : "toggleCartBlock";
+    let toggleCart = "";
+    toggleCart += openCart === false ? "" : "active";
     return toggleCart;
   };
 
@@ -64,6 +64,7 @@ const DesktopNavigation = () => {
               toggleSearchClass={toggleSearchClass}
             />
             <MiniCart
+              openCart={openCart}
               toggleCart={toggleCart}
               toggleCartClass={toggleCartClass}
             />

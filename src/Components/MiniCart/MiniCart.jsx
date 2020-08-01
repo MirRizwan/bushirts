@@ -9,9 +9,10 @@ const MiniCart = (props) => {
   return (
     <div className="tt-desctop-parent-cart tt-parent-box">
       <div
-        className="tt-cart tt-dropdown-obj"
+        className={`tt-cart tt-dropdown-obj ${props.toggleCartClass()}`}
         data-tooltip="Cart"
         data-tposition="bottom"
+        title="Cart"
       >
         <button
           className="tt-dropdown-toggle"
@@ -24,7 +25,18 @@ const MiniCart = (props) => {
           )}
         </button>
 
-        <div className={props.toggleCartClass()}>
+        <div
+          className="tt-dropdown-menu"
+          style={
+            props.openCart === true
+              ? {
+                  display: "block",
+                }
+              : {
+                  display: "none",
+                }
+          }
+        >
           <div className="tt-mobile-add">
             <h6 className="tt-title">SHOPPING CART</h6>
             <button className="tt-close">Close</button>

@@ -130,7 +130,7 @@ const QuickView = (props) => {
                         <i class="icon-star-half"></i>
                         <i class="icon-star-empty"></i>
                       </div>
-                      <a href="#">(1 Customer Review)</a>
+                      <Link to="#">(1 Customer Review)</Link>
                     </div>
                     <div class="tt-wrapper">{productSingle.description}</div>
                     <div class="tt-swatches-container">

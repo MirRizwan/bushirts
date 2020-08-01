@@ -1,6 +1,10 @@
-.toggleCartBlock{
-    display: block !important;
+.tt-dropdown-menu {
+  transition: all 0.4s linear;
+  transform: translate3d(-100%, 0, 0);
+  transform: translate(-100%, 0);
 }
-.toggleCartNone{
-    display: none !important;
+
+.tt-cart.active .tt-dropdown-menu {
+  transform: translate(0, 0);
+  transform: translate3d(0, 0, 0);
 }

@@ -10,7 +10,7 @@ const NotFound = (props) => {
         <div className="container">
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>That Page Can’t Be Found</li>
           </ul>
